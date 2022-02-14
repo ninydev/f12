@@ -33,7 +33,12 @@ document.getElementById("btnStart").onclick = function () {
     // строковая версия решения задачи
     let tmpString = userNumber.toString()
     // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for
-    for (let i = 0; i < tmpString.length; i++) {
+    console.log("+ ")
+    for (let i = 0; i < tmpString.length; i = i + 1) {
+        console.log(tmpString[i])
+    }
+    console.log("- ")
+    for (let i = tmpString.length - 1; i >= 0; i = i - 1) {
         console.log(tmpString[i])
     }
 

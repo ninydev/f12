@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/"> Главная</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul id="lstUsers">
+
+            </ul>
+            <form id="frmAddUser">
+                <input type="text" id="txtUserName">
+                <input type="button" id="btnAddUser" value="+">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    let lstUsers = document.getElementById("lstUsers")
+    // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
+    // https://learn.javascript.ru/array
+    // Иннициализация массива
+    let users = []
+
+    // Заталкивание новых элементов в массив
+    users.push('root')
+    users.push('guest')
+
+    // Функция, которая будет выводить сипоск пользователей
+    function renderUserList() {
+        for (let i = 0; i < users.length; i++) {
+            let li = document.createElement('li')
+            li.innerText = users[i]
+            lstUsers.appendChild(li)
+        }
+    }
+
+    // вызову метод, что бы построить список пользователей
+    renderUserList();
+
+    document.getElementById("btnAddUser").onclick = function () {
+        users.push(document.getElementById("txtUserName").value)
+        lstUsers.innerHTML = ""
+        renderUserList()
+    }
+
+    document.getElementById("frmAddUser").onsubmit = function () {
+        event.preventDefault()
+        users.push(document.getElementById("txtUserName").value)
+        lstUsers.innerHTML = ""
+        renderUserList()
+    }
+
+</script>
+</body>
+</html>
