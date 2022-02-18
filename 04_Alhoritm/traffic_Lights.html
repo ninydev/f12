@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .light {
+            width: 50px;
+            height: 50px;
+            margin: auto;;
+            border-radius: 50%;
+        }
+
+        .light input {
+            display: block;
+            margin: auto;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="light" style="background: red"><input id="r" type="radio" name="light" value="red" checked></div>
+    <div class="light" style="background: yellow"><input id="y" type="radio" name="light" value="yellow"></div>
+    <div class="light" style="background: green"><input id="g" type="radio" name="light" value="green"></div>
+    <div><input type="checkbox" name="person" id="p"><label for="p"> Person </label></div>
+
+</div>
+<div id="result">
+    Stop
+</div>
+
+<script>
+    document.getElementById("r").onclick = changeLight
+    document.getElementById("y").onclick = changeLight
+    document.getElementById("g").onclick = changeLight
+    document.getElementById("p").onclick = changeLight
+
+    let res = document.getElementById("result")
+
+    function changeLight() {
+        let nowLight = document.querySelector('input[name="light"]:checked').value;
+        console.log(document.getElementById("p").checked)
+        if (nowLight === 'red') {
+            res.innerText = 'stop - red'
+        } else if (nowLight === 'yellow') {
+            res.innerText = 'stop - yellow'
+        } else if (nowLight === 'green') {
+            if (document.getElementById("p").checked) {
+                res.innerText = 'stop - person'
+            } else {
+                res.innerText = 'go'
+            }
+        }
+        console.log(' этот код будет выполнен всегда')
+    }
+
+    // function changeLight() {
+    //     let nowLight = document.querySelector('input[name="light"]:checked').value;
+    //     console.log(nowLight)
+    //     console.log(document.getElementById("p").checked)
+    //     if (nowLight === 'red' || nowLight === 'yellow') {
+    //         res.innerText = 'stop - light'
+    //         return
+    //         console.log(' этот код никогда не будет выполнен')
+    //     }
+    //     // if (nowLight === 'yellow') {
+    //     //     res.innerText = 'stop'
+    //     //     return
+    //     // }
+    //     if (nowLight === 'green') {
+    //         if (document.getElementById("p").checked) {
+    //             res.innerText = 'stop - person'
+    //             return
+    //         }
+    //         res.innerText = 'go'
+    //     }
+    // }
+
+
+</script>
+</body>
+</html>
