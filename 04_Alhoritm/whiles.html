@@ -100,19 +100,34 @@
         let forgotMax = parseInt(document.getElementById("inForgotMax").value)
         let days = 0
 
-        do {
-            let add = getRandomInt(studyMin, studyMax) // сколько я выучил
-            let forgot = getRandomInt(forgotMin, forgotMax) // сколько я забыл
-            worldCount += add // выучил
-            worldCount -= forgot // забыл
-            days++ // прошел еще день
+        // начало блока попытки что то сделать
+        try {
 
-            let li = document.createElement("li")
-            li.innerHTML = `Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`
-            ul.appendChild(li)
-            console.log(`Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`)
+            do {
+                let add = getRandomInt(studyMin, studyMax) // сколько я выучил
+                let forgot = getRandomInt(forgotMin, forgotMax) // сколько я забыл
+                worldCount += add // выучил
+                worldCount -= forgot // забыл
+                days++ // прошел еще день
 
-        } while (worldCount < normalDictionary)
+                let die = getRandomInt(0, 1000)
+                if (die === 0 || die === 8) {
+                    throw 'Умер' // Создать исключительную ситуацию и выйти из блока try
+                }
+
+                let li = document.createElement("li")
+                li.innerHTML = `Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`
+                ul.appendChild(li)
+                console.log(`Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`)
+
+            } while (worldCount < normalDictionary)
+
+            // конец блока попытки что то сделать и обработка исключительной ситуации
+        } catch (exception) {
+            // обработка исключительной ситуации
+            console.log(exception)
+        }
+
 
     }
 

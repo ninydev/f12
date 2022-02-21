@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="email" id="inEmail" onchange="validate()"><br>
+    <span id="emailErr"></span>
+    <input type="text" id="inPassword" onchange="validate()"><br>
+    <input type="text" id="inPasswordConfirm" onchange="validate()"><br>
+    <input type="button" id="send" disabled>
+</form>
+
+<script>
+
+    let elEmail = document.getElementById('inEmail')
+    let elPassword = document.getElementById('inPassword')
+    let elPasswordConfirm = document.getElementById('inPasswordConfirm')
+
+    // Найти элемент, в котором я буду сообщать что случилаьс ошибка
+    // лучше делать 1 раз до другого кода
+    let spanEmailErr = document.getElementById("emailErr")
+
+    function validate() {
+        let isEmailValid = false
+
+        if (elEmail.value.length > 5) {
+            isEmailValid = true
+            spanEmailErr.innerHTML = ""
+        } else {
+            spanEmailErr.innerHTML = " слишком короткий "
+        }
+
+        let isPasswordValid = false
+        if (elPassword.value.length > 5) {
+            isPasswordValid = true
+        }
+        let isPasswordConfirm = false
+        if (elPassword.value === elPasswordConfirm.value) {
+            isPasswordConfirm = true
+        } else {
+            isPasswordConfirm = false
+        }
+
+        console.log("check")
+        console.log("email: " + isEmailValid)
+        console.log("pswd: " + isPasswordValid)
+        console.log("pswd conf: " + isPasswordConfirm)
+        console.log(isEmailValid && isPasswordValid && isPasswordConfirm)
+
+        if (isEmailValid && isPasswordValid && isPasswordConfirm) {
+            document.getElementById('send').disabled = false
+        } else {
+            document.getElementById('send').disabled = true
+        }
+
+    }
+
+
+    // 'use strict'
+    //
+    // let A = 'У меня белые волосы'
+    // let isA = true
+    // let B = 'У меня карие глаза'
+    // let isB = false
+    // let C = 'У меня голубые глаза'
+    // let isC = true
+    //
+    // let User = 'admin'
+    // let isAdmin = true
+    // let sdfgjksdfgjsdf = true
+    //
+    // console.log('У меня светлые волосы И голубые глаза')
+    // console.log(isA && isB) // Логическое И
+    // if (isA && isB) {
+    //     console.log(" Да ")
+    // } else {
+    //     console.log(" Нет ")
+    // }
+    //
+    // console.log('У меня светлые волосы или голубые глаза')
+    // console.log(isA || isB) // Логическое ИЛИ
+
+
+</script>
+
+
+</body>
+</html>
