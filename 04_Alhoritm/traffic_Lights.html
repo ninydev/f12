@@ -20,9 +20,12 @@
 </head>
 <body>
 <div>
-    <div class="light" style="background: red"><input id="r" type="radio" name="light" value="red" checked></div>
-    <div class="light" style="background: yellow"><input id="y" type="radio" name="light" value="yellow"></div>
-    <div class="light" style="background: green"><input id="g" type="radio" name="light" value="green"></div>
+    <div class="light" style="background: red"><label for="r"> Red </label><input id="r" type="radio" name="light"
+                                                                                  value="red" checked></div>
+    <div class="light" style="background: yellow"><label for="y"></label><input id="y" type="radio" name="light"
+                                                                                value="yellow"></div>
+    <div class="light" style="background: green"><label for="g"></label><input id="g" type="radio" name="light"
+                                                                               value="green"></div>
     <div><input type="checkbox" name="person" id="p"><label for="p"> Person </label></div>
 
 </div>
@@ -37,6 +40,7 @@
     document.getElementById("p").onclick = changeLight
 
     let res = document.getElementById("result")
+
 
     function changeLight() {
         let nowLight = document.querySelector('input[name="light"]:checked').value;

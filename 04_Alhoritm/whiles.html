@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #result {
+            display: block;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+<article>
+    <header> Немного теории</header>
+    <div>
+        <pre>
+            do {
+            // действие
+            } while(условие)
+        </pre>
+
+        <pre>
+            while(условие){
+            // действие
+            }
+        </pre>
+    </div>
+</article>
+
+
+<main>
+    <div>
+        <div class="form-group">
+            <label for="inNormalDictionary"> {{ t('form.english') }}</label>
+            <input id="inNormalDictionary" value="5000">
+        </div>
+        <div class="form-group">
+            <label for="inStartWorlds">Сколько я знаю слов в начале</label>
+            <input id="inStartWorlds" value="100" type="number">
+        </div>
+        <div class="form-group">
+            <label for="inWorldsMin">Сколько минимум я учу в день</label>
+            <input id="inWorldsMin" value="15" type="number">
+        </div>
+        <div class="form-group">
+            <label for="inWorldsMax">Сколько максимум</label>
+            <input id="inWorldsMax" value="25" type="number">
+        </div>
+        <div class="form-group">
+            <label for="inForgotMin">Сколько забываю инимум</label>
+            <input id="inForgotMin" value="1" type="number">
+        </div>
+        <div class="form-group">
+            <label for="inForgotMax">Сколько забываю максимум</label>
+            <input id="inForgotMax" value="5" type="number">
+        </div>
+        <div>
+            <input id="btnStart" value="start" type="button">
+        </div>
+
+    </div>
+
+    <div id="result">
+
+    </div>
+</main>
+
+
+<script>
+
+    /**
+     * Создает случайное число в указанном диапазоне
+     * @param min - минимум
+     * @param max - максимум
+     * @returns {number} - min =< number < max
+     */
+    function getRandomInt(min, max) {
+        let r = Math.random() * (max - min)
+        r += min
+        return Math.floor(r)
+    }
+
+    document.getElementById("btnStart").onclick = function () {
+        let res = document.getElementById("result")
+        res.innerHTML = "" // начинаю учить с первого дня
+
+        let ul = document.createElement("ul")
+        res.appendChild(ul)
+
+        let worldCount = parseInt(document.getElementById("inStartWorlds").value)
+        let normalDictionary = parseInt(document.getElementById("inNormalDictionary").value)
+        let studyMin = parseInt(document.getElementById("inWorldsMin").value)
+        let studyMax = parseInt(document.getElementById("inWorldsMax").value)
+        let forgotMin = parseInt(document.getElementById("inForgotMin").value)
+        let forgotMax = parseInt(document.getElementById("inForgotMax").value)
+        let days = 0
+
+        do {
+            let add = getRandomInt(studyMin, studyMax) // сколько я выучил
+            let forgot = getRandomInt(forgotMin, forgotMax) // сколько я забыл
+            worldCount += add // выучил
+            worldCount -= forgot // забыл
+            days++ // прошел еще день
+
+            let li = document.createElement("li")
+            li.innerHTML = `Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`
+            ul.appendChild(li)
+            console.log(`Шел ${days} день. Выучил ${add} забыл ${forgot}. Итого знаю: ${worldCount}`)
+
+        } while (worldCount < normalDictionary)
+
+    }
+
+</script>
+
+</body>
+</html>
