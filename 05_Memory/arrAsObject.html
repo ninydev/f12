@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main>
+        <ul id="lstUsers">
+
+        </ul>
+    </main>
+
+
+<script>
+
+    /** технические пременные */
+    let lstUsers = document.getElementById("lstUsers")
+
+    /** Пользователь не хочет показывать свой рост */
+    let userProfile1 = []
+    userProfile1['eye'] = 'blue'
+    userProfile1['weight'] = '60'
+
+    /** Пользователь стесняется своего веса */
+    let userProfile2 = []
+    userProfile2['eye'] = 'blue'
+    userProfile2['growth'] = '180'
+
+    let userProfile3 = []
+    userProfile3['Домашний телефон'] = '+38 048 7263708'
+    userProfile3['Мобильный телефон'] = '+38 096 5747708'
+
+    /** Все мои пользователи */
+    let users = []
+    users.push(userProfile1)
+    users.push(userProfile2)
+    users.push(userProfile3)
+
+
+    /** Построить список пользователй */
+    function buildUsers() {
+        users.map( user => {
+            let liUser = document.createElement("li")
+            let ul = document.createElement("ul")
+            for (const userKey in user) {
+                let li = document.createElement("li")
+                let label = document.createElement("label")
+                label.innerText = userKey
+                li.appendChild(label)
+
+                let inp = document.createElement("input")
+                inp.name = userKey
+                inp.value = user[userKey]
+                li.appendChild(inp)
+
+                // li.innerText = userKey + " : " + user[userKey]
+                ul.appendChild(li)
+            }
+            liUser.appendChild(ul)
+            lstUsers.appendChild(liUser)
+        })
+    }
+
+    buildUsers()
+
+
+
+
+
+
+</script>
+</body>
+</html>

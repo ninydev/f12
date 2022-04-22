@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<main>
+    <ul id="lstSpecies">
+    </ul>
+
+    <div>
+
+        <input id="txtSpice" type="text">
+        <input type="button" id="btnUnshift" value="+ unshift">
+        <input type="button" id="btnPush" value="+ push">
+        <input type="button" id="btnPop" value="- pop">
+        <input type="button" id="btnShift" value="- shift">
+    </div>
+</main>
+
+<script>
+    let spices = []
+
+    spices[3] ="tete"
+    spices["echeMusor"] ="kaka"
+    spices["arr"] = ['d','f']
+
+    let lstSpecies = document.getElementById("lstSpecies")
+    let txtSpice = document.getElementById("txtSpice")
+
+    /**
+     * Метод добавления элемента в массив
+     */
+    document.getElementById("btnUnshift").onclick = function () {
+        /** если пользователь ничего не ввел - сообщить ему об этом */
+        if (txtSpice.value.length === 0) {
+            alert("String is Empty")
+            return
+        }
+        /** добавить в массив текст из input */
+        spices.unshift(txtSpice.value)
+        /** Обнулить стоку что бы исключить дублирование элементов */
+        txtSpice.value = ""
+        /** перестроить массив - ведь в нем появились новые элементы */
+        buildSpicesList()
+    }
+
+    /**
+     * Метод добавления элемента в массив
+     */
+    document.getElementById("btnPush").onclick = function () {
+        /** если пользователь ничего не ввел - сообщить ему об этом */
+        if (txtSpice.value.length === 0) {
+            alert("String is Empty")
+            return
+        }
+        /** добавить в массив текст из input */
+        spices.push(txtSpice.value)
+        /** Обнулить стоку что бы исключить дублирование элементов */
+        txtSpice.value = ""
+        /** перестроить массив - ведь в нем появились новые элементы */
+        buildSpicesList()
+    }
+
+    /**
+     * Pop
+     */
+    document.getElementById("btnPop").onclick = () => {
+        /** убрать элемент из массива */
+        spices.pop()
+        /** перестроить массив - ведь в нем появились новые элементы */
+        buildSpicesList()
+    }
+
+    /**
+     * Shift
+     */
+    document.getElementById("btnShift").onclick = () => {
+        /** убрать элемент из массива */
+        spices.shift()
+        /** перестроить массив - ведь в нем появились новые элементы */
+        buildSpicesList()
+    }
+
+
+    // spices[0] = "Соль"
+    // spices[1] = "Перец"
+    // // 2 , 3
+    // spices[4] = "Гвоздика"
+
+
+    function buildSpicesList() {
+        console.log("---------------")
+        console.log(spices)
+        lstSpecies.innerHTML = ""
+        /** Перебор (итерация) for */
+        for(let i = 0; i < spices.length; i++){
+
+            // if(spices[i] === undefined) continue
+
+            spices[i]+= " qq"
+
+            let li = document.createElement("li")
+            let span = document.createElement("span")
+            span.innerText = spices[i]
+            li.appendChild(span)
+            lstSpecies.appendChild(li)
+        }
+
+        /** forOF
+         * Загружает в переменную значение элеметов массива
+         * */
+
+        // for(let spice of spices){
+        //
+        //     // if(spices[i] === undefined) continue
+        //
+        //     let li = document.createElement("li")
+        //     let span = document.createElement("span")
+        //     span.innerText = spice
+        //     li.appendChild(span)
+        //     lstSpecies.appendChild(li)
+        // }
+
+        /** forIN
+         * Загружает в переменную ключ элемента массива
+         * */
+        // for(let spice in spices){
+        //
+        //     // if(spices[i] === undefined) continue
+        //
+        //     let li = document.createElement("li")
+        //     let span = document.createElement("span")
+        //     span.innerText = spice
+        //     li.appendChild(span)
+        //     lstSpecies.appendChild(li)
+        // }
+
+        // spices.map( spice => {
+        //         // if(spices[i] === undefined) continue
+        //
+        //         let li = document.createElement("li")
+        //         let span = document.createElement("span")
+        //     spice += " qq"
+        //         span.innerText = spice
+        //         li.appendChild(span)
+        //         lstSpecies.appendChild(li)
+        //     }
+        // )
+
+
+    }
+
+
+    buildSpicesList()
+
+</script>
+
+</body>
+</html>
