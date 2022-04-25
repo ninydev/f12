@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+  <ul id="lstMain"></ul>
+</main>
+
+<script>
+
+    /**
+     * Данные - к которым должны иметь досуп все функции на странице
+     */
+    let lstMain = document.getElementById("lstMain")
+    let varA = "Внешняя глобальная переменная"
+
+    function createElementInArray(newElement = "Просто элемент по умолчанию") {
+        console.log(newElement)
+        let li = document.createElement("li")
+        li.innerText = newElement
+        lstMain.appendChild(li)
+        return true
+    }
+
+    createElementInArray("Создай элемент")
+    let result = createElementInArray()
+    console.log(result)
+
+
+
+    // function ЛезьНаДерево(){
+    //     console.log("Собака должна сесть")
+    // }
+    // ЛезьНаДерево()
+
+
+    function first() {
+        console.log(varA)
+        varA = "Сменил значение в first"
+
+        let varB = "Внутри first"
+        console.log(varB)
+    }
+
+    function second() {
+        console.log(varA)
+
+        let varB = "Внутри second"
+        console.log(varB)
+
+        return
+    }
+
+
+    function createArrayElement (){
+
+    }
+
+    // first()
+    // second()
+    // console.log(varB)
+
+
+
+    function buildList() {
+
+    }
+
+
+</script>
+</body>
+</html>

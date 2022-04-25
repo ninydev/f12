@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Remove outline on the forms and links */
+        :active, :hover, :focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+        * {border: none; font-size: 20px;}
+        *:focus {border: none;}
+        #btnAdd { border: 1px solid gray}
+        #lstSearch {border: 1px solid lavender; border-radius: 5px; background: lavender}
+        .btnDel { cursor: grabbing}
+        .inShow {border: none;}
+        .inEdit {/*border: 1px solid darkgoldenrod*/ font-style: italic;}
+    </style>
+</head>
+<body>
+
+
+<main>
+    <ul id="lstTasks"></ul>
+    <input type="text" id="txtTask">
+    <input type="button" value="+" id="btnAdd">
+    <input type="button" value="Sort" id="btnSort"><br>
+    <input type="text" id="strSearch">
+    <ul id="lstSearch"></ul>
+
+</main>
+
+
+<script>
+
+  let tasks = [] // Массив для хранения заданий
+  let lstTasks = document.getElementById("lstTasks") // Список для отображения заданий
+  let inTask = document.getElementById("txtTask") // Поле ввода задания
+
+  let strSearch = document.getElementById("strSearch")
+  let lstSearch = document.getElementById("lstSearch")
+
+  tasks[0] ="Вынеси мусор"
+  tasks[1] ="Накорми кота"
+  tasks[2] ="Спаси мир"
+  tasks[3] ="Переведи дедушку через дорогу"
+
+  document.getElementById("strSearch").oninput = function (event) {
+      if(strSearch.value.length === 0 ){
+          lstSearch.innerHTML = 'Nothing to search'
+          return
+      }
+
+      let strS = strSearch.value
+      console.log(strS)
+
+      let arrResult = tasks.filter( task => {
+          return task.includes(strS)
+      })
+
+      console.log(arrResult)
+      lstSearch.innerHTML = ''
+
+      arrResult.map(task => {
+          // console.log(task)
+          let li = document.createElement("li")
+          let span = document.createElement("span")
+          span.innerText = task
+          li.appendChild(span)
+          lstSearch.appendChild(li)
+      })
+
+
+
+  }
+
+
+  function renderTaskList() {
+      console.log(tasks)
+      lstTasks.innerHTML = ' '
+      let i = 0
+      tasks.map(task => {
+          // console.log(task)
+          let li = document.createElement("li")
+          // let span = document.createElement("span")
+          // span.innerText = task
+          // li.appendChild(span)
+
+          let input = document.createElement("input")
+          input.value = task
+          input.className = 'inShow'
+          input.dataset.elNumber = i
+          input.readOnly = true
+          input.ondblclick = function (event) {
+              // console.log("doubleClick")
+              event.target.className = 'inEdit'
+              event.target.readOnly = false
+          }
+          input.onchange = function (event) {
+              tasks[event.target.dataset.elNumber] = event.target.value
+              renderTaskList()
+          }
+          input.onblur = function (event) {
+              event.target.className = 'inShow'
+          }
+          li.appendChild(input)
+
+          let btnDel = document.createElement("span")
+          btnDel.innerText = '-'
+          btnDel.className = 'btnDel'
+          btnDel.dataset.elNumber = i++
+          btnDel.onclick = function (event) {
+              // console.log(event.target.dataset.elNumber)
+              tasks.splice(parseInt(event.target.dataset.elNumber), 1)
+              renderTaskList()
+          }
+          li.appendChild(btnDel)
+
+          lstTasks.appendChild(li)
+      })
+  }
+
+  document.getElementById("btnAdd").onclick = function () {
+      if(inTask.value.length === 0) {
+          inTask.style.border = '1px solid red'
+          return
+      }
+
+      tasks.push(inTask.value)
+      renderTaskList()
+      inTask.style.border = '1px solid gray'
+      inTask.value = ''
+  }
+
+  document.getElementById("btnSort").onclick = function () {
+      tasks.sort(
+          function (left,right) {
+              if (left > right) {
+                  return -1;
+              }
+              if (left < right) {
+                  return 1;
+              }
+              return 0;
+          }
+      )
+      renderTaskList()
+  }
+
+  renderTaskList()
+
+</script>
+</body>
+</html>

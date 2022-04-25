@@ -62,6 +62,7 @@
         txtSpice.value = ""
         /** перестроить массив - ведь в нем появились новые элементы */
         buildSpicesList()
+        //console.log(spices)
     }
 
     /**
@@ -90,6 +91,10 @@
     // // 2 , 3
     // spices[4] = "Гвоздика"
 
+    function renderSpiceList() {
+
+    }
+
 
     function buildSpicesList() {
         console.log("---------------")
@@ -100,12 +105,19 @@
 
             // if(spices[i] === undefined) continue
 
-            spices[i]+= " qq"
+            // spices[i]+= " qq"
 
             let li = document.createElement("li")
+
+            let spanNum = document.createElement("span")
+            spanNum.innerText = i
+            li.appendChild(spanNum)
+
             let span = document.createElement("span")
             span.innerText = spices[i]
             li.appendChild(span)
+
+            // span.innerText = "Поменял "
             lstSpecies.appendChild(li)
         }
 
