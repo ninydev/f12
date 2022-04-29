@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nokia 3210</title>
+    <style>
+        .contactName {font-weight: bold;}
+        .contactName:after {content: ': '}
+        .contactPhone {font-style: italic}
+    </style>
+</head>
+<body>
+
+<main>
+    <ul id="listContacts"></ul>
+</main>
+
+<!--<hr>-->
+<!--<h4>Так придумал дизайнер - такая верстка: </h4>-->
+<!--<hr>-->
+<!--<ul>-->
+<!--    <li>-->
+<!--        <span class="contactName"> Nykytin </span>-->
+<!--        <span class="contactPhone"> +380965747708 </span>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<div id="formAdd">
+    <h2> Add Contact: </h2>
+    <div>
+        <label for="txtName"> Name </label> <input type="text" name="name" id="txtName">
+    </div>
+    <div>
+        <label for="txtPhone"> Phone </label> <input type="text" name="phone" id="txtPhone">
+    </div>
+    <div>
+        <input type="button" id="btnAddContact" value="+">
+    </div>
+
+</div>
+
+<script>
+
+    /**
+     *--- Цель: я хочу написать "Записная книжка"
+     *
+     *--------------- Данные: - что я собираюсь хранить
+     *
+     ** contact - Данные об одном контакте
+     * -- name - Имя (строка) : "Nykytin Oleksandr"
+     * -- phone - Телефон (строка) : "+380965747708"
+     *
+     ** contacts - Коллекция всех контактов (Array [] of contact )
+     *
+     * --------------- Методы: - что будет делать моя программа
+     * (CRUD: Create Read Update Delete)
+     *
+     * renderContacts: построить список контактов (Read)
+     *
+     * Создать контакт:
+     * 1. Ввести имя и номер
+     * 2. Добавить контакт в список контактов
+     * 3. Перестроить список контактов
+     */
+
+    let contacts = [] // тут будут жить контакты
+    let listContacts = document.getElementById("listContacts") // тег, где живут контакты
+
+    // // Демо данные
+    // contacts.push({name:"Nykytin Oleksandr", phone: "+380965747708"})
+
+    /**
+     * Вывод на экран списка контактов из записной книжки
+     */
+    function renderContacts() {
+        listContacts.innerHTML = ''
+        for( let i = 0; i < contacts.length; i++){
+            let li = document.createElement("li")
+
+            let spanName = document.createElement("span")
+            spanName.innerText = contacts[i].name // По ключу (по полю)
+            spanName.className = 'contactName'
+
+            let spanPhone = document.createElement("span")
+            spanPhone.innerText = contacts[i].phone // По ключу (по полю)
+            spanPhone.className = 'contactPhone'
+
+            li.appendChild(spanName)
+            li.appendChild(spanPhone)
+
+            listContacts.appendChild(li)
+        }
+    }
+    renderContacts()
+
+    /**
+     * Создание нового контакта на основе данных пользователя
+     */
+    document.getElementById('btnAddContact').onclick = function () {
+        contacts.push(
+            {
+                name: document.getElementById('txtName').value,
+                phone: document.getElementById('txtPhone').value
+            })
+        renderContacts()
+    }
+
+
+</script>
+</body>
+</html>
