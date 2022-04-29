@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nokia 3210</title>
+    <style>
+        .contactName {font-weight: bold;}
+        .contactName:after {content: ': '}
+        .contactPhone {font-style: italic}
+
+        label {display: block; width: 30%; text-align: right; float: left}
+        input {display: block; float: left;}
+        div { display: block; clear: both;}
+    </style>
+</head>
+<body>
+
+<main>
+    <ul id="listContacts"></ul>
+</main>
+
+
+<div id="formAdd">
+    <h2> Add Contact: </h2>
+    <div>
+        <label for="txtName"> Name </label> <input type="text" name="name" id="txtName">
+    </div>
+    <div>
+        <label for="txtPhoneWork"> Phone Work </label> <input type="text" name="phone" id="txtPhoneWork">
+    </div>
+    <div>
+        <label for="txtPhoneHome"> Phone Home </label> <input type="text" name="phone" id="txtPhoneHome">
+    </div>
+    <div>
+        <label for="txtPhoneOther"> Phone Other </label> <input type="text" name="phone" id="txtPhoneOther">
+    </div>
+    <div>
+        <label for="txtEmail"> Email </label> <input type="text" name="phone" id="txtEmail">
+    </div>
+    <div>
+        <label> &nbsp;</label><input type="button" id="btnAddContact" value="+">
+    </div>
+
+</div>
+
+<script>
+
+
+    /**
+     *--- Цель: я хочу написать "Записная книжка уровня Nokia 3210"
+     *
+     *--------------- Данные: - что я собираюсь хранить
+     *
+     ** contact - Данные об одном контакте
+     * -- name - Имя (строка) : "Nykytin Oleksandr"
+     * -- phoneHome - Телефон (строка) : "+380965747708"
+     * -- phoneWork - Телефон (строка) : "+380965747708"
+     * -- phoneOther - Телефон (строка) : "+380965747708"
+     * -- email - Почта (строка) : "nikitin_a@itstep.academy"
+     *
+     ** contacts - Коллекция всех контактов (Array [] of contact )
+     *
+     * --------------- Методы: - что будет делать моя программа
+     * (CRUD: Create Read Update Delete)
+     *
+     * renderContacts: построить список контактов (Read)
+     *
+     * Создать контакт:
+     * 1. Ввести имя и номера и почту
+     * 2. Добавить контакт в список контактов
+     * 3. Перестроить список контактов
+     */
+
+    let contacts = [] // тут будут жить контакты
+    let listContacts = document.getElementById("listContacts") // тег, где живут контакты
+
+    // // Демо данные
+    // contacts.push({name:"Nykytin Oleksandr", phone: "+380965747708"})
+
+    /**
+     * Вывод формы в другом дизайне
+     */
+    function renderContactsByForm() {
+        listContacts.innerHTML = ''
+        for( let i = 0; i < contacts.length; i++){
+            let li = document.createElement("li")
+            let div = document.createElement("div")
+
+
+            let label = document.createElement('label')
+            label.innerText = 'Name'
+            div.appendChild(label)
+
+            let inName = document.createElement('input')
+            inName.value = contacts[i].name
+            div.append(inName)
+
+
+            // if(contacts[i].phoneWork.length > 0){
+            //     let spanPhone1 = document.createElement("span")
+            //     spanPhone1.innerText = " Work: " + contacts[i].phoneWork // По ключу (по полю)
+            //     spanPhone1.className = 'contactPhone'
+            //     li.appendChild(spanPhone1)
+            // }
+            //
+            // if(contacts[i].phoneHome.length > 0){
+            //     let spanPhone2 = document.createElement("span")
+            //     spanPhone2.innerText = " Home: " + contacts[i].phoneHome // По ключу (по полю)
+            //     spanPhone2.className = 'contactPhone'
+            //     li.appendChild(spanPhone2)
+            // }
+            //
+            // if(contacts[i].phoneOther.length > 0){
+            //     let spanPhone3 = document.createElement("span")
+            //     spanPhone3.innerText = " Other: " + contacts[i].phoneOther // По ключу (по полю)
+            //     spanPhone3.className = 'contactPhone'
+            //     li.appendChild(spanPhone3)
+            // }
+            //
+            // if(contacts[i].email.length > 0){
+            //     let spanPhone4 = document.createElement("span")
+            //     spanPhone4.innerText = " Email: " + contacts[i].email // По ключу (по полю)
+            //     spanPhone4.className = 'contactPhone'
+            //     li.appendChild(spanPhone4)
+            // }
+
+
+            li.append(div)
+            listContacts.appendChild(li)
+        }
+    }
+
+
+    /**
+     * Вывод на экран списка контактов из записной книжки
+     */
+    function renderContacts() {
+        listContacts.innerHTML = ''
+        for( let i = 0; i < contacts.length; i++){
+            let li = document.createElement("li")
+
+            let spanName = document.createElement("span")
+            spanName.innerText = contacts[i].name // По ключу (по полю)
+            spanName.className = 'contactName'
+            li.appendChild(spanName)
+
+            if(contacts[i].phoneWork.length > 0){
+                let spanPhone1 = document.createElement("span")
+                spanPhone1.innerText = " Work: " + contacts[i].phoneWork // По ключу (по полю)
+                spanPhone1.className = 'contactPhone'
+                li.appendChild(spanPhone1)
+            }
+
+            if(contacts[i].phoneHome.length > 0){
+                let spanPhone2 = document.createElement("span")
+                spanPhone2.innerText = " Home: " + contacts[i].phoneHome // По ключу (по полю)
+                spanPhone2.className = 'contactPhone'
+                li.appendChild(spanPhone2)
+            }
+
+            if(contacts[i].phoneOther.length > 0){
+                let spanPhone3 = document.createElement("span")
+                spanPhone3.innerText = " Other: " + contacts[i].phoneOther // По ключу (по полю)
+                spanPhone3.className = 'contactPhone'
+                li.appendChild(spanPhone3)
+            }
+
+            if(contacts[i].email.length > 0){
+                let spanPhone4 = document.createElement("span")
+                spanPhone4.innerText = " Email: " + contacts[i].email // По ключу (по полю)
+                spanPhone4.className = 'contactPhone'
+                li.appendChild(spanPhone4)
+            }
+
+
+            listContacts.appendChild(li)
+        }
+    }
+    renderContacts()
+
+    /**
+     * Создание нового контакта на основе данных пользователя
+     */
+    document.getElementById('btnAddContact').onclick = function () {
+        contacts.push(
+            {
+                name: document.getElementById('txtName').value,
+                phoneWork: document.getElementById('txtPhoneWork').value,
+                phoneHome: document.getElementById('txtPhoneHome').value,
+                phoneOther: document.getElementById('txtPhoneOther').value,
+                email: document.getElementById('txtEmail').value
+            })
+        renderContacts()
+        // renderContactsByForm()
+    }
+
+
+</script>
+</body>
+</html>

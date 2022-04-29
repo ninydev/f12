@@ -2,62 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Object</title>
 </head>
 <body>
 
+
 <script>
-    /**
-     *--- Цель: я хочу написать "Записная книжка"
-     *
-     *--------------- Данные: - что я собираюсь хранить
-     * Номера телефонов, имена от многих пользователей
-     *
-     ** phone - Данные об одном телефоне
-     * -- type -  тип номера (строка) : "Kyivstar", домашний, мобильный, Лайф и тд и тп :
-     * -- number - сам номер (строка) : "+380965747708"
-     *
-     ** contact - Данные об одном контакте
-     * -- name - Имя (строка) : "Nykytin Oleksandr"
-     * -- alias - Прозвище ( Array [] (0,1,2 ..) of strings ) : ["keeper", "nika_web"]
-     * -- phones - Телефоны ( Array [] of phone ) : [{"Kyivstar", "+380965747708"}]
-     * -- description - Описание (строка) : " Жене денег отдал - беден как сурок :) "
-     *
-     * // можно расширять и расширять -- address - Место проживания (Array [] )
-     *
-     ** contacts - Коллекция всех контактов ( Array [] of contact )
-     *
-     *
-     *--------------- Методы: - что будет делать моя программа
-     * (CRUD: Create Read Update Delete)
-     *
-     * renderContacts: построить список контактов (Read)
-     *
-     * Создать контакт:
-     * 1. Ввести имя
-     * 2. Предложить ввести псевдоним
-     * 3. Предложить ввести описание
-     * 4. Предложить ввести телефоны
-     * 5. Добавить контакт в список контактов
-     * 6. Перестроить список контактов
-     *
-     */
+    let arr = [1,2,3]
+    let obj = {a:1,b:2,c:3}
+    console.log(arr)
+    console.log(obj)
+    // // arr[num] = 1
+    // // arr['key'] = 'value' //???
+    //
+    // let name = 'Vasya' // string
+    // let age = 45 // number
+    // let isMan = true // boolean
+    //
+    // let user = {
+    //     name: 'Vasya',
+    //     age: 45,
+    //     isMan: true
+    // }
+    //
+    // console.log(user)
+    // console.log(user.name)
+
+    let arrShkaf = []
+    arrShkaf[0] = 'Носки'
+    arrShkaf[1] = 'Рубашки'
+    arrShkaf[2] = 'Плавки'
+
+    let objShkaf = {}
+
+    objShkaf.a = 'Носки'
+    objShkaf.b = 'Рубашки'
+    objShkaf.c = 'Плавки'
+
+    // console.log(arrShkaf)
+    // console.log(objShkaf)
+
+    console.log("---------------------")
+
+    arrShkaf.red = " Красные вещи "
+    arrShkaf.push(" Еще вещи ")
+    console.log(arrShkaf)
+    console.log(arrShkaf.length)
+
+    objShkaf[0] = " Красные вещи "
+    console.log(objShkaf)
+    console.log(objShkaf.length)
 
 
 
-
-
-  // let me = {
-  //     // key : value
-  //     name: "Oleksandr",
-  //     dob: new Date('Apr 10 1977'),
-  //     phones: ["+380965747708", "+380487263708"]
-  // }
-  //
-  // console.log(me)
-  //
-  // console.log(me['name'])
-  // console.log(me.name)
 </script>
 
 </body>
