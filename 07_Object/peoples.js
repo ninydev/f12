@@ -1,7 +1,4 @@
 let peoples = {
-    // key: value,
-    a: 1,
-    a1: 2,
     data: [],
     elId: "listPeoples",
     rootElement: {}, // ссылка на главный элемент
@@ -9,7 +6,22 @@ let peoples = {
     // метод который настраивает элемент
     init: function () {
         this.rootElement =  document.getElementById(this.elId)
-        peoples.rootElement =  document.getElementById(this.elId)
+        // peoples.rootElement =  document.getElementById(this.elId)
+        this.loadFromLocalStorage()
+        console.log(JSON.stringify(this.data))
+    },
+
+    saveToLocalStorage: function () {
+        localStorage.setItem('peoples', JSON.stringify(this.data))
+    },
+
+    loadFromLocalStorage: function () {
+        if(localStorage.getItem('peoples'))
+            this.data = JSON.parse(localStorage.getItem('peoples'))
+    },
+
+    clearLocalStorage: function () {
+        localStorage.clear()
     },
 
     render: function () {
@@ -61,12 +73,31 @@ let peoples = {
                 name: document.getElementById("peopleName").value
             }
             peoples.data.push(newPeople)
+            peoples.saveToLocalStorage()
             peoples.render()
         }
         div.appendChild(inSave)
 
 
         this.rootElement.appendChild(div)
-    }
+    },
 
+    /**
+     *
+     * @param rootElement - где построить выпадающий список
+     * @param elementId - какой id дать для построенного списка
+     */
+    renderSelect: function (rootElement, elementId) {
+        // let rootElement = document.getElementById(mountId)
+        let select = document.createElement("select")
+        select.id = elementId
+        select.multiple = true
+        for(let i = 0; i < peoples.data.length; i++) {
+            let option = document.createElement("option")
+            option.value = peoples.data[i].id
+            option.innerText = peoples.data[i].name
+            select.appendChild(option)
+        }
+        rootElement.appendChild(select)
+    }
 }
