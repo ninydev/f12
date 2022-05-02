@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kino</title>
+</head>
+<body>
+<main>
+    <div id="listGenres"></div>
+    <div id="listPeoples"></div>
+</main>
+
+<!-- подключение файлов с кодом -->
+<script src="guid.js"></script>
+<script src="genres.js"></script>
+<script src="peoples.js"></script>
+
+<script>
+    genres.init()
+    genres.render()
+
+    peoples.init()
+    peoples.render()
+</script>
+
+<script>
+    /**
+     * Создать сайт посвященный кино
+     *
+     * @link https://kinokrad.live/10043-serial-dartanyan-i-tri-mushketera-1979-smotret-onlayn.html
+     *
+     * ---- Жанр  genre
+     * id:   number  // Номер записи в базе данных Уникальное значение
+     * name: string:                : Приключения
+     *
+     * ---- Люди people
+     * id:
+     * name: string
+     *
+     * ---- Кино
+     * id:
+     * name: string:                : Д`Артаньян и три мушкетера
+     * released: Date               : 1979-12-25
+     * duration: number             : 250     // (длительность фильма в минутах)
+     * genres: Array [] of genre    : {1, Приключения}, Мюзикл, Исторический
+     * directors: Array [] of people: Георгий Юнгвальд-Хилькевич
+     * actors: Array [] of people   : Михаил Боярский, Вениамин Смехов, Игорь Старыгин ...
+     * description: string          : Четверо друзей-мушкетеров спасают честь королевы ...
+     * thumb_url: string            : Ссылка на главную картинку
+     * photos: Array [] of string   : Другие фотографии из фильма
+     * url: string                  : ссылка на фильм
+     */
+</script>
+
+</body>
+</html>
