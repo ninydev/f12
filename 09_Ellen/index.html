@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #ellen {width: 807px; height: 609px; background-image: url('img/ide/Anim_IDLE_00001.png');}
+
+        @keyframes ide {
+            0% {background-image: url('img/ide/Anim_IDLE_00001.png');}
+            6% {background-image: url('img/ide/Anim_IDLE_00003.png');}
+            12% {background-image: url('img/ide/Anim_IDLE_00005.png');}
+            18% {background-image: url('img/ide/Anim_IDLE_00007.png');}
+            24% {background-image: url('img/ide/Anim_IDLE_00009.png');}
+            30% {background-image: url('img/ide/Anim_IDLE_00011.png');}
+            36% {background-image: url('img/ide/Anim_IDLE_00013.png');}
+            42% {background-image: url('img/ide/Anim_IDLE_00015.png');}
+            48% {background-image: url('img/ide/Anim_IDLE_00017.png');}
+            54% {background-image: url('img/ide/Anim_IDLE_00019.png');}
+            60% {background-image: url('img/ide/Anim_IDLE_00021.png');}
+            66% {background-image: url('img/ide/Anim_IDLE_00023.png');}
+            72% {background-image: url('img/ide/Anim_IDLE_00025.png');}
+            78% {background-image: url('img/ide/Anim_IDLE_00027.png');}
+            88% {background-image: url('img/ide/Anim_IDLE_00029.png');}
+        }
+
+        @keyframes jump {
+            0% {background-image: url('img/jump/Anim_JUMP_01.png');}
+            5% {background-image: url('img/jump/Anim_JUMP_02.png');}
+            10% {background-image: url('img/jump/Anim_JUMP_03.png');}
+            15% {background-image: url('img/jump/Anim_JUMP_04.png');}
+            20% {background-image: url('img/jump/Anim_JUMP_05.png');}
+            25% {background-image: url('img/jump/Anim_JUMP_06.png');}
+            30% {background-image: url('img/jump/Anim_JUMP_07.png');}
+            35% {background-image: url('img/jump/Anim_JUMP_08.png');}
+            40% {background-image: url('img/jump/Anim_JUMP_09.png');}
+            45% {background-image: url('img/jump/Anim_JUMP_10.png');}
+            50% {background-image: url('img/jump/Anim_JUMP_11.png');}
+            55% {background-image: url('img/jump/Anim_JUMP_12.png');}
+            60% {background-image: url('img/jump/Anim_JUMP_13.png');}
+            65% {background-image: url('img/jump/Anim_JUMP_14.png');}
+            70% {background-image: url('img/jump/Anim_JUMP_15.png');}
+            77% {background-image: url('img/jump/Anim_JUMP_16.png');}
+            84% {background-image: url('img/jump/Anim_JUMP_17.png');}
+            92% {background-image: url('img/jump/Anim_JUMP_18.png');}
+            100% {background-image: url('img/jump/Anim_JUMP_19.png');}
+        }
+
+        #ellen {
+            /*animation-duration: 3s;*/
+            /*animation-name: slidein;*/
+            animation: ide 0.9s infinite linear;
+        }
+
+    </style>
+</head>
+<body style="background: aqua">
+
+<div id="ellen">
+</div>
+<button id="btnRotate"> rotate </button>
+
+<script>
+
+    let ellen = {
+        divEllen: document.getElementById("ellen"),
+        side: 1,
+        jump(){
+            ellen.divEllen.style.animationName = 'jump'
+            setTimeout( function () {
+                ellen.divEllen.style.animationName = 'ide'
+            }, 900)
+        },
+        scale(){
+            ellen.side = - ellen.side
+            // let newStr = 'scaleX(' + side + ')'
+            ellen.divEllen.style.transform = 'scaleX('+ellen.side+')'
+        }
+    }
+
+    document.getElementById("ellen").onclick = function () {
+        ellen.jump()
+    }
+    document.getElementById("btnRotate").onclick = function () {
+        ellen.scale()
+    }
+
+    document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+
+        if (keyName === 'Control') {
+            // not alert when only Control key is pressed.
+            return;
+        }
+
+        if(keyName === ' '){
+            ellen.jump()
+        } else if (keyName === 'j'){
+            ellen.jump()
+        }
+
+        // if (event.ctrlKey) {
+        //     // Хотя event.key это не 'Control' (например, нажата клавиша 'a'),
+        //     // то всё же event.ctrlKey может быть true, если ударживается клавиша Ctrl.
+        //     alert(`Combination of ctrlKey + ${keyName}`);
+        // } else {
+        //     alert(`Key pressed ${keyName}`);
+        // }
+    }, false);
+</script>
+
+</body>
+</html>
