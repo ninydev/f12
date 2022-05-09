@@ -24,13 +24,79 @@
 
 <div>
     <button id="btnDogLie"> Лежать </button>
+    <select id="selectDogCommandByClass"></select>
+    <select id="selectDogCommandByObj"></select>
 </div>
 
 <!-- Подключение готового кода -->
 <script src="../_lib/guid.js"></script>
 
 <script>
-  // Создание объекта
+    // Коллекция команд - где каждая команда по названию класса
+    /**
+     * @type {string[]}
+     */
+    let arrCommandsByClass = ['stand', 'lie', 'sit', 'give', 'run', 'rest']
+    // Построим выпадающий список с помощью JS
+    function buildSelectByClass() {
+        let s = document.getElementById("selectDogCommandByClass")
+        for(let i = 0; i < arrCommandsByClass.length; i++) {
+            let o = document.createElement("option")
+            o.value = arrCommandsByClass[i]
+            o.innerText = arrCommandsByClass[i]
+            s.appendChild(o)
+        }
+    }
+    buildSelectByClass()
+
+    // Воздействие на состояние объекта снаружи
+    document.getElementById("selectDogCommandByClass").onchange = function () {
+        dogPatron.element.className = document.getElementById("selectDogCommandByClass").value
+    }
+
+    /**
+     * @type {[
+     * {names: string[], displayName: string, className: string, id: number},
+     * {displayName: string, className: string, id: number},
+     * {displayName: string, className: string, id: number}
+     * ]}
+     */
+
+    /**
+     *
+     * @type {[{names: string[], displayName: string, className: string, id: number},{names: [{code: string, name: string},{code: string, name: string}], displayName: string, className: string, id: number},
+     * {displayName: string, className: string, id: number, isDisabled: boolean}]}
+     */
+    let arrCommandsByObj = [
+        {id: 0, className: 'stand', displayName: ' Стоять ', names: ['Stand', 'Стоять', 'Стояти']},
+        {id: 1, className: 'lie', displayName: ' Лежать ', names: [{code: 'en', name: 'Lie'}, {code: 'ru', name: 'Лежать'}]},
+        {id: 2, className: 'sit', displayName: ' Сидеть ', isDisabled: true}
+        // ...
+    ]
+
+    let mySelect = document.getElementById("selectDogCommandByObj")
+    function buildCommandsByObj() {
+        arrCommandsByObj.map( cmd => {
+            let o = document.createElement("option")
+            o.value = cmd.className
+            o.innerText = cmd.displayName
+            mySelect.appendChild(o)
+        })
+
+        for (let i = 0; i < arrCommandsByObj.length; i++) {
+            // cmd === arrCommandsByObj[i]
+        }
+    }
+    buildCommandsByObj()
+
+
+
+
+
+
+
+
+    // Создание объекта
   let dogPatron = {}
 
   // Описание значимых полей для объекта
