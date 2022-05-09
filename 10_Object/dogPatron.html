@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Описание обертки патрона */
+        #dogPatron {
+            display: block; width: 320px; height: 340px; overflow: hidden;
+            background-image: url("img/dogSprite.webp");
+        }
+        /* Описание команд патрона  */
+        .stand {background-position: 0px 0px;}
+        .lie {background-position: -340px 0px;}
+        .sit {background-position: 0px -340px;}
+        .give {background-position: 0px -340px;}
+        .run {background-position: 0px -340px;}
+        .rest {background-position: 0px -340px;}
+    </style>
+</head>
+<body>
+
+<div id="dogPatron" class="stand"></div>
+
+<div>
+    <button id="btnDogLie"> Лежать </button>
+</div>
+
+<!-- Подключение готового кода -->
+<script src="../_lib/guid.js"></script>
+
+<script>
+  // Создание объекта
+  let dogPatron = {}
+
+  // Описание значимых полей для объекта
+  dogPatron.id = generateUUID()
+  dogPatron.name = 'Patron'
+  dogPatron.color = 'Orange'
+  dogPatron.whoIs = 'Dog'
+
+  // Указание, внутри какого tag будет выводиться данный объект
+  dogPatron.element = document.getElementById('dogPatron')
+
+  // Описание процесса проявления моего объекта
+  dogPatron.render = function () {
+      // dogPatron.element.innerText = dogPatron.name
+
+      // Подготовка обертки
+      let ul = document.createElement('ul')
+
+      // Обертка для имени
+      let liName = document.createElement('li')
+      // liName.innerHTML = '<label>Name: </label><span>' + dogPatron.name + '</span>'
+      // Наполнение имени
+      liName.innerHTML = `<label>Name: </label><span>${dogPatron.name}</span>`
+
+      // Внедрение имени
+      ul.appendChild(liName)
+
+      // Обертка для цвета
+      let liColor =  document.createElement('li')
+      // Наполнение данными цвета
+      liColor.innerHTML = `<label>Color: </label><span>${dogPatron.color}</span>`
+      // Внедрение цвета
+      ul.appendChild(liColor)
+
+      // Внедрение данных в главный элемент
+      dogPatron.element.appendChild(ul)
+  }
+
+  // Описываем, какие действия будет делать элемент, для команды
+  dogPatron.lie = function () {
+      dogPatron.element.className = 'lie'
+  }
+
+
+  // Так выглядит информационная копия патрона
+  console.log(dogPatron)
+
+  // Так мы заставляем патрона появится на странице
+  dogPatron.render()
+
+  document.getElementById('btnDogLie').onclick = function () {
+      dogPatron.lie()
+  }
+
+
+</script>
+
+</body>
+</html>
+
+
