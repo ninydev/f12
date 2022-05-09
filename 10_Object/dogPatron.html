@@ -51,6 +51,7 @@
 
     // Воздействие на состояние объекта снаружи
     document.getElementById("selectDogCommandByClass").onchange = function () {
+        // dogPatron.element.style.backgroundPosition = '101px 101px'
         dogPatron.element.className = document.getElementById("selectDogCommandByClass").value
     }
 
@@ -88,6 +89,17 @@
         }
     }
     buildCommandsByObj()
+    document.getElementById("selectDogCommandByObj").onchange = function () {
+        dogPatron.element.className = document.getElementById("selectDogCommandByObj").value
+    }
+
+    // Я с Николаева
+    // areas.cites
+    // 'Николаевская область' . 'г. Николаев'
+    // Одесса
+    // Страна . Область (Штат) . Город
+    // Скопление галактик, Галактика, Рукав, Система, Планета, Страна, Область, Город
+
 
 
 
