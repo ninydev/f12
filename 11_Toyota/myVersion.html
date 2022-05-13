@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #carColorsUl li {display: flex; width: 100px; height: 100px; border: 1px solid gray; border-radius: 50%; background-position: center center; background-repeat: no-repeat}
+        #carColorsUl li:hover { background-size: 110%;}
+    </style>
+</head>
+<body>
+<div id="carZone">
+    <ul id="carColorsUl"></ul>
+    <div id="carPhoto"></div>
+</div>
+
+<script src="../_lib/guid.js"></script>
+<script>
+  let arrColors = [
+      {name:"Белый", bgCarZone: "#fff", imgModel: "day-exterior-5_2QJ_EC20.jpg", imgUrl: "w(2QJ).jpg", id: generateUUID()},
+      {name:"Синий", bgCarZone: "#00f", imgModel: "day-exterior-5_2QY_EC20.jpg", imgUrl: "b(2RA).jpg", id: generateUUID()}
+      // ...
+  ]
+
+  function renderColorsLi(){
+      let ul = document.getElementById("carColorsUl")
+      arrColors.map( color => {
+          let li = document.createElement("li")
+          li.dataset.id = color.id
+          li.dataset.bgZone = color.bgCarZone
+          li.dataset.imgModel = color.imgModel
+          li.style.backgroundImage = "url('img/colorsThumbs/" + color.imgUrl+"')"
+          li.title = color.name
+
+          li.onclick = (ev)=> {
+            document.getElementById("carZone").style.backgroundColor
+                = ev.target.dataset.bgZone
+            let img = document.createElement("img")
+              img.src = 'img/models/rav4/style/' + ev.target.dataset.imgModel
+
+            let divImg = document.getElementById("carPhoto")
+              divImg.innerHTML =''
+              divImg.appendChild(img)
+
+          }
+          ul.appendChild(li)
+      })
+  }
+
+  renderColorsLi()
+
+</script>
+
+
+
+</body>
+</html>

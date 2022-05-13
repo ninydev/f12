@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<aside id="filters">
+
+</aside>
+<div id="products">
+
+</div>
+
+
+<script src="../_lib/guid.js"></script>
+
+<script>
+    // Коллекции (справочники) характеристик (атрибутов) товара
+    let sizes = ['s', 'm', 'l', 'xl', 'xxl']
+    let colors = ['w', 'g', 'y']
+
+    // Массив для передачи данных о фильтрации
+    let filteredBy = {} // []
+    filteredBy['sizeMany'] = [] // Сразу объявить // [s,l]
+    filteredBy['colorMany'] = [] // Сразу объявить [y]
+
+
+    let products = [
+        {
+            id: generateUUID(),
+            name: "Стол",
+            // attr: [ {name: "вес", value: 150}], // в профессиональной работе
+            // comments: [], //
+            size: sizes[4], // так я не впишу от себя не существующее название
+            color: colors[0], // так я не впишу от себя не существующее название
+            description: " Прекрасный диван станет украшением вашей гостиной"
+        },
+        {
+            id: generateUUID(),
+            name: "Диван",
+            // attr: [ {name: "вес", value: 150}], // в профессиональной работе
+            // comments: [], //
+            size: sizes[1], // так я не впишу от себя не существующее название
+            color: colors[0], // так я не впишу от себя не существующее название
+            description: " Прекрасный диван станет украшением вашей гостиной"
+        },
+        {
+            id: generateUUID(),
+            name: "Раскладушка",
+            size: sizes[0],
+            color: colors[2],
+            description: "Против татар"
+        },
+        // {
+        //     id: generateUUID(),
+        //     name: "",
+        //     size: "",
+        //     color: ""
+        // },
+        // ...
+      ]
+
+    function renderFilers() {
+        let asize = document.getElementById("filters")
+        let ulS = document.createElement("ul")
+
+        // let liDefault = document.createElement("li")
+        // let inp = document.createElement("input")
+        // inp.type = 'radio'
+        // inp.name = 'sizes'
+        // inp.value = 'all'
+        // inp.checked = true
+        // inp.onchange = (ev) => {
+        //     console.log(ev.target.value)
+        //     filteredBy['sizeOne'] = null
+        //     renderProducts()
+        // }
+        // let labelDefault = document.createElement("label")
+        // labelDefault.innerText = "show All"
+        // liDefault.appendChild(inp)
+        // liDefault.appendChild(labelDefault)
+        // ulS.appendChild(liDefault)
+        //
+        // sizes.map(el=> {
+        //     let li = document.createElement("li")
+        //     let inp = document.createElement("input")
+        //     inp.type = 'radio'
+        //     inp.name = 'sizes'
+        //     inp.value = el
+        //     inp.onchange = (ev) => {
+        //         console.log(ev.target.value)
+        //         filteredBy['sizeOne'] = ev.target.value
+        //         renderProducts()
+        //     }
+        //
+        //     let label = document.createElement("label")
+        //     label.innerText = el
+        //
+        //     li.appendChild(inp)
+        //     li.appendChild(label)
+        //
+        //     ulS.appendChild(li)
+        // })
+
+        sizes.map(el=> {
+            let li = document.createElement("li")
+            let inp = document.createElement("input")
+            inp.type = 'checkbox'
+            inp.name = 'sizes'
+            inp.value = el
+            inp.onchange = (ev) => {
+                let el = filteredBy['sizeMany'].findIndex(f => {
+                    return f === ev.target.value})
+                console.log(el)
+                if (el !== -1) {
+                    filteredBy['sizeMany'].splice(el,1)
+                } else {
+                    filteredBy['sizeMany'].push(ev.target.value)
+                }
+                console.log(filteredBy)
+                renderProducts()
+            }
+
+            let label = document.createElement("label")
+            label.innerText = el
+
+            li.appendChild(inp)
+            li.appendChild(label)
+
+            ulS.appendChild(li)
+        })
+
+
+        asize.appendChild(ulS)
+    }
+    renderFilers()
+
+
+
+
+
+    function renderProducts(){
+        let main = document.getElementById("products")
+        let ul = document.createElement("ul")
+        products.map(product => {
+
+            // Первый вариант фильтрации
+            if(filteredBy['sizeMany'].length > 0) {
+                let inFilter = false
+                for(let i = 0; i < filteredBy['sizeMany'].length; i++){
+                    if(product.size === filteredBy['sizeMany'][i]) {
+                        inFilter = true
+                        break
+                    }
+                }
+                if(!inFilter) return
+            }
+
+            let li = document.createElement("li")
+            li.dataset.id = product.id
+            li.innerText = product.name + " " + product.size + " " + product.color
+            ul.appendChild(li)
+        })
+        main.innerHTML = '' // стереть старое, если есть
+        main.appendChild(ul)
+    }
+    renderProducts()
+
+
+</script>
+
+</body>
+</html>
