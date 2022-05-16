@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!-- Стили админки -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../_lib/adminLte/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../_lib/adminLte/plugins/summernote/summernote-bs4.min.css">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+<!--    &lt;!&ndash; Preloader &ndash;&gt;-->
+<!--    <div class="preloader flex-column justify-content-center align-items-center">-->
+<!--        <img class="animation__shake" src="../_lib/adminLte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">-->
+<!--    </div>-->
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Fixed Header Table</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Date
+<div>
+    <!-- Date range -->
+    <div class="form-group">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+            </div>
+            <input type="text" class="form-control float-right" id="reservation">
+        </div>
+        <!-- /.input group -->
+    </div>
+    <!-- /.form group -->
+</div>
+                                    </th>
+                                    <th>Status <div id="divStatusFilter"></div></th>
+                                    <th>Reason</th>
+                                </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="../_lib/adminLte/plugins/jquery/jquery.min.js"></script>
+    <!-- InputMask -->
+    <script src="../_lib/adminLte/plugins/moment/moment.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../_lib/adminLte/plugins/daterangepicker/daterangepicker.js"></script>
+    <script>
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+    </script>
+
+<script src="../_lib/guid.js"></script>
+<script>
+
+    let userTableBody = document.getElementById('userTableBody')
+
+    // Набор фильтров для вывода информации
+
+    let filters = {} // Установленные фильтры
+    filters['status'] = 'All' // По умолчанию - показать всех
+    filters['dateStart'] = null
+    filters['dateEnd'] = null
+
+    // TODO доработать
+    filters['Name'] = null
+    filters['Reason'] = null
+    filters['Id'] = null
+
+
+
+    // Набор данных о пользователях
+    let arrUsers = [
+        {
+            id: generateUUID(),
+            name: 'John Doe',
+            date: 	'11/07/2014',
+            status: 'Approved',
+            reason: 'Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.'
+        },
+        {
+            id: generateUUID(),
+            name: 'Alexander Pierce',
+            date: 	'16/05/2022',
+            status: 'Pending',
+            reason: 'Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.'
+        },
+        {
+            id: generateUUID(),
+            name: 'Bob Doe',
+            date: 	'16/05/2022',
+            status: 'Approved',
+            reason: 'Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.'
+        },
+        {
+            id: generateUUID(),
+            name: 'Mike Doe',
+            date: 	'10/05/2022',
+            status: 'Rejected',
+            reason: 'Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.'
+        },
+    ]
+
+    function buildUserBody() {
+        userTableBody.innerHTML = ''
+
+        for (let i = 0; i < arrUsers.length; i++) {
+            if (filters['status'] !== 'All'){
+                if (filters['status'] !== arrUsers[i].status)
+                    break // Если статус не совпадает - перейти к следующему
+            } // Если for - то для перехода к следующему - break
+        }
+
+        arrUsers.map( user => {
+            // user === arrUsers[i]
+
+            if (filters['status'] !== 'All'){
+                if (filters['status'] !== user.status)
+                    return // Если статус не совпадает - перейти к следующему
+            } // Если map - то для перехода к следующему - return
+
+            let tr = document.createElement('tr')
+
+            // Если был бы фор - arrUsers[i].id
+            let tdId = document.createElement('td')
+            tdId.innerText = user.id
+            tr.appendChild(tdId)
+
+            let tdName = document.createElement('td')
+            tdName.innerText = user.name
+            tr.appendChild(tdName)
+
+            let tdDate = document.createElement('td')
+            tdDate.innerText = user.date
+            tr.appendChild(tdDate)
+
+            let tdStatus = document.createElement('td')
+            tdStatus.innerText = user.status
+            tr.appendChild(tdStatus)
+
+            let tdReason = document.createElement('td')
+            tdReason.innerText = user.reason
+            tr.appendChild(tdReason)
+
+            // .....
+
+            userTableBody.appendChild(tr)
+        })
+    }
+    buildUserBody()
+
+    // Набор (словарь) доступных статусов
+    let arrStatuses = [
+        'Approved', 'Pending', 'Rejected'
+    ]
+
+    // By One  --> radio, select (one)
+    // By Many --> checkBox, select multi
+
+
+
+    function buildFilterStatusSelect() {
+        let divStatusFilter = document.getElementById('divStatusFilter')
+        let select = document.createElement('select')
+        select.id = 'filterStatusSelect'
+
+        // Выбрать всех
+        let optionAll = document.createElement('option')
+        optionAll.value = 'All'
+        optionAll.innerText = 'All'
+        select.appendChild(optionAll)
+
+        select.onchange = function (ev) {
+            // console.log(ev.target.value)
+            filters['status'] = ev.target.value // Запишем, как фильтровать
+            buildUserBody() // Перестроить таблицу данных
+        }
+
+        arrStatuses.map(status => {
+            let option = document.createElement('option')
+            option.value = status
+            option.innerText = status
+            select.appendChild(option)
+        })
+        divStatusFilter.appendChild(select)
+    }
+    buildFilterStatusSelect()
+
+
+    document.getElementById('reservation').onchange = function (ev) {
+        // Тут мне нужно настроить фильтры и запустить перестроение списка
+        console.log(ev.target.value)
+
+        buildUserBody()
+    }
+
+</script>
+
+</div>
+</body>
+</html>
