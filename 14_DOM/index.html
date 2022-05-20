@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+    </style>
+
+</head>
+<body id="myBody">
+
+<main class="test">
+    <ul>
+        <li> First
+            <ol id="myOl">
+                <li> In Li 1 </li>
+                <li> In Li 2 </li>
+            </ol>
+        </li>
+        <li class="test"> Second </li>
+        <li class="test"> Last </li>
+    </ul>
+</main>
+
+
+<script>
+
+    let x = document.querySelector('li')
+    console.log(x)
+    x.style.border = '1px solid yellow'
+
+    // let myLi_NodeEl = document.querySelectorAll('li, li.test, main.test')
+    // console.log(myLi_NodeEl)
+    //
+    // for (let i = 0; i < myLi_NodeEl.length; i++) {
+    //     myLi_NodeEl[i].style.border = '1px solid green'
+    // }
+    //
+    // //*------------------------------------------------
+    //
+    // let myLi_HtmlEl = document.getElementsByTagName('div')
+    // console.log(myLi_HtmlEl)
+    //
+    // for (let i = 0; i < myLi_HtmlEl.length; i++) {
+    //     myLi_HtmlEl[i].style.border = '1px solid red'
+    // }
+
+
+    //
+    // // не будет работать, так как у нас коллекция из элементов
+    // // myLi.style.border = '1px solid green'
+    //
+    // // будет - когда я обращаюсь к каждому элементу из коллекции
+    // for (let i = 0; i < myLi.length; i++) {
+    //     myLi[i].style.border = '1px solid green'
+    // }
+
+
+    // let myElement = document.getElementById('myOl')
+    //
+    // myElement.onclick = function (ev) {
+    //     ev.target.style.background = 'Red'
+    // }
+    //
+    // console.log(myElement.onclick)
+
+
+
+
+</script>
+
+
+
+<script src="../_lib/guid.js"></script>
+<script>
+  // let people = {
+  //     id: generateUUID(),
+  //     name: "Nykytin",
+  //     // .....
+  //     doSay: function () {
+  //         console.log('Say')
+  //     }
+  // }
+  //
+  // people.doSay()
+</script>
+
+
+</body>
+</html>

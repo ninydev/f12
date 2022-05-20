@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <h3> Password </h3>
+    <ul>
+        <li class="minL"> Минимальная длина 8 символов </li>
+        <li class="nums"> Используйте в пароле число </li>
+        <li class="upperCase"> Используйте в пароле большую букву </li>
+        <li class="lowerCase"> Используйте в пароле маленькую букву </li>
+        <li class="checkPassword"> Ваши пароли не совпадают </li>
+    </ul>
+</div>
+
+<form name="frmLogin">
+    <div><label> Email <input type="email" name="email"></label></div>
+    <div><label> Password <input type="password" name="password"></label></div>
+    <div><label>Conform Password <input type="password" name="password_conform"></label></div>
+    <div><input type="submit" value="submit"></div>
+</form>
+
+<script>
+    // Получить ссылки на состояние валидаторов
+    let minL = document.querySelector('.minL')
+    let nums = document.querySelector('.nums')
+    let upperCase = document.querySelector('.upperCase')
+    let lowerCase = document.querySelector('.lowerCase')
+    let checkPassword = document.querySelector('.checkPassword')
+
+    let inP_arr = document.getElementsByName('password')
+    let inPC_arr = document.getElementsByName('password_conform')
+
+    function myValidate() {
+        let p = inP_arr[0].value
+        let pc = inPC_arr[0].value
+
+        // Мы сравниваем элементы, а не их значения
+        // inP_arr[0] === inPC_arr[0]
+
+        if(p === pc) {
+            // true
+            checkPassword.style.color = 'green'
+        } else {
+            // false
+            checkPassword.style.color = 'red'
+        }
+
+        // Регулярное выражение на наличие цифры
+        let isNum = /\d{1,}/
+        if(isNum.test(p)) {
+            nums.style.color = 'green'
+        } else {
+            nums.style.color = 'red'
+        }
+
+        // Большие
+        let isUpper = /.*[A-Z].*/
+        if(isUpper.test(p)) {
+            upperCase.style.color = 'green'
+        } else {
+            upperCase.style.color = 'red'
+        }
+
+        // Большие
+        let isLower = /.*[a-z].*/
+        if(isUpper.test(p)) {
+            lowerCase.style.color = 'green'
+        } else {
+            lowerCase.style.color = 'red'
+        }
+
+        if(p.length >= 8) {
+            minL.style.color = 'green'
+        } else {
+            minL.style.color = 'red'
+        }
+
+    }
+
+    myValidate()
+
+    inP_arr[0].onchange = myValidate
+    inPC_arr[0].onchange = myValidate
+
+
+
+
+
+</script>
+</body>
+</html>
