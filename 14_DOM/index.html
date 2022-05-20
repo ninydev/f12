@@ -14,7 +14,7 @@
     <ul>
         <li> First
             <ol id="myOl">
-                <li> In Li 1 </li>
+                <li> In Li 1 <span>*</span></li>
                 <li> In Li 2 </li>
             </ol>
         </li>
@@ -26,9 +26,36 @@
 
 <script>
 
-    let x = document.querySelector('li')
-    console.log(x)
-    x.style.border = '1px solid yellow'
+    let el = document.getElementById('myOl')
+
+    el.onmouseover = function (ev) {
+        el.parentElement.style.background = 'red'
+        console.log(el.parentNode.parentNode.children)
+        el.parentNode.parentNode.children[2].style.background = 'green'
+    }
+
+    el.onmouseout = function (ev) {
+        el.parentElement.style.background = ''
+        el.parentNode.parentNode.children[2].style.background = ''
+    }
+
+    // Возвращает колекцию детей
+    let kids = el.children
+    console.log(kids)
+
+    //
+    let parentEl = el.parentElement
+    console.log(parentEl)
+
+    let parentNode = el.parentNode
+    console.log(parentNode)
+
+
+
+
+    // let x = document.querySelector('li')
+    // console.log(x)
+    // x.style.border = '1px solid yellow'
 
     // let myLi_NodeEl = document.querySelectorAll('li, li.test, main.test')
     // console.log(myLi_NodeEl)
