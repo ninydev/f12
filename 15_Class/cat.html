@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="../_lib/guid.js"></script>
+
+<script>
+
+    class Cat {
+        myType = 'Cat' // Поле создается без конструктора
+
+        /**
+         * Создание нового котика
+         * @param sex -  пол котика
+         * @param name - предполагаемое имя кота - если нету - Чебурек
+         * @param color - цвет кота - если нету - сбп
+         */
+        constructor(sex = 'm', name, color) {
+            this.sex = sex
+            if (!name) {
+                console.log(' No name ')
+                this.name = 'Чебурек'
+            } else {
+                this.name = name
+            }
+
+            if(color) {
+                this.color = color
+            } else {
+                this.color = 'серобуропокрашенный'
+            }
+
+            this.id = generateUUID()
+            this.className = 'standartCat'
+        }
+
+
+        sayMay(){
+            console.log('May')
+            console.log(this.name)
+        }
+    }
+
+    let tom = new Cat('m', ' Tom ', 'зеленый ')
+    // console.log(tom.constructor.name)
+    // console.log(tom.myType)
+    // console.log(tom.color)
+    // tom.sayMay()
+
+
+
+</script>
+</body>
+</html>

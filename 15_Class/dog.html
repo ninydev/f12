@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="../_lib/guid.js"></script>
+<script>
+
+    /**
+     * Описание конкретного объекта
+     * @type {{name: string, id: string, sayGav: someDog.sayGav}}
+     */
+    let PatronObj = {
+        id: generateUUID(),
+        name: 'Patron',
+        sayGav: function () {
+            console.log('Gav')
+        }
+    }
+    PatronObj.sayGav();
+
+    /**
+     * Сначала опишем собаку
+     */
+    class Dog {
+
+        constructor() {
+            this.id = generateUUID()
+            // this.onmouseover = ''
+            // this.onmouseout = ''
+            // // ....
+            // this.className = ''
+            // // ...
+
+            console.log(' Кто то решил создать собачку: ' + this.id)
+        }
+
+        sayGav(){
+            console.log(this.name)
+            console.log('Gav from: ' + this.id)
+        }
+    }
+
+    let PatronFromClass = new Dog() // Родился
+    PatronFromClass.sayGav() // Твое имя --- Мое имя (this)
+    PatronFromClass.name = 'Patron' // Имя
+    PatronFromClass.sayGav()
+
+
+
+
+    // PatronFromClass.name = 'Patron';
+    // PatronFromClass.id = generateUUID();
+    // ....
+
+    // let LessyFromClass = new Dog();
+    // LessyFromClass.name = 'Lessy';
+    // // LessyFromClass.id = generateUUID();
+    // // ....
+    //
+    // PatronFromClass.sayGav();
+    // LessyFromClass.sayGav();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

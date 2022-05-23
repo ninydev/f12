@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="../_lib/guid.js"></script>
+<script>
+
+  class Student {
+      id = generateUUID()
+
+      constructor(firstName, secondName) {
+          this.firstName = firstName
+          this.secondName = secondName
+      }
+
+      get fullName(){
+          if(!this.firstName) throw (' Отсутствует имя')
+          if(!this.secondName) throw (' Отсутствует фамилия')
+          return this.firstName + ' ' + this.secondName
+      }
+
+      get group(){
+          return this._group
+      }
+      set group(newGroup){
+          if(newGroup.length < 3) {
+              throw (' Длина названия группы не может быть меньше 3 ')
+          } else {
+              this._group = newGroup
+          }
+      }
+
+  }
+
+  // let alex = new Student('Alex', 'Nikitin')
+  let alex = new Student('Alex', 'Nykytin')
+  console.log(alex.fullName)
+
+  // alex.group = 'f12' // --> setter
+  // console.log(alex.group) // --> getter
+  // console.log(alex._group) // --> принято использовать _
+
+  // console.log(alex.id)
+  // console.log(alex.name)
+  //
+
+
+
+</script>
+</body>
+</html>

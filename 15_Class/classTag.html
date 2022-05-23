@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="main">
+
+</div>
+
+<script>
+  class Tag {
+      /**
+       * Создает тег
+       * @param id
+       * @param type
+       */
+      constructor (id, type /* = 'div' - тогда не нужен if*/){
+          if(!id) {throw (' Не указан ID существование вселенной бессмысленно')}
+          this._id = id
+          if(!type) { type = 'div' /* Если нет типа - будем считать что имел ввиду div */}
+          this._type = type
+          this._element = document.getElementById(id)
+          if(!this._element) {
+              //  Если нету родового элемента
+              throw ('нет родительского тега')
+          }
+
+          this.zero()
+      }
+
+      zero(){
+          this._marginTop = 0
+          this._marginRight = 0
+          this._marginBottom = 0
+          this._marginLeft = 0
+      }
+
+      get margin(){
+          return `${this._marginTop}px ${this._marginRight}px ${this._marginBottom}px ${this._marginLeft}px`
+      }
+
+      set margin(value){
+          this.zero() // обнулить отсупы
+          if(Number.isInteger(value)){
+              this._marginTop = value
+              this._marginRight = value
+              this._marginBottom = value
+              this._marginLeft = value
+
+              return
+          }
+
+          let arr = value.split(' ')
+          console.log(arr)
+          console.log(arr.length)
+          // 4 ifв зависимости от того, что пришло
+
+      }
+
+      set marginTop(value){
+          if(!Number.isInteger(value)) {
+              throw (' Это не число')
+          }
+          this._marginTop = value
+      }
+
+      get marginTop() {
+          return this._marginTop
+      }
+
+
+
+
+
+      /**
+       * Герерирует элемент, всавляя его в указанный в конструкторе
+       */
+      render(){
+          this._element.innerHTML = ''
+          let el = document.createElement(this._type)
+          el.innerText = 'element'
+          this._element.append(el)
+      }
+
+
+  }
+
+  let ul = new Tag('main', 'span')
+  ul.render()
+  // ul.margin = '1 2 3'
+  ul.margin = -10
+  console.log(ul.marginTop)
+  console.log(ul.margin)
+
+
+  ul.margin = '10'
+  ul.margin = '10 10'
+  ul.margin = '10 10 10'
+  ul.margin = '10 10 10 10'
+
+
+  // let noTag = new Tag()
+
+
+</script>
+</body>
+</html>
