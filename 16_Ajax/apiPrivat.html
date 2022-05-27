@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privat Bank</title>
+</head>
+<body>
+
+
+
+<script>
+
+    console.log('начало скрипта')
+    let isRes = false
+
+    // Отправка запроса:
+    // fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    //     .then(response => { // Действия после получения ответа
+    //         isRes = true
+    //         console.log(' Пришел технический ответ')
+    //         console.log(response)
+    //         return response.json()
+    //     })
+    //     .then(json => { // Действия с данными из ответа
+    //         console.log('Данные из ответа')
+    //         console.log(json)
+    //     })
+    //     .catch( error => { // Действия, если произошла ошибка
+    //         console.log('Error')
+    //         console.log(error)
+    //     })
+
+
+    //* -----------------------------------------------------------------
+
+    // Отправка запроса:
+    fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
+        .then(response => { // Действия после получения ответа
+            isRes = true
+            console.log(' Пришел технический ответ')
+            console.log(response)
+            return response.text()
+        })
+        .then(varName => { // Действия с данными из ответа
+            console.log('Данные из ответа')
+            console.log(varName)
+        })
+        .catch( error => { // Действия, если произошла ошибка
+            console.log('Error')
+            console.log(error)
+        })
+
+    console.log('конец скрипта')
+
+</script>
+
+</body>
+</html>

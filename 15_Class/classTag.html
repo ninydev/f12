@@ -82,6 +82,7 @@
           this._element.innerHTML = ''
           let el = document.createElement(this._type)
           el.innerText = 'element'
+          el.style.margin = this.margin
           this._element.append(el)
       }
 
@@ -89,12 +90,14 @@
   }
 
   let ul = new Tag('main', 'span')
-  ul.render()
+
   // ul.margin = '1 2 3'
-  ul.margin = -10
+  ul.margin = 10
+  ul.marginTop = 20
   console.log(ul.marginTop)
   console.log(ul.margin)
 
+  ul.render()
 
   ul.margin = '10'
   ul.margin = '10 10'
