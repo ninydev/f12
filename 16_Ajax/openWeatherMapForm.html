@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="cityName" type="text"><input id="askWeather" type="button">
+
+
+<script>
+let apiKey = 'd55d7e3b16ffa113b7d67bc7244c5148'
+let apiUrl = 'https://api.openweathermap.org/data/2.5/weather'
+let city = 'Odessa'
+
+document.getElementById('askWeather').onclick = function () {
+    city = document.getElementById('cityName').value
+    fetch(apiUrl + '?q=' + city + '&appid=' + apiKey + '&units=metric')
+        .then(response => { // Технический ответ сервера
+            console.log(response)
+            return response.json()
+        })
+        .then(data => { // Анализ полученных данных
+            console.log(data)
+            // render() ... build() //
+        })
+        .catch(err=> {
+            console.log('Error:')
+            console.log(err)
+        }) // Обработка ошибки
+}
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

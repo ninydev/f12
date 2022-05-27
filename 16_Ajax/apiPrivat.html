@@ -5,52 +5,73 @@
     <title>Privat Bank</title>
 </head>
 <body>
-
+<table id="dataTable" border="1"></table>
 
 
 <script>
 
     console.log('начало скрипта')
-    let isRes = false
 
-    // Отправка запроса:
-    // fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
-    //     .then(response => { // Действия после получения ответа
-    //         isRes = true
-    //         console.log(' Пришел технический ответ')
-    //         console.log(response)
-    //         return response.json()
-    //     })
-    //     .then(json => { // Действия с данными из ответа
-    //         console.log('Данные из ответа')
-    //         console.log(json)
-    //     })
-    //     .catch( error => { // Действия, если произошла ошибка
-    //         console.log('Error')
-    //         console.log(error)
-    //     })
-
-
-    //* -----------------------------------------------------------------
-
-    // Отправка запроса:
-    fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
+    // Отправка запроса (endPoint):
+    // URL , METHOD ( GET, POST etc) , HEADER (заголовки) , BODY (тело)
+    fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
         .then(response => { // Действия после получения ответа
-            isRes = true
             console.log(' Пришел технический ответ')
             console.log(response)
-            return response.text()
+            return response.json()
         })
-        .then(varName => { // Действия с данными из ответа
+        .then(json => { // Действия с данными из ответа
             console.log('Данные из ответа')
-            console.log(varName)
+            console.log(json)
+
+            let tbl = document.getElementById('dataTable')
+
+            for (let i = 0; i < json.length; i++) {
+                let tr = document.createElement('tr')
+                let td1 = document.createElement('td')
+                let td2 = document.createElement('td')
+                let td3 = document.createElement('td')
+                let td4 = document.createElement('td')
+
+                td1.innerText = json[i].ccy
+                td2.innerText = json[i].base_ccy
+                td3.innerText = json[i].buy
+                td4.innerText = json[i].sale
+
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tr.appendChild(td3)
+                tr.appendChild(td4)
+
+                tbl.appendChild(tr)
+
+            }
         })
         .catch( error => { // Действия, если произошла ошибка
             console.log('Error')
             console.log(error)
         })
 
-    console.log('конец скрипта')
+
+    //* -----------------------------------------------------------------
+
+    // Отправка запроса:
+    // fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
+    //     .then(response => { // Действия после получения ответа
+    //         console.log(' Пришел технический ответ')
+    //         console.log(response)
+    //         return response.text()
+    //     })
+    //     .then(varName => { // Действия с данными из ответа
+    //         console.log('Данные из ответа')
+    //         console.log(varName)
+    //     })
+    //     .catch( error => { // Действия, если произошла ошибка
+    //         console.log('Error')
+    //         console.log(error)
+    //     })
+    //
+    // console.log('конец скрипта')
 
 </script>
 
