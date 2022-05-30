@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="main">
+
+</div>
+
+<script>
+    
+    function buildMedia(url) {
+        console.log(url)
+        if (url.includes('.mp4')) {
+            console.log('isVideo')
+            let video = document.createElement('video')
+            video.src = url
+            video.controls = true
+            document.getElementById('main').appendChild(video)
+        } else {
+            let img = new Image()
+            img.src = url // строю url
+            img.onload = function () {
+                document.getElementById('main').appendChild(img)
+            }
+        }
+    }
+    
+
+    /**
+     * Бек возвращает мне имя файла - чистый текст
+     */
+    fetch('https://random.dog/woof')
+        .then(res=> {
+            // console.log(res)
+            return res.text() // я дальше передаю инфомацию текст
+        })
+        .then( data => {
+            // console.log(data)
+            buildMedia('https://random.dog/' + data)
+        })
+        .catch( err => {
+            console.log("Error")
+            console.log(err)
+        })
+
+    /**
+     * Бек возвзаращет объект (Json)
+     */
+    fetch('https://random.dog/woof.json')
+        .then(res=> {
+            // console.log(res)
+            return res.json() // Я дальше передаю json
+        })
+        .then( data => {
+            // console.log(data)
+            buildMedia(data.url)
+        })
+        .catch( err => {
+            console.log("Error")
+            console.log(err)
+        })
+
+
+</script>
+
+</body>
+</html>

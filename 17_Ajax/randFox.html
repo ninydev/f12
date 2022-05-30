@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        #main img {
+            width: 400px;
+            animation-name: Appearance;
+            animation-duration: 3s;
+            animation-timing-function: cubic-bezier(.1,-.6,.2,0);
+        }
+
+        @-webkit-keyframes Appearance {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        @-o-keyframes Appearance {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        @-moz-keyframes Appearance {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+    </style>
 </head>
 <body>
 <button id="btnReload"> Reload </button>
@@ -18,25 +43,40 @@
      * @param fox
      */
     function buildFox(fox) {
-        let img = document.createElement('img')
-        //img.src = fox.image
-        if (fox['image']) // Существует ли такое поле
-            img.src = fox['image']
-        mainEl.innerHTML = ''
-        mainEl.appendChild(img)
-    }
+        let img = new Image()
+        img.src = fox['image']
+        img.style.opacity = '0'
+        // монтирование тега произойдет только когда картинка будет загружена
+        // на сторону клиента
+        img.onload = function () {
+            mainEl.innerText = ''
+            mainEl.appendChild(img)
+            img.style.opacity = '1'
+        }
 
+        //* --------------------------
+        // Метод прямого создания tag img
+        // плох тем, что он монтируется сразу, а загрузка изображения
+        // еще не прошла
+        //* --------------------------
+
+        //let img = document.createElement('img')
+        //img.src = fox.image
+        // mainEl.innerText = ''
+        // mainEl.appendChild(img)
+    }
 
     /**
      * Получение данных о фоткографии лисички
      */
     function apiGetRandomFox() {
+        mainEl.innerHTML = ''
+        mainEl.innerText = 'Loading'
         fetch('https://randomfox.ca/floof/')
             .then( res => res.json())
             .then( fox => {
                 console.log(fox)
                 buildFox(fox)
-
             })
             .catch(err => {
                 console.log('Err')
@@ -45,7 +85,9 @@
     }
 
     apiGetRandomFox()
-
+    /**
+     * Обновлять загрузку фотографий по нажатию на кнопку
+     */
     document.getElementById('btnReload').onclick = function () {
         apiGetRandomFox()
     }
