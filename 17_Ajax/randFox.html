@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btnReload"> Reload </button>
+<div id="main">
+
+</div>
+
+<script>
+    let mainEl = document.getElementById('main')
+
+    /**
+     * Построить фотографию лисички
+     * @param fox
+     */
+    function buildFox(fox) {
+        let img = document.createElement('img')
+        //img.src = fox.image
+        if (fox['image']) // Существует ли такое поле
+            img.src = fox['image']
+        mainEl.innerHTML = ''
+        mainEl.appendChild(img)
+    }
+
+
+    /**
+     * Получение данных о фоткографии лисички
+     */
+    function apiGetRandomFox() {
+        fetch('https://randomfox.ca/floof/')
+            .then( res => res.json())
+            .then( fox => {
+                console.log(fox)
+                buildFox(fox)
+
+            })
+            .catch(err => {
+                console.log('Err')
+                console.log(err)
+            })
+    }
+
+    apiGetRandomFox()
+
+    document.getElementById('btnReload').onclick = function () {
+        apiGetRandomFox()
+    }
+
+</script>
+
+</body>
+</html>
