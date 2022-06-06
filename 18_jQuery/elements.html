@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btnClickMe"> Click Me </button>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+  let btnJs = document.getElementById('btnClickMe')
+  let btnJq = $('#btnClickMe')
+
+  console.log(btnJs)
+  btnJs.style.border = '1px solid red' // прямое обращение к атрибутам и стилям
+
+  console.log(btnJq)
+  // btnJq.style.background = 'green' // отсутствует
+  btnJq.css('background', 'green') //  обращение через посредника
+
+  // Обращаясь через посредника - код будет выполнен
+  // ко всем элементам коллекции
+  $( "li" ).css( "border", '1px solid green' )
+  // document.getElementsByTagName('li').style.background = 'yellow' // Такого у коллекции нет
+
+  console.log(document.getElementsByTagName('li'))
+  console.log($( "li" ))
+
+
+
+
+
+
+</script>
+</body>
+</html>

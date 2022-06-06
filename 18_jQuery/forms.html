@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+  <input name="email" type="text" value="keep">
+  <input name="password" type="password">
+    <input name="login" type="text" value="keeper" id="frmLogin">
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+    $( "input[name='email']" ).css('border', '1px solid green')
+    $( "input[name='password']" ).css('border', '1px solid red')
+    $( "input[value='keeper']" ).css('border', '1px solid blue')
+    $( "input[value='keep']" ).css('border', '1px solid black')
+
+    $( "input[name='login']" ).change ( function (ev) {
+        console.log('work')
+        //  Получает только в том случае, если было в мсомент создания равно
+        console.log($( "input[value='keep']" ))
+        $( "input[value='keep']" ).css('background', 'black')
+        console.log(document.getElementById('frmLogin').value)
+        // $( "input[name='password']" ).css('border', '1px solid yellow')
+    })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="mainUl">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li id="startElement">4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+</ul>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+    let ul = document.getElementById('mainUl')
+    let newLi = document.createElement('li')
+    newLi.innerText = 'new JS'
+    ul.appendChild(newLi)
+    //newLi.append(ul)
+
+    let ulJq = $('#mainUl')
+    let newLiJq = $('<li> new jQuery </li>')
+    newLiJq.appendTo(ulJq)
+    // ulJq.append(newLiJq)
+    // ulJq.append('<li> new jQuery</li>')
+
+
+
+
+
+
+
+    let  elJq = $('#startElement')
+
+    // // elJq.prev().next().css('background', 'yellow')
+    // elJq.next().css('background', 'yellow')
+    // let  elJs = document.getElementById('startElement')
+    // elJs.nextElementSibling.style.border = '1px solid red'
+    //
+    //
+    // let elements = $('li:even')
+    // elements.next().css('background', 'yellow')
+
+
+</script>
+
+</body>
+</html>

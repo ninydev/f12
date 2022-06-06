@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <button id="btnClickMe"> Click Me </button>
+    <ul>
+        <li> 1 </li>
+        <li onclick="doClick(this)"> 2 *</li>
+        <li> 3 </li>
+    </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+    function doClick(element){
+        element.style.background = 'gray'
+    }
+
+    // Версия jQuery
+    $( "#btnClickMe" ).click(function() {
+        this.style.background = 'red'
+    })
+
+    // Версия современного JS
+    // document.getElementById('btnClickMe').onclick = function (ev) {
+    //     ev.target.style.background = 'red'
+    // }
+
+    // Версия jQuery
+    $( "li" ).css( "border", '1px solid green' )
+
+    // Версия современного JS
+    // let collectionLi = document.getElementsByTagName('li')
+    // for (let i = 0; i < collectionLi.length; i++) {
+    //     collectionLi[i].style.border = '1px solid green'
+    // }
+
+</script>
+
+
+</body>
+</html>

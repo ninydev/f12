@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li class="sel">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li class="sel">5</li>
+    <li>6</li>
+</ul>
+
+<p>11</p>
+<p class="sel">22</p>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    let collectionLi = $( ".sel, li" )
+
+    console.log(collectionLi)
+    collectionLi.css( "border", '1px solid green' )
+
+    collectionLi.first().css('background', 'yellow')
+
+    collectionLi.even().mouseover(function (ev) {
+        ev.target.style.border = '1px solid red'
+    })
+
+    collectionLi.even().mouseout(function (ev) {
+        ev.target.style.border = '1px solid green'
+    })
+
+</script>
+
+</body>
+</html>
