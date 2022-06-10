@@ -9,16 +9,24 @@
 <div>
     <ul id="lstStudents"></ul>
 </div>
+<div>
+    <form>
+        <input type="text" name="newName">
+        <input type="number" name="newAge">
+        <input type="button" value="Create" id="btnCreate">
+    </form>
+</div>
 
 <script>
+    let students = [] // Для связи с сервером
     let lstStudents = document.getElementById('lstStudents')
 
-    function renderList(students) {
+    function renderList() {
         lstStudents.innerHTML = ''
         if(students === null) return
         students.map( student => {
             let li = document.createElement('li')
-            li.dataset.id = student.id
+            li.dataset.id = student._id
             li.innerText = student.name
             lstStudents.appendChild(li)
         });
@@ -32,17 +40,55 @@
                 }
                 return res.json()
             })
-            .then(students => {
-                console.log(students)
-                renderList(students)
+            .then(serverStudents => {
+                students = serverStudents
+                renderList()
             })
             .catch(err=> {
                 console.log("Error:")
                 console.log(err)
             })
     }
-
     read()
+
+    function create() {
+        // Подготовить данные для отправки на сервер
+        let newStudent = {
+            name: document.getElementsByName('newName').item(0).value,
+            age: document.getElementsByName('newAge').item(0).value,
+        }
+        console.log(newStudent)
+        fetch('/api/students', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(newStudent)
+        })
+            .then(res=> {
+                if(res.status !== 201){
+                    throw 'Server Error'
+                }
+                return res.json()
+            })
+            .then(student => {
+                console.log(student) // Я получаю нового студента
+                students.push(student)
+                document.getElementsByName('newName').item(0).value = ''
+                document.getElementsByName('newAge').item(0).value = 0
+                renderList()
+            })
+            .catch(err=> {
+                console.log("Error:")
+                console.log(err)
+            })
+
+
+
+    }
+
+    document.getElementById('btnCreate').onclick = create
 
 
 </script>
