@@ -12,6 +12,13 @@ router.post('/', cStudents.create)
 // Read (All) === GET
 router.get('/', cStudents.index)
 
+// назначить маршрут с параметром
+// Read (One) === GET
+router.get('/:studentId', cStudents.show)
+
+// назначить маршрут с параметром
+// Update (One) === PUT
+router.put('/:studentId', cStudents.update)
 
 // CRUD - каждой операции свой метод и маршрут
 

@@ -29,9 +29,46 @@ exports.create = function (request, response) {
  * Read (All) === GET
  * @param request
  * @param response
- * @returns {*}
  */
 exports.index = function (request, response) {
     return response.status(200).json(students);
 };
+
+/**
+ * Вернуть конкретного студента
+ * Read (One) === GET
+ * @param request
+ * @param response
+ */
+exports.show = function (request, response) {
+    // console.log(request.params.studentId)
+    let findId = request.params.studentId
+    let findStudent = students.find(s => s._id === findId)
+    // console.log(findStudent)
+    if (!findStudent) {
+        // console.log(' Нет студента ')
+        return response.status(404)
+    }
+    return response.status(200).json(findStudent)
+};
+
+/**
+ * Вернуть конкретного студента
+ * Update (One) === PUT
+ * @param request
+ * @param response
+ */
+exports.update = function (request, response) {
+    let findId = request.params.studentId
+    let findStudent = students.findIndex(s => s._id === findId)
+
+    console.log(findStudent)
+    if (findStudent === null && typeof (findStudent) === undefined) {
+        console.log(' Нет студента ')
+        return response.status(404)
+    }
+    students[findStudent] = request.body
+    console.log(' Все обновил')
+    return response.status(204).send()
+}
 

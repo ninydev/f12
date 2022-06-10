@@ -21,6 +21,129 @@
     let students = [] // Для связи с сервером
     let lstStudents = document.getElementById('lstStudents')
 
+    // Для сохранения старого студента
+    let oldElement = null
+    let oldStudent = null
+    let oldStudentOnDoubleClick = null
+
+    /**
+     * Построить форму изменения студента
+     */
+    function renderForm(ev) {
+        if (oldElement !== null) return
+        let evElement = ev.target
+        let id = evElement.dataset.id
+        fetch('/api/students/' + id)
+            .then(res=> {
+                if(res.status !== 200){
+                    throw 'Server Error'
+                }
+                return res.json()
+            })
+            .then(currentStudent => {
+                console.log(currentStudent)
+                // Сохраним старого
+                oldElement = evElement
+                oldStudent = evElement.innerHTML
+                oldStudentOnDoubleClick = evElement.ondblclick
+
+                // Очистим
+                evElement.ondblclick = null
+                evElement.innerHTML = ''
+
+                // Построим форму
+
+                let form = document.createElement('form')
+                let inName = document.createElement('input')
+                inName.name = 'editName'
+                inName.type = 'text'
+                inName.value = currentStudent.name
+                form.appendChild(inName)
+
+                let inAge = document.createElement('input')
+                inAge.name = 'editAge'
+                inAge.type = 'number'
+                inAge.value = currentStudent.age
+                form.appendChild(inAge)
+
+                let inId = document.createElement('input')
+                inId.name = 'editId'
+                inId.type = 'hidden'
+                inId.value = currentStudent._id
+                form.appendChild(inId)
+
+                let btnCancel = document.createElement('input')
+                btnCancel.type = 'button'
+                btnCancel.value = 'Cancel'
+                btnCancel.onclick = function (){
+                    // Восстановим
+                    evElement.ondblclick = oldStudentOnDoubleClick
+                    oldStudentOnDoubleClick = null
+                    evElement.innerHTML = oldStudent
+                    oldStudent = null
+                    oldElement = null
+                }
+                form.appendChild(btnCancel)
+
+                let btnSave = document.createElement('input')
+                btnSave.type = 'button'
+                btnSave.value = 'Update'
+                btnSave.onclick = function (){
+                    let editStudent = {
+                        _id: document.getElementsByName('editId').item(0).value,
+                        name: document.getElementsByName('editName').item(0).value,
+                        age: document.getElementsByName('editAge').item(0).value,
+                    }
+
+                    console.log(editStudent)
+
+                    fetch('/api/students/' + editStudent._id, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: JSON.stringify(editStudent)
+                    })
+                        .then(res=> {
+                            console.log(res)
+                            if(res.status !== 204){
+                                throw 'Server Error'
+                            }
+                            students[students.findIndex(s => s._id === editStudent._id)] = editStudent
+                            oldStudentOnDoubleClick = null
+                            oldStudent = null
+                            oldElement = null
+                            renderList()
+                            // Построить список
+                        })
+                        .catch(err=> {
+                            console.log("Error:")
+                            console.log(err)
+                        })
+
+                    // // Восстановим
+                    // evElement.ondblclick = oldStudentOnDoubleClick
+                    // oldStudentOnDoubleClick = null
+                    // evElement.innerHTML = oldStudent
+                    // oldStudent = null
+                    // oldElement = null
+                }
+                form.appendChild(btnSave)
+
+
+
+                evElement.appendChild(form)
+            })
+            .catch(err=> {
+                console.log("Error:")
+                console.log(err)
+            })
+    }
+
+    /**
+     * Построить список студентов
+     */
     function renderList() {
         lstStudents.innerHTML = ''
         if(students === null) return
@@ -28,10 +151,14 @@
             let li = document.createElement('li')
             li.dataset.id = student._id
             li.innerText = student.name
+            li.ondblclick = renderForm
             lstStudents.appendChild(li)
         });
     }
 
+    /**
+     * Прочитать список всех студентов
+     */
     function read() {
         fetch('/api/students')
             .then(res=> {
@@ -49,8 +176,10 @@
                 console.log(err)
             })
     }
-    read()
 
+    /**
+     * Создать нового студента
+     */
     function create() {
         // Подготовить данные для отправки на сервер
         let newStudent = {
@@ -88,8 +217,13 @@
 
     }
 
-    document.getElementById('btnCreate').onclick = create
 
+
+    /**
+     * Подключение методов
+     */
+    document.getElementById('btnCreate').onclick = create
+    read()
 
 </script>
 
