@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <ul id="lstStudents"></ul>
+</div>
+
+<script>
+    let lstStudents = document.getElementById('lstStudents')
+
+    function renderList(students) {
+        lstStudents.innerHTML = ''
+        if(students === null) return
+        students.map( student => {
+            let li = document.createElement('li')
+            li.dataset.id = student.id
+            li.innerText = student.name
+            lstStudents.appendChild(li)
+        });
+    }
+
+    function read() {
+        fetch('/api/students')
+            .then(res=> {
+                if(res.status !== 200){
+                    throw 'Server Error'
+                }
+                return res.json()
+            })
+            .then(students => {
+                console.log(students)
+                renderList(students)
+            })
+            .catch(err=> {
+                console.log("Error:")
+                console.log(err)
+            })
+    }
+
+    read()
+
+
+</script>
+
+</body>
+</html>

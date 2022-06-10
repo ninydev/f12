@@ -7,7 +7,22 @@
 
 <body>
   <h1>Express</h1>
-  <p>Welcome to Express</p>
-</body>
+  <p>Welcome to Express !!!</p>
 
+<script>
+  fetch('/api/students')
+    .then(res=> res.json())
+    .then(data => {
+            console.log(data)
+      // Тут должен быть ChartJS
+
+          })
+    .catch(err=> {
+            console.log("Error")
+            console.log(err)
+          })
+
+</script>
+
+</body>
 </html>
