@@ -122,12 +122,6 @@
                             console.log(err)
                         })
 
-                    // // Восстановим
-                    // evElement.ondblclick = oldStudentOnDoubleClick
-                    // oldStudentOnDoubleClick = null
-                    // evElement.innerHTML = oldStudent
-                    // oldStudent = null
-                    // oldElement = null
                 }
                 form.appendChild(btnSave)
 
@@ -152,6 +146,34 @@
             li.dataset.id = student._id
             li.innerText = student.name
             li.ondblclick = renderForm
+
+            let span = document.createElement('span')
+            span.innerText = '-'
+            span.onclick = function (ev) {
+                let id = ev.target.parentNode.dataset.id
+                fetch('/api/students/' + id, {
+                    method: 'DELETE'
+                })
+                    .then(res=> {
+                        // console.log('Delete Response')
+                        // console.log(res)
+                        if(res.status !== 200){
+                            throw 'Server Error'
+                        }
+                        students.splice(students.findIndex(s => s._id === id),1)
+                        oldStudentOnDoubleClick = null
+                        oldStudent = null
+                        oldElement = null
+                        renderList()
+                        // Построить список
+                    })
+                    .catch(err=> {
+                        console.log("Error:")
+                        console.log(err)
+                    })
+            }
+            li.appendChild(span)
+
             lstStudents.appendChild(li)
         });
     }

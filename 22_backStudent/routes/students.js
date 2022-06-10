@@ -20,6 +20,9 @@ router.get('/:studentId', cStudents.show)
 // Update (One) === PUT
 router.put('/:studentId', cStudents.update)
 
-// CRUD - каждой операции свой метод и маршрут
+// назначить маршрут с параметром
+// Delete (One) === DELETE
+router.delete('/:studentId', cStudents.delete)
+
 
 module.exports = router;
