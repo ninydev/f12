@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+</head>
+<body>
+<div id="main">
+
+</div>
+
+
+<script>
+
+    let mainDiv = document.getElementById("main")
+
+    function renderTagList(tags) {
+        mainDiv.innerHTML = ''
+        let ul = document.createElement('ul')
+        tags.map(tag => {
+            let li = document.createElement('li')
+            li.innerText = tag.name
+            ul.append(li)
+        })
+        mainDiv.append(ul)
+
+    }
+
+    function getTags(){
+        fetch('/api/tags')
+            .then(res=> res.json())
+            .then(tags=> {
+                console.log(tags)
+                renderTagList(tags)
+            })
+            .catch(err=> {
+                console.log('Err')
+                console.log(err)
+            })
+    }
+
+    getTags()
+</script>
+</body>
+</html>

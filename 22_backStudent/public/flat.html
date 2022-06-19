@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    fetch('/api/flat')
+    .then(res=> res.json())
+    .then(flat=> {
+        console.log(flat)
+    })
+    .catch(err=> {
+        console.log('Err')
+        console.log(err)
+    })
+</script>
+
+</body>
+</html>
