@@ -49,6 +49,10 @@ app.use('/api/bread', breadRouter);
 let tagRouter = require('./routes/tags')
 app.use('/api/tags', tagRouter)
 
+// Для работы с продуктами
+let productRouter = require('./routes/product')
+app.use('/api/products', productRouter)
+
 // ...
 // для работы с продуктами, елками, животными ... e.t.c.
 // ...

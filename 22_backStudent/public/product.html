@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main">
+</div>
+
+<script>
+
+    let products = []
+    let mainDiv = document.getElementById("main")
+
+    function renderProductList() {
+        mainDiv.innerHTML = ''
+        let ul = document.createElement('ul')
+        products.map(product => {
+            let li = document.createElement('li')
+            li.innerText = product.name
+            ul.append(li)
+        })
+        mainDiv.append(ul)
+
+    }
+
+    function getProducts(){
+        fetch('/api/products')
+            .then(res=> res.json())
+            .then(pr=> {
+                console.log('get')
+                console.log(pr)
+                products = pr
+                renderProductList()
+            })
+            .catch(err=> {
+                console.log('Err')
+                console.log(err)
+            })
+    }
+    getProducts()
+</script>
+</body>
+</html>
