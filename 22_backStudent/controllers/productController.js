@@ -45,6 +45,33 @@ exports.index = function (request, response) {
 }
 
 /**
+ * Вернуть всех студентов
+ * Read (All) === GET
+ * @param request
+ * @param response
+ */
+exports.find = function (request, response) {
+    //params = request.body
+    let txtFind = request.body.txtFind
+    console.log('Try find: ' + txtFind)
+
+    // Query for a movie that has the title 'The Room'
+    const query = {'name': {'$regex': txtFind, '$options': 'i'}}
+    const options = {};
+
+    productModel.find(query, options, function(err, allProducts){
+
+        if(err) {
+            console.log(err);
+            return response.status(404).json(err)
+        }
+        else {
+            return response.status(200).json(allProducts)
+        }
+    });
+}
+
+/**
  * Вернуть конкретную метку
  * Read (One) === GET
  * @param request

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/api/products" method="post" name="editProduct">
+    <input name="_id" type="hidden">
+  <label> Name <input name="name" type="text"></label>
+  <label> Price <input name="price" type="number" value="100"></label>
+  <input type="submit" value="submit">
+</form>
+
+<script>
+
+    let params = window.location.search.replace('?','').split('&')
+        .reduce(
+            function(p,e){
+                let a = e.split('=');
+                p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                return p;
+            },
+            {}
+        );
+
+    console.log( params['id']);
+
+    fetch('/api/products/' + params['id'])
+        .then(res=> res.json())
+        .then(product => {
+            console.log(product)
+            document.forms.editProduct.elements._id.value = params['id']
+            if(product.name)
+                document.forms.editProduct.elements.name.value = product.name
+            if(product.price)
+                document.forms.editProduct.elements.price.value = product.price
+        })
+        .catch(err => {
+            console.log('Err')
+            console.log(err)
+        })
+
+
+    document.forms[0].onsubmit = function (ev) {
+        ev.preventDefault();
+        let bodyProduct = {
+            _id: document.forms.editProduct.elements._id.value,
+            name: document.forms.editProduct.elements.name.value,
+            price: document.forms.editProduct.elements.price.value
+        }
+
+        console.log(bodyProduct)
+
+        fetch('/api/products/' + bodyProduct._id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(bodyProduct)
+        })
+            .then( res=> {
+                if(res.status !== 204){
+                    throw 'Server Error'
+                }
+            })
+            .catch(err => {
+                console.log('Err')
+                console.log(err)
+            })
+    }
+
+</script>
+
+</body>
+</html>

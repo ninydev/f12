@@ -24,5 +24,7 @@ router.put('/:productId', cProduct.update)
 // Delete (One) === DELETE
 router.delete('/:productId', cProduct.delete)
 
+router.post('/find', cProduct.find)
+
 // Подготовить модуль для работы в приложении
 module.exports = router;
