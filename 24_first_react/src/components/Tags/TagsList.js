@@ -21,6 +21,17 @@ class TagsList extends React.Component{
 
     }
 
+    // Метод, который добавит новую метку к имеющемуся массиву
+    addNewTag(newTagName){
+        const oldState = this.state;
+        let newTag = {
+            id : Date.now(),
+            name: newTagName
+        }
+        oldState.data.push(newTag);
+        this.setState(oldState);
+    }
+
     // Получение данных с сервера
     getDataFromServer(){
         this.setState({
@@ -51,7 +62,7 @@ class TagsList extends React.Component{
         // this - что я обращаюсь к методу в своем классе
         // имя метода (в данном случае getDataFromServer
         // bind(this) - разрешить обращение к компоненту
-        setTimeout (this.getDataFromServer.bind(this), 2000)
+        setTimeout (this.getDataFromServer.bind(this), 300)
 
     }
 
@@ -68,7 +79,7 @@ class TagsList extends React.Component{
                     ))
                 }
             </ul>
-                <TagAdd></TagAdd>
+                <TagAdd addNewTag={this.addNewTag.bind(this)}></TagAdd>
             </>
         )
     }
