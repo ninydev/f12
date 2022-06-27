@@ -10,7 +10,7 @@ class TagsList extends React.Component{
     constructor(props) {
         super(props);
 
-        console.log(' Работает конструктор')
+        console.log(' Работает конструктор ')
 
         // Опишем данные, которые у нас есть под вывод
         this.state = {
@@ -19,9 +19,13 @@ class TagsList extends React.Component{
             data: [] // Место, где будут храниться мои данные в данном случае метки
         }
 
+        this.deleteElement = this.deleteElement.bind(this);
+
     }
 
+
     // Метод, который добавит новую метку к имеющемуся массиву
+    // Create
     addNewTag(newTagName){
         const oldState = this.state;
         let newTag = {
@@ -32,7 +36,9 @@ class TagsList extends React.Component{
         this.setState(oldState);
     }
 
+
     // Получение данных с сервера
+    // Read (all)
     getDataFromServer(){
         this.setState({
             data : [
@@ -45,6 +51,17 @@ class TagsList extends React.Component{
             ],
             isLoaded: true
         })
+    }
+
+
+    // Delete
+    deleteElement(e){
+        console.log('Удаление')
+        console.log(e.currentTarget.parentNode.getAttribute('data-key'))
+        let id = e.currentTarget.parentNode.getAttribute('data-key')
+        const oldState = this.state;
+        oldState.data.splice(oldState.data.findIndex(el=> el.id == id),1)
+        this.setState(oldState);
     }
 
     /*
@@ -75,7 +92,7 @@ class TagsList extends React.Component{
             <ul>
                 {
                     this.state.data.map( tag => (
-                        <li key={tag.id}>{tag.name}</li>
+                        <li data-key={tag.id} key={tag.id}>{tag.name} <span onClick={this.deleteElement}> - </span></li>
                     ))
                 }
             </ul>
