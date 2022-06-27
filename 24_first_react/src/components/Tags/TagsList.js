@@ -1,4 +1,5 @@
 import React from "react";
+import TagAdd from "./TagAdd";
 
 class TagsList extends React.Component{
 
@@ -55,11 +56,11 @@ class TagsList extends React.Component{
     }
 
 
-
     // Отвечает за то, как будет выглядеть компонент
     renderData() {
         console.log('Работает рендер - строит элемент с данными')
         return (
+            <>
             <ul>
                 {
                     this.state.data.map( tag => (
@@ -67,6 +68,8 @@ class TagsList extends React.Component{
                     ))
                 }
             </ul>
+                <TagAdd></TagAdd>
+            </>
         )
     }
 
