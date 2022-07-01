@@ -5,9 +5,9 @@ import React from "react";
 class NinyInputLogin extends React.Component {
     render(){
         return (
-            <>
+            <div>
                 <input type="text"/>
-            </>
+            </div>
         )
     }
 }

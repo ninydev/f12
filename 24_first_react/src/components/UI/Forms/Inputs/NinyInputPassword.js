@@ -12,6 +12,13 @@ class NinyInputPassword extends React.Component {
         }
     }
 
+    onChange(ev){
+        this.checkValid(ev) // Моя внутренняя проверка
+        if(this.props.onChange) {    // Если родитель назначил еще свою обработку onChange
+            this.props.onChange(ev)  // то передать управление и ему
+        }
+    }
+
     checkValid(ev){
         let pass = ev.target.value
         console.log(pass)
@@ -45,6 +52,7 @@ class NinyInputPassword extends React.Component {
         }
         oldState.err = err
         this.setState(oldState)
+        console.log(err)
     }
 
 
@@ -54,22 +62,29 @@ class NinyInputPassword extends React.Component {
         let err = ''
         if(!this.state.isValid) {
             err = (
-                <p> Есть ошибки </p>
-                // <ul>
-                //     { this.state.err.map( e => {
-                //       <li key={Date.now()}> {e} </li>
-                //     })}
-                // </ul>
+                <ul>
+                    { this.state.err.map( e => {
+                        return (
+                        <li> {e} </li>
+                        )
+                    })}
+                </ul>
             )
         }
 
-        console.log(err)
+        let label = ''
+
+        if (this.props.label){
+            label = (<label>{this.props.label}</label>)
+        }
+
 
         return (
-            <>
-                <input type="password" onKeyDown={this.checkValid.bind(this)}/>
+            <div>
+                {label}
+                <input type="password" onChange={this.onChange.bind(this)}/>
                 {err}
-            </>
+            </div>
         )
     }
 }

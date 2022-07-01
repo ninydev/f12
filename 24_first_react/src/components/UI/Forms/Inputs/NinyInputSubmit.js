@@ -5,9 +5,9 @@ import React from "react";
 class NinyInputSubmit extends React.Component {
     render(){
         return (
-            <>
+            <div>
                 <input type="submit"/>
-            </>
+            </div>
         )
     }
 }

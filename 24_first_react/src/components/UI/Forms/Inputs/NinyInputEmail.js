@@ -5,9 +5,9 @@ import React from "react";
 class NinyInputEmail extends React.Component {
     render(){
         return (
-            <>
+            <div>
                 <input type="email"/>
-            </>
+            </div>
         )
     }
 }
