@@ -1,4 +1,5 @@
 import React from "react";
+import './TagsList.css'; // Подключение стилей для компонента
 
 class TagsList extends React.Component{
 
@@ -42,7 +43,10 @@ class TagsList extends React.Component{
         )
     }
 
-    // Я принимаю решение - как я себя отображаю
+
+    /**
+     * Я принимаю решение - как я себя отображаю
+     */
     render(){
         // Если в компоненте произошла ошибка - вывести ее
         if(this.state.error){
