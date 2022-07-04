@@ -1,5 +1,6 @@
 import React from "react";
 import './kinokrad.css';
+import KinoKradItem from "./KinoKradItem";
 
 class KinoKradHome extends React.Component {
 
@@ -9,7 +10,7 @@ class KinoKradHome extends React.Component {
         this.state = {
             error: null, // Храним состояние ошибки
             isLoaded: false, // Храним состояние - загрузились ли данные
-            items: []
+            items: [] // Тут мы храним элементы коллекции, которые хотим выводить
         }
     }
 
@@ -39,19 +40,13 @@ class KinoKradHome extends React.Component {
     renderData() {
         console.log('Работает рендер данных')
         return (
-            <ul>
+            <div className="row">
                 {
                     this.state.items.map( item => (
-                        <li key={item.id} className="clearfix">
-                            <h4>{item.name}</h4>
-                            <div>
-                                <img src={item.imgUrl} style={{float:"left"}}/>
-                                <p>{item.des}</p>
-                            </div>
-                        </li>
+                        <KinoKradItem key={item.id} item={item}></KinoKradItem>
                     ))
                 }
-            </ul>
+            </div>
         )
     }
 
