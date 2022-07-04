@@ -31,12 +31,16 @@ class KinoKradHome extends React.Component {
         this.setState(oldState)
     }
 
+    /**
+     * Когда компонент уже появился на странице
+     */
     componentDidMount() {
         this.getSimpleData()
     }
 
-
-    // Отвечает за то, как будет выглядеть компонент
+    /**
+     * Отвечает за то, как будет выглядеть компонент
+     */
     renderData() {
         console.log('Работает рендер данных')
         return (
@@ -49,7 +53,6 @@ class KinoKradHome extends React.Component {
             </div>
         )
     }
-
 
     /**
      * Я принимаю решение - как я себя отображаю
