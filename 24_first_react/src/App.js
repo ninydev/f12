@@ -1,13 +1,13 @@
 import NinyFooter from "./components/Footer/NinyFooter";
 import NinyHeader from "./components/Header/NinyHeader";
-import FormSignUp from "./components/Forms/Auth/FormSignUp";
+import KinoKradHome from "./components/Kinokrad/KinoKradHome";
 
 
 function App() {
   return (
     <div className="App">
         <NinyHeader></NinyHeader>
-        <FormSignUp></FormSignUp>
+        <KinoKradHome></KinoKradHome>
       <NinyFooter></NinyFooter>
     </div>
   );
