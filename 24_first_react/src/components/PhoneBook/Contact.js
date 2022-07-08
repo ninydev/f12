@@ -14,6 +14,9 @@ class Contact extends React.Component {
             <td>
                 {this.props.contact.number}
             </td>
+            <td>
+                <button data-id={this.props.contact.id} onClick={this.props.delete.bind(this)}>del</button>
+            </td>
         </tr>
         )
     }

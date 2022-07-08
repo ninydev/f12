@@ -44,9 +44,14 @@ class PhoneBook extends React.Component {
      * @param newContact - новый контакт
      */
     create(newContact) {
-        newContact.id = Date.now() + Math.random()
+        let newEl = {
+            id: Date.now() + "_" + Math.random(),
+            name: newContact.name,
+            subName: newContact.subName,
+            number: newContact.number
+        }
         const oldState = this.state
-        oldState.contacts.push(newContact)
+        oldState.contacts.push(newEl)
         this.setState(oldState)
     }
 
@@ -57,12 +62,17 @@ class PhoneBook extends React.Component {
      */
     deleteById(contactId){
         const oldState = this.state
-        oldState.contacts.splice( oldState.contacts.findIndex(c=> c.id === contactId), 1)
+        let index = oldState.contacts.findIndex(c=> c.id === contactId)
+        console.log(index)
+        oldState.contacts.splice( index, 1)
         this.setState(oldState)
     }
 
+
     deleteByEl(el){
-        this.deleteById(el.target.getAttribute('data-id'))
+        let id = el.target.getAttribute('data-id')
+        console.log(id)
+        this.deleteById(id)
     }
 
 
@@ -74,7 +84,7 @@ class PhoneBook extends React.Component {
     loadSimpleData(){
         // Создадим контакт с полями, по описанию задачи
         let contact = {
-            id: Date.now() + Math.random(), // Случайный номер
+            id: Date.now()  + "_" +  Math.random(), // Случайный номер
             name: "Имя", // поля для хранения имени контакта
             subName: "Фамилия", // фамилия
             number: "Номер телефона" // номер его телефона
@@ -109,8 +119,11 @@ class PhoneBook extends React.Component {
                 {
                     this.state.contacts.map(contact => (
                         <>
-                        <Contact  key={contact.id} contact={contact}></Contact>
-                            <button data-id={contact.id} onClick={this.deleteByEl.bind(this)}>del</button>
+                        <Contact  key={contact.id} contact={contact}
+                                  delete={this.deleteByEl.bind(this)}></Contact>
+                            { // <button data-id={contact.id}
+                                // onClick={this.deleteByEl.bind(this)}>del</button>
+                            }
                         </>
 
                     ))
