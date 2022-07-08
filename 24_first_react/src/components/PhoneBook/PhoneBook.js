@@ -1,4 +1,6 @@
 import React from "react"
+import Contact from "./Contact";
+import AddContact from "./AddContact";
 
 class PhoneBook extends React.Component {
 
@@ -42,6 +44,7 @@ class PhoneBook extends React.Component {
      * @param newContact - новый контакт
      */
     create(newContact) {
+        newContact.id = Date.now() + Math.random()
         const oldState = this.state
         oldState.contacts.push(newContact)
         this.setState(oldState)
@@ -84,14 +87,17 @@ class PhoneBook extends React.Component {
                     <button onClick={this.loadFromLS.bind(this)}> Load </button>
                     <button onClick={this.saveToLS.bind(this)}> Save </button>
                     <button onClick={this.loadSimpleData.bind(this)}> Simple </button>
+                    <AddContact save={this.create.bind(this)}></AddContact>
                 </div>
-                <ul>
+                <table>
+                    <tbody>
                 {
                     this.state.contacts.map(contact => (
-                        <li key={contact.id}> {contact.name}</li>
+                        <Contact  key={contact.id} contact={contact}></Contact>
                     ))
                 }
-                </ul>
+                    </tbody>
+                </table>
             </>
         )
     }
