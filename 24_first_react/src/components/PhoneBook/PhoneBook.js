@@ -51,6 +51,21 @@ class PhoneBook extends React.Component {
     }
 
 
+    /**
+     * Удаление элемента по его Id
+     * @param contactId
+     */
+    deleteById(contactId){
+        const oldState = this.state
+        oldState.contacts.splice( oldState.contacts.findIndex(c=> c.id === contactId), 1)
+        this.setState(oldState)
+    }
+
+    deleteByEl(el){
+        this.deleteById(el.target.getAttribute('data-id'))
+    }
+
+
 
     /**
      * Заргузка в коллекцию демо данные.
@@ -93,7 +108,11 @@ class PhoneBook extends React.Component {
                     <tbody>
                 {
                     this.state.contacts.map(contact => (
+                        <>
                         <Contact  key={contact.id} contact={contact}></Contact>
+                            <button data-id={contact.id} onClick={this.deleteByEl.bind(this)}>del</button>
+                        </>
+
                     ))
                 }
                     </tbody>
