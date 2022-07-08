@@ -58,7 +58,7 @@ class PhoneBook extends React.Component {
 
     /**
      * Удаление элемента по его Id
-     * @param contactId
+     * @param contactId - Id записи
      */
     deleteById(contactId){
         const oldState = this.state
@@ -69,6 +69,10 @@ class PhoneBook extends React.Component {
     }
 
 
+    /**
+     * Эелемнт, в котором в атрибуте data-id зафиксирован Id записи
+     * @param el - tag с data-id
+     */
     deleteByEl(el){
         let id = el.target.getAttribute('data-id')
         console.log(id)
@@ -114,7 +118,7 @@ class PhoneBook extends React.Component {
                     <button onClick={this.loadSimpleData.bind(this)}> Simple </button>
                     <AddContact save={this.create.bind(this)}></AddContact>
                 </div>
-                <table>
+                <table id="tblPhoneBook">
                     <tbody>
                 {
                     this.state.contacts.map(contact => (
