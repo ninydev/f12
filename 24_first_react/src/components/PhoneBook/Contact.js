@@ -2,6 +2,10 @@ import React from "react"
 
 class Contact extends React.Component {
 
+    /**
+     * Конструктор для того, что бы описать флаг редактирования
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -11,10 +15,16 @@ class Contact extends React.Component {
         this.onChange = this.onChange.bind(this)
     }
 
+    /**
+     * Тут можно сдлеать проверку формы - как в примере
+     */
     validate(){
-
     }
 
+    /**
+     * Читает данные с полей input и сохраняет их в стейте
+     * @param e
+     */
     onChange(e) {
         const oldState = this.state
         oldState[e.target.name] = e.target.value
@@ -22,6 +32,10 @@ class Contact extends React.Component {
         this.validate()
     }
 
+    /**
+     * Выводит данные в формочке - удобной для редактирования
+     * @returns {JSX.Element}
+     */
     renderForm(){
         return (
         <>
@@ -38,12 +52,18 @@ class Contact extends React.Component {
         )
     }
 
+    /**
+     * Убирает флаг редактирования - что приводит к выводу только данных
+     */
     stopEdit(){
         const oldState = this.state
         oldState.isEdit = false
         this.setState(oldState)
     }
 
+    /**
+     * Готовит новй объект и передает его на обновление в главный компонент
+     */
     save(){
         this.props.update(this.props.contact.id, {
             name: this.state.name,
@@ -53,6 +73,10 @@ class Contact extends React.Component {
         this.stopEdit()
     }
 
+    /**
+     * Устанавливает флаг - отображать в режиме редактирования
+     * А так же переносит значения полей из пропсов в стейт
+     */
     startEdit(){
         const oldState = this.state
         oldState.isEdit = true
@@ -62,6 +86,10 @@ class Contact extends React.Component {
         this.setState(oldState)
     }
 
+    /**
+     * Вывод информации о записи в телефонной книге
+     * @returns {JSX.Element}
+     */
     renderInfo(){
         return (
             <tr>
@@ -83,7 +111,10 @@ class Contact extends React.Component {
     }
 
 
-
+    /**
+     * Выводит или форму для воода данных, или информацию о контакте
+     * @returns {JSX.Element}
+     */
     render() {
         if(this.state.isEdit) return this.renderForm()
         else return this.renderInfo()
