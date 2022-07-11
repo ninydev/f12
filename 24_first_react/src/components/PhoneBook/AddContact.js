@@ -7,9 +7,29 @@ class AddContact extends React.Component {
         this.state = {
             name: '',
             subName: '',
-            number: ''
+            number: '',
+            isValid: false, // все ли поля верные
+            err: [] // есть ли ошибки
         }
         this.onChange = this.onChange.bind(this) // Разрешить методу доступ к классу
+    }
+
+    /**
+     * Метод, который будет анализировать введенные поля и описывать ошибки
+     */
+    validate(){
+        let err = []
+        if(this.state.name.length === 0) err.push("Имя короткое")
+        if(this.state.subName.length === 0) err.push("Введите фамилию")
+        if(this.state.number.length === 0) err.push("Введите номер телефона")
+        // ...
+        const oldState = this.state
+        oldState.err = err
+        if (err.length === 0)
+            oldState.isValid = true
+        else
+            oldState.isValid = false
+        this.setState(oldState)
     }
 
     /**
@@ -17,9 +37,10 @@ class AddContact extends React.Component {
      * @param e
      */
     onChange(e) {
-        const oldState = this.state;
-        oldState[e.target.name] = e.target.value;
-        this.setState(oldState);
+        const oldState = this.state
+        oldState[e.target.name] = e.target.value
+        this.setState(oldState)
+        this.validate()
     }
 
     /**
@@ -51,7 +72,7 @@ class AddContact extends React.Component {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button onClick={this.onSave.bind(this)} type="button" data-bs-dismiss="modal" className="btn btn-primary">Save changes</button>
+                                <button disabled={!this.state.isValid} onClick={this.onSave.bind(this)} type="button" data-bs-dismiss="modal" className="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>

@@ -55,6 +55,17 @@ class PhoneBook extends React.Component {
         this.setState(oldState)
     }
 
+    update(id, newData){
+        const oldState = this.state
+        oldState.contacts[oldState.contacts.findIndex(el=> el.id === id)] = {
+            id: id,
+            name: newData.name,
+            subName: newData.subName,
+            number: newData.number
+        }
+        this.setState(oldState)
+    }
+
 
     /**
      * Удаление элемента по его Id
@@ -118,12 +129,21 @@ class PhoneBook extends React.Component {
                     <button onClick={this.loadSimpleData.bind(this)}> Simple </button>
                     <AddContact save={this.create.bind(this)}></AddContact>
                 </div>
-                <table id="tblPhoneBook">
+                <table  className="table" id="tblPhoneBook">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Subname</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
                     <tbody>
                 {
                     this.state.contacts.map(contact => (
                         <>
                         <Contact  key={contact.id} contact={contact}
+                                  update={this.update.bind(this)}
                                   delete={this.deleteByEl.bind(this)}></Contact>
                             { // <button data-id={contact.id}
                                 // onClick={this.deleteByEl.bind(this)}>del</button>
