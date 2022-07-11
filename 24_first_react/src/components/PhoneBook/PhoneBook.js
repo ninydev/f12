@@ -2,6 +2,8 @@ import React from "react"
 import Contact from "./Contact";
 import AddContact from "./AddContact";
 
+
+
 class PhoneBook extends React.Component {
 
     /**
@@ -14,6 +16,8 @@ class PhoneBook extends React.Component {
         super(props);
 
         this.state = {
+            search: '', // Для поиска
+            oldContacts: null, // Для сохранения старой коллекции
             contacts: [] // Коллекция телефонной книги
         }
     }
@@ -45,7 +49,7 @@ class PhoneBook extends React.Component {
      */
     create(newContact) {
         let newEl = {
-            id: Date.now() + "_" + Math.random(),
+            id: Date.now(), // + "_" + Math.random(),
             name: newContact.name,
             subName: newContact.subName,
             number: newContact.number
@@ -55,6 +59,12 @@ class PhoneBook extends React.Component {
         this.setState(oldState)
     }
 
+    /**
+     * (U) Update
+     * Ищет в коллекции элемент с нужным нам id и обновляет информацию в нем
+     * @param id
+     * @param newData
+     */
     update(id, newData){
         const oldState = this.state
         oldState.contacts[oldState.contacts.findIndex(el=> el.id === id)] = {
@@ -90,6 +100,12 @@ class PhoneBook extends React.Component {
         this.deleteById(id)
     }
 
+    onChange(e) {
+        const oldState = this.state
+        oldState[e.target.name] = e.target.value
+        this.setState(oldState)
+    }
+
 
 
     /**
@@ -111,6 +127,31 @@ class PhoneBook extends React.Component {
     }
 
 
+    search(){
+        let search = this.state.search
+        console.log(search)
+        const oldState = this.state
+        if(search.length > 0) { // Обозначает что надо что то искать
+            if (oldState.oldContacts === null ) {
+                oldState.oldContacts = oldState.contacts
+            }
+            oldState.contacts = []
+            oldState.oldContacts.map( c=> {
+                if (c.name.includes(this.state.search) || c.subName.includes(this.state.search))
+                    oldState.contacts.push(c)
+            })
+            if(!oldState.contacts) oldState.contacts = []
+            console.log(oldState.contacts)
+
+        } else {
+            if (oldState.oldContacts !== null ) {
+                oldState.contacts = oldState.oldContacts // Если я что то сохранял
+                oldState.oldContacts = null // востановлю на место и сотру старое
+            }
+        }
+        console.log('Назад ставлю массив')
+        this.setState(oldState)
+    }
 
 
 
@@ -128,6 +169,8 @@ class PhoneBook extends React.Component {
                     <button onClick={this.saveToLS.bind(this)}> Save </button>
                     <button onClick={this.loadSimpleData.bind(this)}> Simple </button>
                     <AddContact save={this.create.bind(this)}></AddContact>
+                    <input type="text" name="search" onChange={this.onChange.bind(this)}  />
+                    <button onClick={this.search.bind(this)}> Search </button>
                 </div>
                 <table  className="table" id="tblPhoneBook">
                     <thead>
@@ -141,15 +184,9 @@ class PhoneBook extends React.Component {
                     <tbody>
                 {
                     this.state.contacts.map(contact => (
-                        <>
                         <Contact  key={contact.id} contact={contact}
                                   update={this.update.bind(this)}
                                   delete={this.deleteByEl.bind(this)}></Contact>
-                            { // <button data-id={contact.id}
-                                // onClick={this.deleteByEl.bind(this)}>del</button>
-                            }
-                        </>
-
                     ))
                 }
                     </tbody>
