@@ -8,13 +8,15 @@ class ContactPage extends React.Component {
         this.state = {
             name: '',
             isNameValid: true,
+            inpNameClass: 'form-control',
             email: '',
             isEmailValid: true,
             phone: '',
             isPhoneValid: true,
             message: '',
             isMessageValid: true,
-            isFormValid: false
+            isFormValid: false,
+            btnSubmitClass: 'btn btn-primary text-uppercase disabled'
         }
         this.onChange= this.onChange.bind(this) // Разрешить методу доступ к классу
     }
@@ -31,21 +33,37 @@ class ContactPage extends React.Component {
         this.validateForm()
     }
 
+    send(){
+        // console.log('send')
+        let data = {
+            name: this.state.name,
+            email: this.state.email,
+            phone: this.state.phone,
+            message: this.state.message
+        }
+
+
+    }
+
     validateForm(){
         const oldState = this.state
 
         if(oldState.name.length === 0) {
             oldState.isNameValid = false
-            document.getElementById("name_required").style.display = "block"
+            oldState.inpNameClass = 'form-control is-invalid'
+            // document.getElementById("name_required").style.display = "block"
         } else {
             oldState.isNameValid = true
-            document.getElementById("name_required").style.display = "none"
+            oldState.inpNameClass = 'form-control'
+            // document.getElementById("name_required").style.display = "none"
         }
 
         if(oldState.isNameValid && oldState.isEmailValid && oldState.isPhoneValid && oldState.isMessageValid) {
             oldState.isFormValid = true
+            oldState.btnSubmitClass = 'btn btn-primary text-uppercase'
         } else {
             oldState.isFormValid = false
+            oldState.btnSubmitClass = 'btn btn-primary text-uppercase disabled'
         }
 
         this.setState(oldState);
@@ -67,7 +85,7 @@ class ContactPage extends React.Component {
         <div className="my-5">
             <form id="contactForm">
                 <div className="form-floating">
-                    <input onChange={this.onChange} name="name" className="form-control" id="name" type="text" placeholder="Enter your name..." />
+                    <input onChange={this.onChange} name="name" className={this.state.inpNameClass} id="name" type="text" placeholder="Enter your name..." />
                     <label htmlFor="name">Name</label>
                     <div className="invalid-feedback" id="name_required">A name is required.</div>
                 </div>
@@ -93,7 +111,7 @@ class ContactPage extends React.Component {
                     <div className="text-center text-danger mb-3">Error sending message!</div>
                 </div>
 
-                <button className="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Send</button>
+                <button onClick={this.send.bind(this)} disabled={!this.state.isFormValid} className={this.state.btnSubmitClass} id="submitButton" type="button">Send</button>
             </form>
         </div>
 

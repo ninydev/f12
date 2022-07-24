@@ -2,13 +2,12 @@
 const mongoose = require("mongoose");
 
 // Строка соединения с сервером базы данных
-const  MONGO_URI  = 'mongodb+srv://keeper:P34yinezFpy6qWeY@cluster0.cfsrt.mongodb.net/f12?retryWrites=true&w=majority';
 
 // Стандартная система подключения к базе банных
 exports.connect = () => {
     // Connecting to the database
     mongoose
-        .connect(MONGO_URI, {
+        .connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

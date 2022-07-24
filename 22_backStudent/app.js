@@ -1,3 +1,6 @@
+// Чтение данных из файла .env
+require('dotenv').config();
+
 // Сам веб сервер (приложение)
 let express = require('express');
 let app = express();
@@ -5,6 +8,10 @@ let app = express();
 // Для технических сообщений
 let logger = require('morgan');
 app.use(logger('dev'));
+
+// Для разрешения получать запросы с любого места
+let cors = require('cors')
+app.use(cors)
 
 // Для работы JSON
 app.use(express.json());
