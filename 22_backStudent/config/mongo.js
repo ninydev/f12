@@ -1,8 +1,6 @@
 // Подключить модуль работы с базами данных
 const mongoose = require("mongoose");
 
-// Строка соединения с сервером базы данных
-
 // Стандартная система подключения к базе банных
 exports.connect = () => {
     // Connecting to the database

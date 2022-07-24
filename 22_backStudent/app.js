@@ -11,7 +11,7 @@ app.use(logger('dev'));
 
 // Для разрешения получать запросы с любого места
 let cors = require('cors')
-app.use(cors)
+app.use(cors())
 
 // Для работы JSON
 app.use(express.json());
@@ -59,6 +59,9 @@ app.use('/api/tags', tagRouter)
 // Для работы с продуктами
 let productRouter = require('./routes/product')
 app.use('/api/products', productRouter)
+
+let contactRouter = require('./routes/contacts')
+app.use('/api/contacts', contactRouter)
 
 // ...
 // для работы с продуктами, елками, животными ... e.t.c.

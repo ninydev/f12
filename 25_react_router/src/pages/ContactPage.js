@@ -42,6 +42,27 @@ class ContactPage extends React.Component {
             message: this.state.message
         }
 
+        fetch('http://localhost:3333/api/contacts',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                console.log(res)
+                return res.json()
+            })
+            .then(data=> {
+                console.log(data)
+            })
+            .catch(err=> {
+                console.log("Error")
+                console.log(err)
+            })
+
+
 
     }
 
