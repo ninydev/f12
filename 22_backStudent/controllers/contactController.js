@@ -48,12 +48,11 @@ exports.create = function (request, response) {
                 html: JSON.stringify(newContact), // html body
             });
 
-            console.log(toMe.messageId)
-            console.log(toUser.messageId)
-
+            // Фиксируем номер отправки по данным сервера
             newContact.sendToMe = toMe.messageId
             newContact.sendToUser = toUser.messageId
 
+            // Сохраняем номера отправки почты на сервере
             newContact.save(function (err) {
                 if (err) { // Если ошибка - вернуть ошибку
                     console.log(err)
