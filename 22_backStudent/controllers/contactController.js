@@ -48,10 +48,21 @@ exports.create = function (request, response) {
                 html: JSON.stringify(newContact), // html body
             });
 
-            newContact['sendToMe'] = toMe.messageId
-            newContact['sendToUser'] = toUser.messageId
+            console.log(toMe.messageId)
+            console.log(toUser.messageId)
 
-            return response.status(201).json(newContact)
+            newContact.sendToMe = toMe.messageId
+            newContact.sendToUser = toUser.messageId
+
+            newContact.save(function (err) {
+                if (err) { // Если ошибка - вернуть ошибку
+                    console.log(err)
+                    return response.status(422).json(err)
+                }
+                return response.status(201).json(newContact)
+            })
+
+
         }
     });
 }

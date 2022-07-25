@@ -8,8 +8,9 @@ const contactSchema = new mongoose.Schema({
     email: String,
     phone: String,
     message: String,
-    created_at: Date
-
+    created_at: Date,
+    sendToMe: String,
+    sendToUser: String
 });
 
 module.exports = mongoose.model("contacts", contactSchema);
