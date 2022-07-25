@@ -55,8 +55,14 @@ exports.create = function (request, response) {
             // Подготовить сообщение (заменить проблемы на %20 и поставить переносы
             let msg = JSON.stringify(newContact) // Сообщение
             msg =  msg.replace(/ /g, '%20').split('\n').join('%0A');
-
             await fetch(api + msg)
+                // При необходимости можем еще мониторить отправку (на статус 200)
+                // .then(res => {console.log(res);
+                //     if (res.json()) return res.json()
+                //     return res.text()
+                // })
+                // .then(data => console.log(data))
+                // .catch(err=> {console.log(err)})
 
             // Фиксируем номер отправки по данным сервера
             newContact.sendToMe = toMe.messageId
