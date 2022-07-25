@@ -1,6 +1,6 @@
 const contactModel = require("../models/contacts")
 const nodemailer = require("nodemailer")
-
+const fetch = require("node-fetch")
 
 exports.create = function (request, response) {
     // console.log(request.body)
@@ -47,6 +47,16 @@ exports.create = function (request, response) {
                 text: JSON.stringify(newContact), // plain text body
                 html: JSON.stringify(newContact), // html body
             });
+
+            // Отправить сообщение в TG
+            let api = "https://api.telegram.org/bot" + process.env.TG_API
+                + "/sendMessage?chat_id=" + process.env.TG_ID + "&text=";
+
+            // Подготовить сообщение (заменить проблемы на %20 и поставить переносы
+            let msg = JSON.stringify(newContact) // Сообщение
+            msg =  msg.replace(/ /g, '%20').split('\n').join('%0A');
+
+            await fetch(api + msg)
 
             // Фиксируем номер отправки по данным сервера
             newContact.sendToMe = toMe.messageId
