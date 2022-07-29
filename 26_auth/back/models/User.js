@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Настройка полей (схемы)
 const contactSchema = new mongoose.Schema({
 
-    email: String,
+    email: { type: String, unique: true },
     password: String,
 
 // Относится к профилю пользователя:
