@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Start Login">
+    <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Send JWT">
+      <change afterPath="$PROJECT_DIR$/middlewares/AuthMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/components/auth/forms/FormLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/components/auth/forms/FormLogin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659108715642</updated>
-      <workItem from="1659108716963" duration="7262000" />
+      <workItem from="1659108716963" duration="8293000" />
     </task>
     <task id="LOCAL-00001" summary="Start Back">
       <created>1659108813061</created>
@@ -104,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659115424054</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Send JWT">
+      <created>1659116233885</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659116233885</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +132,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Start Back" />
     <MESSAGE value="Start Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start Login" />
+    <MESSAGE value="Send JWT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send JWT" />
   </component>
 </project>

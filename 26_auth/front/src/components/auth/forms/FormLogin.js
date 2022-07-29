@@ -49,6 +49,7 @@ class FormLogin extends React.Component {
             })
             .then(data=> {
                 console.log(data)
+                localStorage.setItem('jwtToken', data.token)
             })
             .catch(err=> {
                 console.log("Error")

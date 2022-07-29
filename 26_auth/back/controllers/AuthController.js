@@ -24,7 +24,10 @@ exports.login = function (request, response) {
             let jwtUser = {
                 // user: dbUser, // Посылать данные - ну можно имя например
                 token: jwt.sign(
-                    { _id: dbUser._id }, // Что я шифрую
+                    {
+                        _id: dbUser._id,
+                        email: dbUser.email
+                    }, // Что я шифрую
                     process.env.JWT_KEY) // Ключ шифра
             }
             return response.status(200).json(jwtUser)
