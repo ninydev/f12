@@ -1,13 +1,13 @@
 
 import './App.css';
-import FormRegister from "./components/auth/forms/FormRegister";
+import FormLogin from "./components/auth/forms/FormLogin";
 //require('dotenv').config()
 
 
 function App() {
   return (
     <div className="App">
-      <FormRegister></FormRegister>
+      <FormLogin></FormLogin>
     </div>
   );
 }

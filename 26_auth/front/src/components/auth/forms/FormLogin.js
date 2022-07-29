@@ -1,7 +1,7 @@
 import React from "react"
 
 
-class FormRegister extends React.Component {
+class FormLogin extends React.Component {
 
     constructor(props) {
         super(props);
@@ -9,7 +9,6 @@ class FormRegister extends React.Component {
             email: '',
             isEmailValid: true,
             password: '',
-            passwordC: '',
             isPasswordValid: true,
 
             isFormValid: true,
@@ -36,7 +35,7 @@ class FormRegister extends React.Component {
         console.log(data)
 
         fetch('http://localhost:3333/api' +
-            '/auth/register',{
+            '/auth/login',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,12 +76,6 @@ class FormRegister extends React.Component {
                         <div className="invalid-feedback" id="phone_required">A password is required.
                         </div>
                     </div>
-                    <div className="form-floating">
-                        <input onChange={this.onChange}  name="passwordC" className="form-control" id="phone" type="tel" placeholder="Enter your password..."/>
-                        <label htmlFor="passwordC">Password</label>
-                        <div className="invalid-feedback" id="phone_required">A password is required.
-                        </div>
-                    </div>
 
                     <div className="d-none" id="submitErrorMessage">
                         <div className="text-center text-danger mb-3">Error register!</div>
@@ -97,4 +90,4 @@ class FormRegister extends React.Component {
 
 }
 
-export default FormRegister
+export default FormLogin

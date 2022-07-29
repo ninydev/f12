@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Start Back">
-      <change afterPath="$PROJECT_DIR$/../front/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front/src/components/auth/forms/FormRegister.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/auth/forms/FormLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/components/auth/forms/FormRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/components/auth/forms/FormRegister.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659108715642</updated>
-      <workItem from="1659108716963" duration="5128000" />
+      <workItem from="1659108716963" duration="6584000" />
     </task>
     <task id="LOCAL-00001" summary="Start Back">
       <created>1659108813061</created>
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659112325581</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Start Back">
+      <created>1659114133446</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659114133446</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

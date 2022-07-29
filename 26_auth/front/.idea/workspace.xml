@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/auth/forms/FormRegister.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/forms/FormLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../back/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/../back/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../back/routes/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/forms/FormRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/forms/FormRegister.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "C:/Users/keepe/repos",
+    "last_opened_file_path": "C:/Users/keepe/repos/f12/26_auth/front/src/components/auth/forms",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,6 +63,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\keepe\repos\f12\26_auth\front\src\components\auth\forms" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -88,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659110126337</updated>
-      <workItem from="1659110127651" duration="2523000" />
+      <workItem from="1659110127651" duration="3722000" />
     </task>
     <servers />
   </component>
