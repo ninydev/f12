@@ -5,9 +5,8 @@ const mongoose = require("mongoose");
 const contactSchema = new mongoose.Schema({
 
     email: { type: String, unique: true },
-    password: String,
-    created_at: Date,
-    verify_at: Date // Дата проверки пользователя
+    key: { type: String, unique: true },
+    sendToUser: String
 
 // Относится к профилю пользователя:
 //     name: String,
@@ -18,4 +17,4 @@ const contactSchema = new mongoose.Schema({
 //     sendToUser: String
 });
 
-module.exports = mongoose.model("users", contactSchema);
+module.exports = mongoose.model("emailConfirmations", contactSchema);
