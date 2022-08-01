@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Email">
+      <change afterPath="$PROJECT_DIR$/../front/src/components/auth/EmailVerify.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/guid.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/guid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659108715642</updated>
       <workItem from="1659108716963" duration="8633000" />
-      <workItem from="1659366857334" duration="6834000" />
+      <workItem from="1659366857334" duration="7865000" />
     </task>
     <task id="LOCAL-00001" summary="Start Back">
       <created>1659108813061</created>
@@ -132,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659373970800</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Email">
+      <created>1659374589762</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659374589762</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
