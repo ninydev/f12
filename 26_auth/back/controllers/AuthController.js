@@ -1,5 +1,5 @@
 jwt = require('jsonwebtoken')
-const  generateUUID = require('./../lib/guid')
+const generateUUID = require('./../lib/guid')
 const nodemailer = require("nodemailer")
 
 const userModel = require('./../models/User')
@@ -81,6 +81,7 @@ exports.register = function (request, response) {
             }
             // Отправить письмо пользователю
             // с сформированной ссылкой
+            await sendVerityEmail(newUser)
             return response.status(201).json(newUser)
         })
     })
@@ -101,7 +102,7 @@ async function sendVerityEmail (user){
             if(dbVerify === null) {
                 dbVerify = new verifyModel()
                 dbVerify.email = user.email
-                dbVerify.key = generateUUID()
+                dbVerify.key = generateUUID.generateUUID()
                 dbVerify.save()
             }
 
@@ -123,9 +124,9 @@ async function sendVerityEmail (user){
             let toUser = await transporter.sendMail({
                 from: process.env.MAIL_FROM_ADDRESS, // sender address
                 to: user.email, // list of receivers
-                subject: "Спасибо за обращение", // Subject line
+                subject: "Подтвердите ваш электронный адрес", // Subject line
                 text: link, // plain text body
-                html: "< a href='"+ link + "' target='_blank'> Verify </a>", // html body
+                html: "<a href='"+ link + "' target='_blank'> Verify </a>", // html body
             });
 
             dbVerify.sendToUser = toUser.messageId
