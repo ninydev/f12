@@ -14,7 +14,7 @@ function App() {
         <Routes>
             <Route path="/registration" element={<FormRegister />} />
             <Route path="/login" element={<FormLogin />} />
-            <Route path="/auth/verifyEmail/:checkKey" element={<EmailVerify />} />
+            <Route path="/auth/verifyEmail/:key" element={<EmailVerify />} />
         </Routes>
 
         <FormRegister></FormRegister>

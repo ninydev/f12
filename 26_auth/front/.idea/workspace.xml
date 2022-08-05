@@ -4,11 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/auth/EmailVerify.js" afterDir="false" />
+    <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify">
+      <change afterPath="$PROJECT_DIR$/../../27_gray/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/.idea/27_gray.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/img/bg-masthead.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/img/bg-signup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/img/demo-image-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/img/demo-image-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/assets/img/ipad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/disign/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/img/bg-masthead.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/img/bg-signup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/img/demo-image-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/img/demo-image-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/assets/img/ipad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/About.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Masthead.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Projects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/setupTests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/EmailVerify.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/EmailVerify.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +94,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/front/src/components/auth/forms&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/front&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -89,8 +135,18 @@
       <option name="presentableId" value="Default" />
       <updated>1659110126337</updated>
       <workItem from="1659110127651" duration="4673000" />
-      <workItem from="1659366892785" duration="5600000" />
+      <workItem from="1659366892785" duration="5990000" />
+      <workItem from="1659709662906" duration="3161000" />
+      <workItem from="1659713479182" duration="1790000" />
     </task>
+    <task id="LOCAL-00001" summary="Email Verify">
+      <created>1659376842037</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659376842037</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,5 +165,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Email Verify" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email Verify" />
   </component>
 </project>

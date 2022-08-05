@@ -12,7 +12,7 @@ class EmailVerify extends React.Component {
     constructor(props) {
         super(props);
         console.log("Props")
-        console.log(props)
+        // console.log(this.props.match.params.key)
         // const { checkKey } = this.props.match.params.checkKey;
         // console.log(checkKey)
         // const params = useParams()
