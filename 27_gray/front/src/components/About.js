@@ -1,4 +1,13 @@
+import {useEffect} from "react";
+
 export default function About() {
+
+    useEffect(() => {
+        console.log('use Effect About')
+        // document.getElementById("about").classList.add('onLoad')
+        // document.getElementById("about").style.transition = 'rotate(360deg)'
+    });
+
     return (
         <section className="about-section text-center" id="about">
             <div className="container px-4 px-lg-5">
