@@ -1,6 +1,6 @@
 export default function Error404() {
     return(
-        <header className="masthead">
+        <header className="masthead" id="error">
             <div className="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div className="d-flex justify-content-center">
                     <div className="text-center">

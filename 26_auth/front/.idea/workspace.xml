@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify">
-      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Error404.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/Masthead.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Masthead.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Navigation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +88,8 @@
       <workItem from="1659110127651" duration="4673000" />
       <workItem from="1659366892785" duration="5990000" />
       <workItem from="1659709662906" duration="3161000" />
-      <workItem from="1659713479182" duration="3892000" />
+      <workItem from="1659713479182" duration="3992000" />
+      <workItem from="1659776555227" duration="178000" />
     </task>
     <task id="LOCAL-00001" summary="Email Verify">
       <created>1659376842037</created>

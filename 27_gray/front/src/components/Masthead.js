@@ -1,9 +1,17 @@
 import {useEffect} from "react";
+import {useSpring, animated} from "react-spring";
 
 export default function Masthead() {
-    useEffect(() => {
-        console.log('use Effect Masthead')
-    });
+    // useEffect(() => {
+    //     console.log('use Effect Masthead')
+    // });
+    //
+    // const animateStyles = useSpring({
+    //     from: { opacity: 0 } ,
+    //     to: { opacity: 1, background: '#f00'},
+    //     leave: { opacity: 0 },
+    //     delay: 0
+    // })
 
     return (
         <header className="masthead" id="masthead">

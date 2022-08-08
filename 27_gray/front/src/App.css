@@ -8,3 +8,30 @@
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
+
+#about, #masthead, #contact, #error, #projects, #signup {
+   /*position: absolute;*/
+}
+
+#about {z-index: 10}
+#masthead {z-index: 20}
+#contact {z-index: 30}
+#error {z-index: 40}
+#projects {z-index: 50}
+#signup {z-index: 60}
+
+.out {position: absolute}
+.inner {position: relative}
+
+
+footer {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*bottom: 0;*/
+  /*width: 100%;*/
+  /*height: 80px; */
+}
+
