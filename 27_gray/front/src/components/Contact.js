@@ -1,3 +1,5 @@
+import ClassMethod from "./useState/classMethod";
+
 export default function Contact() {
 
     return(
@@ -10,6 +12,7 @@ export default function Contact() {
                                 <i className="fas fa-map-marked-alt text-primary mb-2"></i>
                                 <h4 className="text-uppercase m-0">Address</h4>
                                 <hr className="my-4 mx-auto"/>
+                                <ClassMethod></ClassMethod>
                                 <div className="small text-black-50">4923 Market Street, Orlando FL</div>
                             </div>
                         </div>
