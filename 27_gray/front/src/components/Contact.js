@@ -1,4 +1,6 @@
-import ClassMethod from "./useState/classMethod";
+import ClassMethod from "./useState/ClassMethod";
+import HookMethod from "./useState/HookMethod";
+import SelectNovaPoshta from "./novaPoshta/SelectNovaPoshta";
 
 export default function Contact() {
 
@@ -12,7 +14,10 @@ export default function Contact() {
                                 <i className="fas fa-map-marked-alt text-primary mb-2"></i>
                                 <h4 className="text-uppercase m-0">Address</h4>
                                 <hr className="my-4 mx-auto"/>
-                                <ClassMethod></ClassMethod>
+                                <SelectNovaPoshta></SelectNovaPoshta>
+                                <hr />
+                                <ClassMethod></ClassMethod><br />
+                                <HookMethod></HookMethod><br />
                                 <div className="small text-black-50">4923 Market Street, Orlando FL</div>
                             </div>
                         </div>

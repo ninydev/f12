@@ -40,7 +40,15 @@ export default class ClassMethod extends React.Component {
     onChange(e) {
         const oldState = this.state
         oldState[e.target.name] = e.target.value
+        localStorage.setItem(e.target.name, oldState.counter)
         this.setState(oldState)
+    }
+
+    onSubmit(){
+        let data = {
+            counter: this.state.counter
+        }
+        console.log(data)
     }
 
     /**
@@ -51,8 +59,12 @@ export default class ClassMethod extends React.Component {
         return (
             <>
                 {this.state.counter}
+                <input type="number"
+                       value={this.state.counter}
+                       onChange={this.onChange.bind(this)} name='counter'/>
                 <button onClick={this.plus.bind(this)} type="button">+</button>
                 <button onClick={this.minus.bind(this)} type="button">-</button>
+                <button onClick={this.onSubmit.bind(this)} type="button"> Send </button>
             </>
         )
     }
