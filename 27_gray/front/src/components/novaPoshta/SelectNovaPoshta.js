@@ -25,7 +25,7 @@ export default function SelectNovaPoshta() {
             })
             .then(inAreas => {
               console.log(inAreas)
-                setAreas(inAreas)
+                setAreas(inAreas.data)
             })
             .catch(err=> {
                 console.log("err")
