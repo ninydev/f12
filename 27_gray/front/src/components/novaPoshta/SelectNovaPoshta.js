@@ -5,7 +5,7 @@ export default function SelectNovaPoshta(props) {
     // console.log(props)
 
     // Ключ
-    const key = "0a97c8c98d19e6e4097fea363302f17b"
+    const key = process.env.NOVAPOSHTA_API_KEY
 
     // Место хранения областей
     const [areas, setAreas] = useState([])
@@ -34,7 +34,7 @@ export default function SelectNovaPoshta(props) {
             })
     }
 
-
+    // Города
     const [cities, setCities] = useState([])
     const changeSelectedArea= (ev) => {
         // console.log("User Select area: ")
@@ -66,6 +66,7 @@ export default function SelectNovaPoshta(props) {
             })
     }
 
+    // Отделения
     const [warehouses, setWarehouses] = useState([])
     const changeSelectedCity = (ev)=> {
         // console.log("User Select area: ")
