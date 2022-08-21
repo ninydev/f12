@@ -68,5 +68,6 @@ window.env = {
   "USERNAME": "keepe",
   "USERPROFILE": "C:\\Users\\keepe",
   "windir": "C:\\WINDOWS",
-  "ZES_ENABLE_SYSMAN": "1"
+  "ZES_ENABLE_SYSMAN": "1",
+  "__COMPAT_LAYER": "DetectorsAppHealth"
 };

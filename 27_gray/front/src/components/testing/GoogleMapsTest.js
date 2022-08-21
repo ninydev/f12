@@ -8,8 +8,8 @@ export default function GoogleMapsTest(props){
     const render = (status) => {
         return <h1>status</h1>
     }
-    // console.log('Key')
-    // console.log(env.REACT_APP_GOOGLE_MAP_API_KEY);
+    console.log('Key')
+    console.log(env.REACT_APP_GOOGLE_MAP_API_KEY);
 
 
     const ref = React.useRef(null);

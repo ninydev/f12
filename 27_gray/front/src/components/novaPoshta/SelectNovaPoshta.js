@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import MapNovaPoshta from "./MapNovaPoshta";
 
 export default function SelectNovaPoshta(props) {
     // console.log("Props:")
@@ -33,6 +34,11 @@ export default function SelectNovaPoshta(props) {
                 console.log(err)
             })
     }
+
+    useEffect(() => {
+        // Оновлюємо заголовок документа, використовуючи API браузера
+        loadAreas()
+    });
 
     // Города
     const [cities, setCities] = useState([])
@@ -117,5 +123,6 @@ export default function SelectNovaPoshta(props) {
                 <option key={warehouse.Ref} value={warehouse.Ref}>{warehouse.Description}</option>
             ))}
         </select>
+        <MapNovaPoshta warehouses={warehouses}></MapNovaPoshta>
         </>)
 }
