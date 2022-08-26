@@ -1,5 +1,6 @@
 import './App.css';
 
+import logo from "./logo.svg"
 import { useTransition, animated } from 'react-spring';
 
 
@@ -14,6 +15,7 @@ import Error404 from "./components/Error404";
 
 import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 import MyRoutes from "./MyRoutes";
+import SlickSliderClass from "./components/sliders/slick/SlickSliderClass";
 
 function App() {
 
@@ -38,13 +40,21 @@ function App() {
     //     </animated.div>
     // ))
 
+    // За путь к картинке отвечает html (связка броузер и сервер)
+    // для статических картинок очень удобно
+
+    //<img src="https://content2.rozetka.com.ua/assets/img/logo.svg"/> - в идеале
+    //<img src="/assets/img/logo.svg"/>
+
+
+
   return (
       <>
-        <BrowserRouter>
+          <BrowserRouter>
           <Navigation></Navigation>
             <div className="out container-fluid">
                 <div className="inner">
-            <MyRoutes></MyRoutes>
+                <MyRoutes></MyRoutes>
                 </div>
             </div>
         </BrowserRouter>

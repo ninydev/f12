@@ -32,7 +32,6 @@ export default class ClassMethod extends React.Component {
         this.setState(oldState)
     }
 
-
     /**
      * Динамический перенос данных в стейт
      * @param e
@@ -44,12 +43,16 @@ export default class ClassMethod extends React.Component {
         this.setState(oldState)
     }
 
-    onSubmit(){
-        let data = {
-            counter: this.state.counter
-        }
-        console.log(data)
+
+    componentDidMount() {
+        alert("Я родился - все так здорово")
+        console.log(" Я примонтировался - и этот код будет запущен")
     }
+
+    componentWillUnmount() {
+        alert("Быть или не быть вот в чем вопрос")
+    }
+
 
     /**
      * Вывод на экран - как выглядит компонент
@@ -64,7 +67,6 @@ export default class ClassMethod extends React.Component {
                        onChange={this.onChange.bind(this)} name='counter'/>
                 <button onClick={this.plus.bind(this)} type="button">+</button>
                 <button onClick={this.minus.bind(this)} type="button">-</button>
-                <button onClick={this.onSubmit.bind(this)} type="button"> Send </button>
             </>
         )
     }

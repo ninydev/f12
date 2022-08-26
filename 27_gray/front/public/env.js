@@ -43,8 +43,8 @@ window.env = {
   "OneDrive": "C:\\Users\\keepe\\OneDrive",
   "OneDriveConsumer": "C:\\Users\\keepe\\OneDrive",
   "OS": "Windows_NT",
-  "Path": "C:\\Users\\keepe\\repos\\f12\\27_gray\\front\\node_modules\\.bin;C:\\Users\\keepe\\repos\\f12\\27_gray\\node_modules\\.bin;C:\\Users\\keepe\\repos\\f12\\node_modules\\.bin;C:\\Users\\keepe\\repos\\node_modules\\.bin;C:\\Users\\keepe\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\nodejs\\;C:\\xampp\\php;C:\\Program Files\\heroku\\bin;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Users\\keepe\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\keepe\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\keepe\\.dotnet\\tools;C:\\Users\\keepe\\AppData\\Roaming\\npm;C:\\Program Files\\heroku\\bin",
-  "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+  "Path": "C:\\Users\\keepe\\repos\\f12\\27_gray\\front\\node_modules\\.bin;C:\\Users\\keepe\\repos\\f12\\27_gray\\node_modules\\.bin;C:\\Users\\keepe\\repos\\f12\\node_modules\\.bin;C:\\Users\\keepe\\repos\\node_modules\\.bin;C:\\Users\\keepe\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\nodejs\\;C:\\xampp\\php;C:\\Program Files\\heroku\\bin;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\PuTTY\\;C:\\Users\\keepe\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\keepe\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\keepe\\.dotnet\\tools;C:\\Users\\keepe\\AppData\\Roaming\\npm;C:\\Program Files\\heroku\\bin",
+  "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
   "PROCESSOR_ARCHITECTURE": "AMD64",
   "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
   "PROCESSOR_LEVEL": "6",
@@ -68,6 +68,5 @@ window.env = {
   "USERNAME": "keepe",
   "USERPROFILE": "C:\\Users\\keepe",
   "windir": "C:\\WINDOWS",
-  "ZES_ENABLE_SYSMAN": "1",
-  "__COMPAT_LAYER": "DetectorsAppHealth"
+  "ZES_ENABLE_SYSMAN": "1"
 };

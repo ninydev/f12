@@ -1,12 +1,15 @@
 import {useEffect, useState} from "react";
 import MapNovaPoshta from "./MapNovaPoshta";
+import logo from './novaPoshta.jpg'
+import env from "react-dotenv";
 
 export default function SelectNovaPoshta(props) {
     // console.log("Props:")
     // console.log(props)
 
     // Ключ
-    const key = process.env.NOVAPOSHTA_API_KEY
+    const key = env.REACT_APP_NOVAPOSHTA_API_KEY
+    console.log(" Nova Poshta" + key)
 
     // Место хранения областей
     const [areas, setAreas] = useState([])
@@ -38,7 +41,7 @@ export default function SelectNovaPoshta(props) {
     useEffect(() => {
         // Оновлюємо заголовок документа, використовуючи API браузера
         loadAreas()
-    });
+    }, []) ;
 
     // Города
     const [cities, setCities] = useState([])
@@ -123,6 +126,5 @@ export default function SelectNovaPoshta(props) {
                 <option key={warehouse.Ref} value={warehouse.Ref}>{warehouse.Description}</option>
             ))}
         </select>
-        <MapNovaPoshta warehouses={warehouses}></MapNovaPoshta>
         </>)
 }

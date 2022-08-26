@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 export default function HookMethod(props) {
@@ -9,6 +9,22 @@ export default function HookMethod(props) {
     const [userEmail, setUserEmail] = useState('email');
 
 
+    useEffect( () => {
+        console.log("Я создался")
+        return () => {
+            alert('Do some cleanup');
+        }
+    }, []);
+
+
+    useEffect( () => {
+        console.log("1 Будет запускаться в момент когда сменился counter")
+    }, [counter])
+
+    useEffect( () => {
+        console.log("2 Будет запускаться в момент когда сменился counter")
+    }, [counter])
+
     const plus = () => {
         setCounter(counter+1)
         localStorage.setItem('counter_hook', counter)
@@ -18,26 +34,14 @@ export default function HookMethod(props) {
         localStorage.setItem('counter_hook', counter)
     }
 
-    const onSubmit = () => {
-      let data = {
-          counter: counter,
-          name: userName,
-          email: userEmail
-      }
-      console.log(data)
-    }
-
     return (
         <>
             {counter}
             <input type="number"
                    value={counter}
                    onChange={(e) => {setCounter(parseInt(e.target.value))}} name='counter'/>
-            <input type="text" value={userEmail}
-                   onChange={(e) => {setUserEmail(e.target.value)}}/>
             <button onClick={plus} type="button">+</button>
             <button onClick={minus} type="button">-</button>
-            <button onClick={onSubmit} type="button"> Send </button>
         </>
     )
 }
