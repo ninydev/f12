@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify">
+      <change beforePath="$PROJECT_DIR$/../back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/front&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/back&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -90,6 +91,8 @@
       <workItem from="1659709662906" duration="3161000" />
       <workItem from="1659713479182" duration="3992000" />
       <workItem from="1659776555227" duration="178000" />
+      <workItem from="1661790126607" duration="1118000" />
+      <workItem from="1661791412630" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Email Verify">
       <created>1659376842037</created>
