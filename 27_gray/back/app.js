@@ -28,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Для работы с базой данных
 require("./config/mongo").connect();
 
-// Тут будут маршруты
+// Подключение маршрутов
+const auth = require('./auth/authRoutes')
+app.use('/api/auth', auth)
 
 module.exports = app;

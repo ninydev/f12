@@ -1,9 +1,9 @@
 jwt = require('jsonwebtoken')
-const generateUUID = require('./../lib/guid')
+const generateUUID = require('./guid')
 const nodemailer = require("nodemailer")
 
-const userModel = require('./../models/User')
-const verifyModel = require('./../models/EmailConfirmation')
+const userModel = require('./models/User')
+const verifyModel = require('./models/EmailConfirmation')
 
 let bcrypt = require('bcrypt')
 let salt = process.env.BCRYPT_SALT

@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify">
-      <change beforePath="$PROJECT_DIR$/../back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/back/auth/authRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormLogin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormRegistration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/AuthController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/lib/guid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/guid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/models/EmailConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/models/EmailConfirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/routes/users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Contact.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +55,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/back&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/27_gray&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -93,6 +102,8 @@
       <workItem from="1659776555227" duration="178000" />
       <workItem from="1661790126607" duration="1118000" />
       <workItem from="1661791412630" duration="8000" />
+      <workItem from="1661794197552" duration="23000" />
+      <workItem from="1661795060618" duration="609000" />
     </task>
     <task id="LOCAL-00001" summary="Email Verify">
       <created>1659376842037</created>
