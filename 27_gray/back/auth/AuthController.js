@@ -52,7 +52,7 @@ exports.login = function (request, response) {
                     token: jwt.sign(
                         {
                             _id: dbUser._id,
-                            email: dbUser.email,
+                            email: dbUser.email, // ????
                             role: dbUser.role
                         }, // Что я шифрую
                         process.env.JWT_KEY) // Ключ шифра
