@@ -1,4 +1,5 @@
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import logo from "./logo.svg"
 import { useTransition, animated } from 'react-spring';
@@ -16,6 +17,7 @@ import Error404 from "./components/Error404";
 import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 import MyRoutes from "./MyRoutes";
 import SlickSliderClass from "./components/sliders/slick/SlickSliderClass";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 
@@ -58,6 +60,7 @@ function App() {
                 </div>
             </div>
         </BrowserRouter>
+          <ToastContainer />
       </>
   );
 }

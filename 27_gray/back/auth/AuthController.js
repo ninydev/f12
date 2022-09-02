@@ -33,14 +33,27 @@ exports.login = function (request, response) {
                 if(dbUser=== null) {
                     return response.status(403).json('{"err":"Auth"}')
                 }
-                console.log('Find')
+                // console.log('Find')
+                // console.log(dbUser)
+
+                // Всегда удаляйте не нужную информацию
+                dbUser['password'] = null
+                delete dbUser['password']
                 console.log(dbUser)
+
+                // Или формируйте ответ по условиям задачи
+                let sendUser = {
+                    email: dbUser.email,
+                    role: dbUser.role
+                }
+
                 let jwtUser = {
-                    // user: dbUser, // Посылать данные - ну можно имя например
+                    user: sendUser, // Посылать данные - ну можно имя например
                     token: jwt.sign(
                         {
                             _id: dbUser._id,
-                            email: dbUser.email
+                            email: dbUser.email,
+                            role: dbUser.role
                         }, // Что я шифрую
                         process.env.JWT_KEY) // Ключ шифра
                 }
@@ -60,12 +73,12 @@ exports.register = function (request, response) {
     user.role = "user"
     user.created_at = Date.now() // Когда пользователь зарегистрировался
     user.verify_at = null // Когда он подтвердил свою почту
-    console.log(user)
+    // console.log(user)
     bcrypt.hash(user.password, salt, function (err, result) {
 
         if (err) {
             console.log(err)
-            return response.status(422).json(err)
+            return response.status(422).json(err.toString())
         }
         user.password = result
 
@@ -73,8 +86,8 @@ exports.register = function (request, response) {
 
         newUser.save( async function (err) {
             if (err) { // Если ошибка - вернуть ошибку
-                console.log(err)
-                return response.status(422).json(err)
+                console.log(err.toString())
+                return response.status(403).json(err.toString())
             }
             // Отправить письмо пользователю
             await sendVerityEmail(newUser)

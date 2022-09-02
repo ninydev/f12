@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Email">
+      <change afterPath="$PROJECT_DIR$/../../27_gray/back/auth/UserController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/back/auth/authMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormEditUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/auth/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/AuthController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/back/auth/authRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/authRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/public/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/public/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/Contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormRegistration.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/src/components/auth/forms/FormRegistration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../27_gray/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,25 +52,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "16.15.1",
-    "javascript.nodejs.core.library.typings.version": "16.11.56",
-    "last_opened_file_path": "C:/Users/keepe/repos/f12/26_auth/back",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.11.56&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/26_auth/back&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\keepe\repos\f12\26_auth\back\lib" />
@@ -75,6 +90,7 @@
       <workItem from="1659366857334" duration="7865000" />
       <workItem from="1659453186684" duration="5000" />
       <workItem from="1661790134260" duration="947000" />
+      <workItem from="1662138504679" duration="784000" />
     </task>
     <task id="LOCAL-00001" summary="Start Back">
       <created>1659108813061</created>

@@ -4,6 +4,8 @@ import SelectNovaPoshta from "./novaPoshta/SelectNovaPoshta";
 import ContactForm from "./forms/ContactForm";
 import PasswordForm from "./forms/PasswordForm";
 import FormRegistration from "./auth/forms/FormRegistration";
+import FormLogin from "./auth/forms/FormLogin";
+import FormEditUser from "./auth/forms/FormEditUser";
 
 export default function Contact() {
 
@@ -32,6 +34,11 @@ export default function Contact() {
                                 <i className="fas fa-envelope text-primary mb-2"></i>
                                 <h4 className="text-uppercase m-0">Email</h4>
                                 <hr className="my-4 mx-auto"/>
+
+                                <FormLogin></FormLogin>
+
+                                <hr />
+
                                 <div className="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
                             </div>
                         </div>
@@ -42,6 +49,11 @@ export default function Contact() {
                                 <i className="fas fa-mobile-alt text-primary mb-2"></i>
                                 <h4 className="text-uppercase m-0">Phone</h4>
                                 <hr className="my-4 mx-auto"/>
+
+                                <FormEditUser></FormEditUser>
+
+                                <hr />
+
                                 <div className="small text-black-50">+1 (555) 902-8832</div>
                             </div>
                         </div>

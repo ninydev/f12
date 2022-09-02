@@ -3,11 +3,14 @@ let express = require('express');
 let router = express.Router();
 
 // Ссылка на того - к кому я прокладываю дорогу
-let controller = require('./AuthController')
+let authController = require('./AuthController')
+let userController = require('./UserController')
 
 // Правила - как отвечать тому, кто пришел
-router.post('/register', controller.register)
-router.post('/login', controller.login)
+router.post('/register', authController.register)
+router.post('/login', authController.login)
+
+router.get('/getMe', userController.getMe )
 
 // Подготовится к подключению к общей сети дорог
 module.exports = router;
