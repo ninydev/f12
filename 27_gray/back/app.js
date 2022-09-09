@@ -36,4 +36,8 @@ app.use(authMiddleware)
 const auth = require('./auth/authRoutes')
 app.use('/api/auth', auth)
 
+const media = require('./routes/mediaRoutes')
+app.use('/api/media', media)
+
+
 module.exports = app;
