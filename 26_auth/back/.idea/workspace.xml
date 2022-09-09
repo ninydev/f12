@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Email">
-      <change beforePath="$PROJECT_DIR$/../../27_gray/back/auth/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../27_gray/back/auth/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../27_gray/back/auth/UserController.js" afterDir="false" />
-    </list>
+    <list default="true" id="6ab1b236-598e-4635-a050-a2822f7bf27c" name="Changes" comment="Email" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

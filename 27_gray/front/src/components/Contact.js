@@ -6,6 +6,7 @@ import PasswordForm from "./forms/PasswordForm";
 import FormRegistration from "./auth/forms/FormRegistration";
 import FormLogin from "./auth/forms/FormLogin";
 import FormEditUser from "./auth/forms/FormEditUser";
+import FileForm from "./forms/FileForm";
 
 export default function Contact() {
 
@@ -51,6 +52,7 @@ export default function Contact() {
                                 <hr className="my-4 mx-auto"/>
 
                                 <FormEditUser></FormEditUser>
+                                <FileForm></FileForm>
 
                                 <hr />
 

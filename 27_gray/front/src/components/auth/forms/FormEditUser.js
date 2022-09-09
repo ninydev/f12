@@ -6,6 +6,9 @@ import {toast} from "react-toastify"
 
 export default function FormEditUser() {
 
+    /**
+     * Получение данных о текущем пользователе по ключу
+     */
     const getUser = function () {
         fetch('http://localhost:3333/api' +
             '/auth/getMe',{
