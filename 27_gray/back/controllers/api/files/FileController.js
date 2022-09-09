@@ -7,14 +7,36 @@ exports.getFile = function (request, response) {
     // Получаю мой файл
     let file = request.files.file;
     // Копирую файл в нужную мне папку
-    file.mv("./uploads/" + file.name);
+    console.log(file)
+    // Проблема - одинаковые имена файлов от разных пользователей
+
+
+    let uploadDir = './uploads/'
+
+    // Формирование каждому пользователю своей папки в хранилище
+    if (request.user) {
+        uploadDir+= request.user._id
+    } else {
+        uploadDir+= 'guest'
+    }
+
+    // добавление папок год / месяц / число
+    let date = new Date();
+    uploadDir+= '/' + date.getFullYear();
+    uploadDir+= '/' + (1 + date.getMonth());
+    uploadDir+= '/' + date.getDate();
+
+    // Изменение имени файла (случайное число, текущий момент времени, guid)
+    let fullPath = uploadDir + '/' + Date.now() + file.name
+    file.mv( fullPath);
 
     // Формирую ответ об успешной загрузке
     res = {
-        status: "success",
+            status: "success",
             message: "File is uploaded",
         data: {
-        name: file.name,
+            oldName: file.name,
+            fullPath: fullPath,
             mimetype: file.mimetype,
             size: file.size,
         },

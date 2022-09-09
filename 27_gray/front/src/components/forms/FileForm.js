@@ -24,9 +24,11 @@ export default function FileForm() {
         const res = await fetch('http://localhost:3333/api' + '/media/file/', {
             method: "POST",
             body: formData,
+            headers: {
+                'authorization': localStorage.getItem('jwtToken')
+            }
         }).then((res) => res.json());
         console.log(res);
-        // alert(JSON.stringify(`${res.message}, status: ${res.status}`));
     };
 
     return (
