@@ -38,6 +38,8 @@ exports.setMe = function (request, response) {
 
     // 1 Нужно проверить - а соответствует ли пользователь паролю
     // если не соответствует - нужно вернуть ошибку и дальше не двигаться
+
+    // Шифрую введенный пароль
     bcrypt.hash(updateUser.password, salt, function (err, result) {
         if (err) {
             console.log(err)
@@ -45,6 +47,7 @@ exports.setMe = function (request, response) {
         }
         updateUser.password = result
 
+        // Проверяю - а соответствует ли введенный пароль тому, кто воешл в систему
         userModel.findOne ({id: request.user._id, password: updateUser.password},
             async function (err, dbUser) {
                 // Если ошибка - вернуть ошибку
@@ -70,13 +73,14 @@ exports.setMe = function (request, response) {
                 updateUser.role = request.user.role // Роль оставить старую
                 updateUser.email = request.user.email
 
+                // 4 обновляю запись в базе данных
                 userModel.findByIdAndUpdate(request.user._id, updateUser, function (err, newUser) {
                     if(err) {
                         console.log(err);
                         return response.status(422).json(err);
                     }
                     else {
-                        console.log('Update Ok')
+                        // Если все шаги ОК - отсылаю код 204 - данные обновлены
                         return response.sendStatus(204);
                     }
                 })
