@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
@@ -43,7 +43,10 @@ export default function FormEditUser() {
             }
         })
             .then(res => {
-                // console.log(res)
+                if (res.status === 403) {
+                    setError({message: "Вы не авторизованы"})
+                    return null
+                }
                 if(res.status !==200) {
                     toast.error("Ошибка")
                     return null
@@ -57,13 +60,49 @@ export default function FormEditUser() {
                 }
                 toast.success(data.email)
                 console.log(data)
+                setUser(data) // прогрузить пользователя
+                setPreload(false) // Убрать прелоадер
+                setError(null)
             })
             .catch(err=> {
                 console.log(err)
                 toast.error(err)
+                setError(err)
             })
     }
 
+    /**
+     * Хранение полученных данных с сервера
+     */
+    const [user,setUser] = useState({}) // Сохранение полученного пользователя
+    const [isPreload, setPreload] = useState(true) // Показывать - загружены ли данные
+    const [err, setError] = useState(null) // Сохранить состояние ошибки общения с сервером
+
+    // Получить данные о пользователе при создании компонента
+    useEffect( () => {
+        console.log("Получаю данные о пользователе")
+        getUser()
+    }, [])
+
+    // Если была ошибка обращения к серверу - вывести ее пользователю
+    if(err) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                {err.message}
+            </div>
+        )
+    }
+
+    // Если данные не загружены - показать preload
+    if (isPreload) {
+        return (
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+        )
+    }
+
+    // Если данные загружены, и не было ошибок - вывести форму
     return (
         <div className="container mt-5">
             <h2>Ваш профиль</h2>
@@ -74,6 +113,7 @@ export default function FormEditUser() {
                         disabled
                         name="email"
                         type="email"
+                        value={user.email}
                         {...register('email')}
                         className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                     />
@@ -94,6 +134,7 @@ export default function FormEditUser() {
                     <input
                         name="name"
                         type="text"
+                        value={user.name}
                         {...register('name')}
                         className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                     />
@@ -104,6 +145,7 @@ export default function FormEditUser() {
                     <input
                         name="phone"
                         type="tel"
+                        value={user.phone}
                         {...register('phone')}
                         className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
                     />
@@ -114,6 +156,7 @@ export default function FormEditUser() {
                     <input
                         name="status"
                         type="text"
+                        value={user.status}
                         {...register('status')}
                         className={`form-control ${errors.status ? 'is-invalid' : ''}`}
                     />
