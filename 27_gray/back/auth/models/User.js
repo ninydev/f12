@@ -8,7 +8,12 @@ const contactSchema = new mongoose.Schema({
     password: String,
     role: String, // Разделение пользователей по группам (ролям)
     created_at: Date,
-    verify_at: Date // Дата проверки пользователя
+    verify_at: Date, // Дата проверки пользователя
+    avatar: String, // Тут будет храниться ссылка на аватар пользователя
+    name: String,
+    phone: String,
+    status: String, // Подпись под аватар
+    // ......
 
 // Относится к профилю пользователя:
 //     name: String,

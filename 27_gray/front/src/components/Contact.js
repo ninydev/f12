@@ -52,7 +52,6 @@ export default function Contact() {
                                 <hr className="my-4 mx-auto"/>
 
                                 <FormEditUser></FormEditUser>
-                                <FileForm></FileForm>
 
                                 <hr />
 
