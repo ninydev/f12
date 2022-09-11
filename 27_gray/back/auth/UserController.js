@@ -1,4 +1,4 @@
-
+const modelUser = require('./models/User')
 
 // Получение текущего пользователя
 exports.getMe = function (request, response) {
@@ -8,12 +8,19 @@ exports.getMe = function (request, response) {
         return response.status(403).json({message: "Вы не вошли в систему"})
     }
 
-    // request.user
-    // будет содержать только те данные, которые мы зашифровали при передаче ключа
-    // значит - нам нужно обратиться в базу - и вернуть ВСЕ данные (кроме пароля) для их редактирования
+    modelUser.findById(request.user._id, function(err, user){
 
+        if(err) {
+            console.log(err);
+            return response.status(404).json(err);
+        }
+        else {
+            user['password'] = null
+            // delete user.password
 
-    return response.status(200).json(request.user)
+            return response.status(200).json(user);
+        }
+    });
 }
 
 /**
