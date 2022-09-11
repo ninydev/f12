@@ -26,7 +26,7 @@ export default function FormEditUser() {
      * Обновление данных пользователя
      * @param data
      */
-    const onSubmit = function (data){
+    const setMe = function (data){
         // Объект для отправки данных на сервер
         const formData = new FormData();
 
@@ -71,7 +71,7 @@ export default function FormEditUser() {
     /**
      * Получение данных о текущем пользователе по ключу
      */
-    const getUser = function () {
+    const getMe = function () {
         fetch('http://localhost:3333/api' +
             '/auth/getMe',{
             method: 'GET',
@@ -120,7 +120,7 @@ export default function FormEditUser() {
     // Получить данные о пользователе при создании компонента
     useEffect( () => {
         console.log("Получаю данные о пользователе")
-        getUser()
+        getMe()
     }, [])
 
     // Если была ошибка обращения к серверу - вывести ее пользователю
@@ -145,7 +145,7 @@ export default function FormEditUser() {
     return (
         <div className="container mt-5">
             <h2>Ваш профиль</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(setMe)}>
                 <div className="form-group">
                     <label>Email</label>
                     <input
@@ -160,6 +160,7 @@ export default function FormEditUser() {
                 </div>
                 <div className="form-group">
                     <label>Avatar</label>
+                    <img src={'http://localhost:3333' + user.avatar} height="100"/>
                     <input
                         name="avatar"
                         type="file"

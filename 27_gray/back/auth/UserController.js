@@ -2,7 +2,12 @@ const userModel = require('./models/User')
 const bcrypt = require("bcrypt");
 let salt = process.env.BCRYPT_SALT
 
-// Получение текущего пользователя
+/**
+ * Получение текущего пользователя
+ * @param request
+ * @param response
+ * @returns {*}
+ */
 exports.getMe = function (request, response) {
 
     // Если пользователь не авторизован - нет ключа
@@ -64,9 +69,9 @@ exports.setMe = function (request, response) {
                 if(request.files) {
                     // 2 сохранить в папочку, где у меня будут лежать аватары
                     let avatarFile = request.files.avatar
-                    let avatarDir = './public/avatars/' + request.user._id + avatarFile.name
+                    let avatarDir = './public/store/avatars/' + request.user._id + '.jpg' //+ avatarFile.name
                     await avatarFile.mv(avatarDir) // переместить файл
-                    updateUser.avatar = '/avatars/' + request.user._id + avatarFile.name
+                    updateUser.avatar = '/store/avatars/' + request.user._id + '.jpg' //+ avatarFile.name
                 }
 
                 // 3 обновить данные в базе данных
