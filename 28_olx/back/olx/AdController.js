@@ -15,6 +15,7 @@ exports.create = function (request, response){
 
     let bodyAd = request.body
     bodyAd.author_id = request.user._id // Фиксируем пользователя (автора объявления)
+    bodyAd.created_at = Date.now()
 
     // TODO: потом тут получать картинки
 
@@ -53,6 +54,7 @@ exports.index = function (request, response) {
     });
 }
 
+
 /**
  * Вернуть конкретное объявление
  * Read (One) === GET
@@ -61,7 +63,7 @@ exports.index = function (request, response) {
  */
 exports.show = function (request, response) {
     // console.log(request.params.studentId)
-    let findId = request.params.adId
+    let findId = request.params.ad_id
 
     adModel.findById(findId, function(err, ad){
 
@@ -75,3 +77,4 @@ exports.show = function (request, response) {
     });
 }
 
+// ....

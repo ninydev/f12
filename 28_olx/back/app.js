@@ -44,6 +44,9 @@ app.use(authMiddleware)
 const auth = require('./auth/authRoutes')
 app.use('/api/auth', auth)
 
+const ad = require('./olx/adRoutes')
+app.use('/api/ad', ad)
+
 
 
 module.exports = app;
