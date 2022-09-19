@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify" />
+    <list default="true" id="2c5c00c2-3d73-4f37-b824-c37a2f69e16a" name="Changes" comment="Email Verify">
+      <change afterPath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/CreateAd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/back/olx/AdController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/back/olx/AdController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/back/olx/AdModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/back/olx/AdModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/AllAd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/AllAd.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +97,7 @@
       <workItem from="1661791412630" duration="8000" />
       <workItem from="1661794197552" duration="23000" />
       <workItem from="1661795060618" duration="620000" />
+      <workItem from="1663609276130" duration="128000" />
     </task>
     <task id="LOCAL-00001" summary="Email Verify">
       <created>1659376842037</created>

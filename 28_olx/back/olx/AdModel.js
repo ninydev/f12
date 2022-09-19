@@ -6,6 +6,7 @@ const adSchema = new mongoose.Schema({
     // _id - сделает база данных
     author_id: {type: mongoose.ObjectId}, // Кто создал // ?? String
     created_at: Date, // Когда создано
+    title: String,
     message: String, // Текст объявления
     type: Number, // Тип 0 - куплю, 1 - продам, 2 поменяю ...
     price: Number, // Цена вопроса

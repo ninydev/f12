@@ -21,13 +21,15 @@ exports.create = function (request, response){
 
     let newAd = new adModel (bodyAd)
 
+    console.log(newAd)
+
     // Сохранили запись в базе данных
     newAd.save(function(err){
         if(err) { // Если ошибка - вернуть ошибку
             console.log(err)
             return response.status(422).json(err)
         }
-        else { // Если все хорошо - вренуть нового студента
+        else { // Если все хорошо - вернуть новое объявление
             return response.status(201).json(newAd);
         }
     });
