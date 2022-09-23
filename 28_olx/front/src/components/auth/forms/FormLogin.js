@@ -17,7 +17,7 @@ export default function FormLogin() {
     })
 
     const formOptions = { resolver: yupResolver(formSchema) }
-    const { register, handleSubmit, reset, formState } = useForm(formOptions)
+    const { register, handleSubmit,  formState } = useForm(formOptions)
     const { errors } = formState
 
     const onSubmit = function (data) {
@@ -48,6 +48,7 @@ export default function FormLogin() {
                 // toast.success(data.token)
                 console.log(data)
                 localStorage.setItem('jwtToken', data.token)
+                localStorage.setItem('user', JSON.stringify(data.user))
             })
             .catch(err=> {
                 console.log(err)
