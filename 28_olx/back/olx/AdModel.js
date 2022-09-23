@@ -15,7 +15,11 @@ const adSchema = new mongoose.Schema({
     imgMain: String, // Ссылка на главное изображение
     images: [String], // Набор дополнительных изображений
     isOpen: Boolean, // Актуально ли объявление
-    category: Number // Код категории - 0- недвижимость, 1- быт техника, 3- авто ...
+    category: Number, // Код категории - 0- недвижимость, 1- быт техника, 3- авто ...
+
+    // likes: [] // (ad_id) users_id - сохраняем кто лайкал пост тут
+    // rating: [] // (ad_id)  {level, user_id} - оценки пользователей
+    // comments: [] // (ad_id)  {message, user_id} - комментарии пользователей
 });
 
 module.exports = mongoose.model("ads", adSchema);
