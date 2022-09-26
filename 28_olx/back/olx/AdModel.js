@@ -17,8 +17,10 @@ const adSchema = new mongoose.Schema({
     isOpen: Boolean, // Актуально ли объявление
     category: Number, // Код категории - 0- недвижимость, 1- быт техника, 3- авто ...
 
-    // likes: [] // (ad_id) users_id - сохраняем кто лайкал пост тут
-    // rating: [] // (ad_id)  {level, user_id} - оценки пользователей
+    // One To Many
+    likes: [], // (ad_id) users_id - сохраняем кто лайкал пост тут
+    // favorites: []
+    rating: [] // (ad_id)  {level, user_id} - оценки пользователей
     // comments: [] // (ad_id)  {message, user_id} - комментарии пользователей
 });
 

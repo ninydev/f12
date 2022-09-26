@@ -53,12 +53,61 @@ exports.index = function (request, response) {
             return response.status(404).json(err);
         }
         else {
+            // ???? А видят ли все кто лайкнул ???
+            for (i = 0; i < allAds.length; i++) {
+                if (allAds[i]['likeTotal'])
+                    allAds[i]['likeTotal'] =allAds[i]['likes'].length
+                else
+                    allAds[i]['likeTotal'] = 0
+                if (request.user) { // Если пользователь зарегистрирован
+                    if ( allAds[i]['likes'].find(request.user._id))
+                        allAds[i]['youLike'] = true
+                    else
+                        allAds[i]['youLike'] = false
+                }
+            }
             return response.status(200).json(allAds);
         }
     });
 }
 
+/**
+ * ПОставить лайк
+ * @param request
+ * @param response
+ * @returns {*}
+ */
+exports.like = function (request, response) {
+    if(!request.user) {
+        return response.status(401).json({message: "Вы не вошли в систему"})
+    }
 
+    let findId = request.params.ad_id
+    let user_id = request.user._id
+
+    adModel.findById(findId, function(err, ad){
+
+        if(err) {
+            console.log(err);
+            return response.status(404).json(err);
+        }
+        else {
+            // Принимаю решение - а может ли лайкнуть этот пользователь ???
+
+            if (ad.likes.find(user_id)) {
+                // Этот пользователь лайкал это объявление
+                return response.status(202).json({"message": "U liked ad"});
+            }
+            else {
+                ad.likes.add(user_id)
+                adModel.updateOne(ad)
+                return response.status(201).json(ad)
+            }
+
+        }
+    });
+
+}
 /**
  * Вернуть конкретное объявление
  * Read (One) === GET
