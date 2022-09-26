@@ -6,14 +6,53 @@
 </head>
 <body>
 
+<div id="lstMsg">
+
+</div>
+<div>
+    <input type="text" id="txtMsg"><button type="button" id="btnSend"> Send </button>
+</div>
+
+
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
 
 <script>
-  const socket = io("ws://localhost:3000");
+    // Создаем активный сокет - и устанавливаем соединение
+    const socket = io("ws://localhost:3000");
 
-  socket.on("Hello", (arg) => {
-    console.log(arg)
-  })
+    // // Когда приходит сообщение типа SomeName - вывести его в консоль
+    // socket.on("SomeName", (arg) => {
+    //     console.log(arg)
+    // })
+    //
+    // // Когда на сервер кто-то еще пришел - я сообщаю об этом
+    // socket.on("NewConnection", (arg) => {
+    //     console.log("New Connection")
+    //     console.log(arg)
+    // })
+
+    socket.on("ServerNewMessage", (args) => {
+        console.log(" New Msg" + args)
+        let p = document.createElement("p")
+        p.innerText = args
+        document.getElementById("lstMsg").appendChild(p)
+    })
+
+    // Отправить сообщение на сервер
+    document.getElementById("btnSend").onclick = function () {
+        // console.log("Send")
+        // console.log(document.getElementById('txtMsg').value)
+        socket.emit("newMsg", document.getElementById('txtMsg').value)
+
+        let p = document.createElement("p")
+        p.innerText = document.getElementById('txtMsg').value
+        document.getElementById("lstMsg").appendChild(p)
+
+        document.getElementById('txtMsg').value = ''
+    }
+
+
+
 
 </script>
 
