@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52e3c6ce-3210-47ab-9e7f-7d9ce14534c0" name="Changes" comment="Socket io">
+      <change afterPath="$PROJECT_DIR$/../28_olx/back/public/axios.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +61,7 @@
       <workItem from="1664207247380" duration="6503000" />
       <workItem from="1664383381014" duration="3000" />
       <workItem from="1664384742565" duration="6000" />
+      <workItem from="1664551291541" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="Socket io">
       <created>1664207371333</created>
