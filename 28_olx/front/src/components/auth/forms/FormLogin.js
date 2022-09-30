@@ -49,6 +49,11 @@ export default function FormLogin() {
                 console.log(data)
                 localStorage.setItem('jwtToken', data.token)
                 localStorage.setItem('user', JSON.stringify(data.user))
+
+                // Получить пользователя из хранилища
+                let user = JSON.parse(localStorage.getItem('user'))
+                toast.info("User Id " + user._id)
+                toast.info("User Name " + user.name)
             })
             .catch(err=> {
                 console.log(err)
