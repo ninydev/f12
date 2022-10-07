@@ -45,6 +45,20 @@ exports.create = function (request, response){
  */
 exports.index = function (request, response) {
     console.log("Пришел за всеми объявлениями")
+
+    // Данные для постраничного вывода объявлений
+
+    // Количество объявлений на страницу
+    let per_page = 2;
+    if (request.query.per_page !== undefined) per_page = request.query.per_page
+
+    // Текущая страница
+    let page = 1;
+    if (request.query.page !== undefined) page = request.query.page
+
+    console.log("Элементов на страницу: " + per_page)
+    console.log("Текущая страница: " + page)
+
     adModel.find({}, function(err, allAds){
 
         if(err) {
@@ -53,19 +67,19 @@ exports.index = function (request, response) {
             return response.status(404).json(err);
         }
         else {
-            // ???? А видят ли все кто лайкнул ???
-            for (i = 0; i < allAds.length; i++) {
-                if (allAds[i]['likeTotal'])
-                    allAds[i]['likeTotal'] =allAds[i]['likes'].length
-                else
-                    allAds[i]['likeTotal'] = 0
-                if (request.user) { // Если пользователь зарегистрирован
-                    if ( allAds[i]['likes'].find(request.user._id))
-                        allAds[i]['youLike'] = true
-                    else
-                        allAds[i]['youLike'] = false
-                }
-            }
+            // // ???? А видят ли все кто лайкнул ???
+            // for (i = 0; i < allAds.length; i++) {
+            //     if (allAds[i]['likeTotal'])
+            //         allAds[i]['likeTotal'] =allAds[i]['likes'].length
+            //     else
+            //         allAds[i]['likeTotal'] = 0
+            //     if (request.user) { // Если пользователь зарегистрирован
+            //         if ( allAds[i]['likes'].find(request.user._id))
+            //             allAds[i]['youLike'] = true
+            //         else
+            //             allAds[i]['youLike'] = false
+            //     }
+            // }
             return response.status(200).json(allAds);
         }
     });
