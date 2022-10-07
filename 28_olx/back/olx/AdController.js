@@ -43,7 +43,7 @@ exports.create = function (request, response){
  * @param request
  * @param response
  */
-exports.index = function (request, response) {
+exports.index = async function (request, response) {
     console.log("Пришел за всеми объявлениями")
 
     // Данные для постраничного вывода объявлений
@@ -59,30 +59,44 @@ exports.index = function (request, response) {
     console.log("Элементов на страницу: " + per_page)
     console.log("Текущая страница: " + page)
 
-    adModel.find({}, function(err, allAds){
+    let total = await adModel.count();
+    let allAds = await adModel.find({}).sort('created_at').skip((per_page*(page - 1))).limit(per_page);
+    let send = {
+        total: total, // Сколько всего в коллекции
+        page: page, // Какая сейчас страница открыта
+        per_page: per_page, // Сколько элементов на страницу
+        data: allAds // Сами элементы данной страницы
+    }
 
-        if(err) {
-            console.log("Ошибка в запросе все объявления")
-            console.log(err);
-            return response.status(404).json(err);
-        }
-        else {
-            // // ???? А видят ли все кто лайкнул ???
-            // for (i = 0; i < allAds.length; i++) {
-            //     if (allAds[i]['likeTotal'])
-            //         allAds[i]['likeTotal'] =allAds[i]['likes'].length
-            //     else
-            //         allAds[i]['likeTotal'] = 0
-            //     if (request.user) { // Если пользователь зарегистрирован
-            //         if ( allAds[i]['likes'].find(request.user._id))
-            //             allAds[i]['youLike'] = true
-            //         else
-            //             allAds[i]['youLike'] = false
-            //     }
-            // }
-            return response.status(200).json(allAds);
-        }
-    });
+    console.log(send)
+    return response.status(200).json(send);
+
+    // adModel.find({ skip: 0, limit: 2 }, function(err, allAds){
+    //
+    //     if(err) {
+    //         console.log("Ошибка в запросе все объявления")
+    //         console.log(err);
+    //         return response.status(404).json(err);
+    //     }
+    //     else {
+    //         // // ???? А видят ли все кто лайкнул ???
+    //         // for (i = 0; i < allAds.length; i++) {
+    //         //     if (allAds[i]['likeTotal'])
+    //         //         allAds[i]['likeTotal'] =allAds[i]['likes'].length
+    //         //     else
+    //         //         allAds[i]['likeTotal'] = 0
+    //         //     if (request.user) { // Если пользователь зарегистрирован
+    //         //         if ( allAds[i]['likes'].find(request.user._id))
+    //         //             allAds[i]['youLike'] = true
+    //         //         else
+    //         //             allAds[i]['youLike'] = false
+    //         //     }
+    //         // }
+    //
+    //
+    //         return response.status(200).json(allAds);
+    //     }
+    // });
 }
 
 /**
