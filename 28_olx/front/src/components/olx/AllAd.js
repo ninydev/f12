@@ -111,6 +111,46 @@ export default function AllAd(){
     const goPage = function (ev) {
     }
 
+    const loadMore = function () {
+        // page = page + 1
+        fetch('http://localhost:3333/api'
+            + '/ad?page=' + page + "&per_page=" + per_page  ,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': localStorage.getItem('jwtToken')
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+            .then(res => {
+                // console.log(res)
+                if(res.status !==200) {
+                    toast.error("Ошибка")
+                    return null
+                }
+                return res.json()
+            })
+            .then(data => {
+                if(data === null) {
+                    console.log("Я ничего не делаю")
+                    return
+                }
+                // toast.success("Вы успешно получили объявления")
+                console.log(newData)
+                setTotal(newData.total) // Всего объявлений
+                // setPage(data.page) // номер текущей страницы
+                // setPerPage(data.per_page) // показывать на странице
+                // loadPages - информация о том - какие страницы я уже загрузил
+                let havingData = ads
+                havingData.append(newData.data) // &???
+                setAds(havingData) // Объявления ????
+            })
+            .catch(err=> {
+                console.log(err)
+                toast.error(err)
+            })
+    }
+
     return (
         <>
             <div> { user.name} </div>
@@ -137,6 +177,7 @@ export default function AllAd(){
                     <li className="page-item"><a className="page-link" onClick={goNext}>Next</a></li>
                 </ul>
             </nav>
+            <div onClick={loadMore}> Загрузить дальше </div>
         </>
     )
 }

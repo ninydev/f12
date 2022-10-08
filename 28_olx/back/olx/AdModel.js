@@ -16,6 +16,7 @@ const adSchema = new mongoose.Schema({
     images: [String], // Набор дополнительных изображений
     isOpen: Boolean, // Актуально ли объявление
     category: Number, // Код категории - 0- недвижимость, 1- быт техника, 3- авто ...
+    count: Number, // Остаток на складе
 
     // One To Many
     likes: [], // (ad_id) users_id - сохраняем кто лайкал пост тут
