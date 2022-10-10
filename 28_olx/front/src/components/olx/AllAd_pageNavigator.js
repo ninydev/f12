@@ -125,6 +125,7 @@ export default function AllAd_pageNavigator(){
 
     const goPage = function (ev) {
         console.log(ev.target.dataset.page)
+        setAds([])
         setPage(ev.target.dataset.page)
     }
 
@@ -202,6 +203,7 @@ export default function AllAd_pageNavigator(){
                             li.push(<li className="page-item"><a className="page-link"> ... </a></li>);
                         }
                         for (let i = firstPage; i <= countPage; i++) {
+                            if (i === page ) {  } // Если я вывожу текущую страницу - добавить например класс
                             li.push(<li className="page-item"><a className="page-link" data-page={i} onClick={goPage}>{i}</a></li>);
                         }
                         if(countPage != totalPages) {
