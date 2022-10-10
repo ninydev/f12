@@ -6,24 +6,11 @@ export default function AllAd(){
 
     const [ads, setAds] = useState([])
     const [user, setUser] = useState({name: "гость", _id: 0}) // По умолчанию у нас гость
-    const [total, setTotal] = useState(null)
+    // const [total, setTotal] = useState(null)
     const [page, setPage] = useState(1)
     const [per_page, setPerPage] = useState(5)
 
-    // Всего страниц для отображения
-    const totalPages = Math.ceil(total / per_page)
-
-    // С какой страницы начинать
-    let firstPage = 1
-    // Если текущая страница ушла на 3 от начала - сместить мой навигатор
-    if (page > 3) firstPage = page - 3
-
-    // До какой страницы выводить объявления
-    let countPage = 6 + firstPage // Выводим 6 страничек
-
-    // Если количество странц выходит за пределы - установить последнюю равную общему количеству
-    if (countPage > totalPages - 3  )
-        countPage = totalPages
+    let total = 0 // Формируем запись без стейта поскольку переменная статическая
 
     const loadAd = function () {
         // toast.error('?page=' + page + "&per_page=" + per_page)
@@ -51,10 +38,14 @@ export default function AllAd(){
                 }
                 // toast.success("Вы успешно получили объявления")
                 console.log(data)
-                setTotal(data.total) // Всего объявлений
-                // setPage(data.page) // номер текущей страницы
-                // setPerPage(data.per_page) // показывать на странице
-                setAds(data.data) // Объявления ????
+                total = data.total // Всего объявлений
+
+                setAds(ads.concat(data.data)) // Объявления ????
+
+                console.log(total)
+                document.body.onscroll = function () {
+                    scrollPos()
+                }
             })
             .catch(err=> {
                 console.log(err)
@@ -102,121 +93,64 @@ export default function AllAd(){
         }
     }, [])
 
-    const goPrev = async function () {
-        if(page > 1)
-        {
-            setPage(page - 1)
-        } else {
-            toast.info('Вы на первой странице')
-        }
-    }
 
-    const goNext = function () {
-        if (page <  total / per_page) {
-            setPage(page+1)
-        } else {
-            toast.info('Вы на последней странице')
-        }
-    }
 
     useEffect(() => {
         loadAd()
     }, [page])
 
-    const goPage = function (ev) {
-        console.log(ev.target.dataset.page)
-        setPage(ev.target.dataset.page)
-    }
 
     const loadMore = function () {
-        // // page = page + 1
-        // fetch('http://localhost:3333/api'
-        //     + '/ad?page=' + page + "&per_page=" + per_page  ,{
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'authorization': localStorage.getItem('jwtToken')
-        //         // 'Content-Type': 'application/x-www-form-urlencoded',
-        //     }
-        // })
-        //     .then(res => {
-        //         // console.log(res)
-        //         if(res.status !==200) {
-        //             toast.error("Ошибка")
-        //             return null
-        //         }
-        //         return res.json()
-        //     })
-        //     .then(data => {
-        //         if(data === null) {
-        //             console.log("Я ничего не делаю")
-        //             return
-        //         }
-        //         // toast.success("Вы успешно получили объявления")
-        //         console.log(newData)
-        //         setTotal(newData.total) // Всего объявлений
-        //         // setPage(data.page) // номер текущей страницы
-        //         // setPerPage(data.per_page) // показывать на странице
-        //         // loadPages - информация о том - какие страницы я уже загрузил
-        //         let havingData = ads
-        //         havingData.append(newData.data) // &???
-        //         setAds(havingData) // Объявления ????
-        //     })
-        //     .catch(err=> {
-        //         console.log(err)
-        //         toast.error(err)
-        //     })
+        if (page * per_page > total) {
+            toast.info(" Вы достигли дна" + page + " " +  per_page + " " + total)
+            return
+        }
+        setPage(page+1)
     }
 
+    const scrollPos = function() {
+        // Нам потребуется знать высоту документа и высоту экрана:
+        const height = document.body.offsetHeight
+        const screenHeight = window.innerHeight
+        // Они могут отличаться: если на странице много контента,
+        // высота документа будет больше высоты экрана (отсюда и скролл).
+
+        // Записываем, сколько пикселей пользователь уже проскроллил:
+        const scrolled = window.scrollY
+
+        // Обозначим порог, по приближении к которому
+        // будем вызывать какое-то действие.
+        // В нашем случае — четверть экрана до конца страницы:
+        const threshold = height - screenHeight / 4
+
+        // Отслеживаем, где находится низ экрана относительно страницы:
+        const position = scrolled + screenHeight
+        console.log("Scrolled " + scrolled)
+        console.log("Position " + position)
+        console.log( "hold " + threshold)
+
+        if (position >= threshold) {
+            document.body.onscroll = null
+            toast.info("Load More " + page)
+            loadMore()
+        }
+    }
+
+
     return (
-        <>
+        <div>
             <div> { user.name} </div>
-            <div> Page {page} Total: {total} Per_page:{per_page} : Total pages = {totalPages}</div>
+            <div> Page {page} Total: {total} Per_page:{per_page} </div>
             <ul>
             {ads.map(ad => (
                 <li key={ad._id}>
                     <p>{ad.title}</p>
                     { ad.author_id === user._id ? <p> <button> Edit </button> <button value={ad._id} onClick={deleteAd}> Delete </button>  </p> : " Не мое" }
-                    {/*<p>{ad.message}</p>*/}
-                    {/*<p>Цена {ad.price}$</p>*/}
-                    {/*<p>Город {ad.city}</p>*/}
-                    {/*<p>Район {ad.location}</p>*/}
                 </li>
             ))
             }
         </ul>
-            <nav aria-label="Page navigation example">
-                <ul className="pagination">
-                    <li className="page-item"><a className="page-link" onClick={goPrev}>Previous</a></li>
-
-                    {/*{[...Array(totalPages)].map((x, i) =>*/}
-                    {/*    <li className="page-item"><a className="page-link" data-page={i+1} onClick={goPage}>{i+1}</a></li>*/}
-                    {/*)}*/}
-
-                    {(() => {
-                        let li = [];
-                        if(firstPage > 1) {
-                            li.push(<li className="page-item"><a className="page-link" data-page={1} onClick={goPage}>{1}</a></li>);
-                        }
-                        if (firstPage > 2) {
-                            li.push(<li className="page-item"><a className="page-link"> ... </a></li>);
-                        }
-                        for (let i = firstPage; i <= countPage; i++) {
-                            li.push(<li className="page-item"><a className="page-link" data-page={i} onClick={goPage}>{i}</a></li>);
-                        }
-                        if(countPage != totalPages) {
-                            li.push(<li className="page-item"><a className="page-link"> ... </a></li>);
-                            li.push(<li className="page-item"><a className="page-link" data-page={totalPages} onClick={goPage}>{totalPages}</a></li>);
-
-                        }
-                        return li;
-                    })()}
-
-
-                    <li className="page-item"><a className="page-link" onClick={goNext}>Next</a></li>
-                </ul>
-            </nav>
             <div onClick={loadMore}> Загрузить дальше </div>
-        </>
+        </div>
     )
 }
