@@ -8,7 +8,22 @@ export default function AllAd(){
     const [user, setUser] = useState({name: "гость", _id: 0}) // По умолчанию у нас гость
     const [total, setTotal] = useState(null)
     const [page, setPage] = useState(1)
-    const [per_page, setPerPage] = useState(1)
+    const [per_page, setPerPage] = useState(5)
+
+    // Всего страниц для отображения
+    const totalPages = Math.ceil(total / per_page)
+
+    // С какой страницы начинать
+    let firstPage = 1
+    // Если текущая страница ушла на 3 от начала - сместить мой навигатор
+    if (page > 3) firstPage = page - 3
+
+    // До какой страницы выводить объявления
+    let countPage = 6 + firstPage // Выводим 6 страничек
+
+    // Если количество странц выходит за пределы - установить последнюю равную общему количеству
+    if (countPage > totalPages - 3  )
+        countPage = totalPages
 
     const loadAd = function () {
         // toast.error('?page=' + page + "&per_page=" + per_page)
@@ -109,52 +124,54 @@ export default function AllAd(){
     }, [page])
 
     const goPage = function (ev) {
+        console.log(ev.target.dataset.page)
+        setPage(ev.target.dataset.page)
     }
 
     const loadMore = function () {
-        // page = page + 1
-        fetch('http://localhost:3333/api'
-            + '/ad?page=' + page + "&per_page=" + per_page  ,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'authorization': localStorage.getItem('jwtToken')
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        })
-            .then(res => {
-                // console.log(res)
-                if(res.status !==200) {
-                    toast.error("Ошибка")
-                    return null
-                }
-                return res.json()
-            })
-            .then(data => {
-                if(data === null) {
-                    console.log("Я ничего не делаю")
-                    return
-                }
-                // toast.success("Вы успешно получили объявления")
-                console.log(newData)
-                setTotal(newData.total) // Всего объявлений
-                // setPage(data.page) // номер текущей страницы
-                // setPerPage(data.per_page) // показывать на странице
-                // loadPages - информация о том - какие страницы я уже загрузил
-                let havingData = ads
-                havingData.append(newData.data) // &???
-                setAds(havingData) // Объявления ????
-            })
-            .catch(err=> {
-                console.log(err)
-                toast.error(err)
-            })
+        // // page = page + 1
+        // fetch('http://localhost:3333/api'
+        //     + '/ad?page=' + page + "&per_page=" + per_page  ,{
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'authorization': localStorage.getItem('jwtToken')
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     }
+        // })
+        //     .then(res => {
+        //         // console.log(res)
+        //         if(res.status !==200) {
+        //             toast.error("Ошибка")
+        //             return null
+        //         }
+        //         return res.json()
+        //     })
+        //     .then(data => {
+        //         if(data === null) {
+        //             console.log("Я ничего не делаю")
+        //             return
+        //         }
+        //         // toast.success("Вы успешно получили объявления")
+        //         console.log(newData)
+        //         setTotal(newData.total) // Всего объявлений
+        //         // setPage(data.page) // номер текущей страницы
+        //         // setPerPage(data.per_page) // показывать на странице
+        //         // loadPages - информация о том - какие страницы я уже загрузил
+        //         let havingData = ads
+        //         havingData.append(newData.data) // &???
+        //         setAds(havingData) // Объявления ????
+        //     })
+        //     .catch(err=> {
+        //         console.log(err)
+        //         toast.error(err)
+        //     })
     }
 
     return (
         <>
             <div> { user.name} </div>
-            <div> Page {page} Total: {total} Per_page:{per_page}</div>
+            <div> Page {page} Total: {total} Per_page:{per_page} : Total pages = {totalPages}</div>
             <ul>
             {ads.map(ad => (
                 <li key={ad._id}>
@@ -171,9 +188,31 @@ export default function AllAd(){
             <nav aria-label="Page navigation example">
                 <ul className="pagination">
                     <li className="page-item"><a className="page-link" onClick={goPrev}>Previous</a></li>
-                    <li className="page-item"><a className="page-link">1</a></li>
-                    <li className="page-item"><a className="page-link">2</a></li>
-                    <li className="page-item"><a className="page-link">3</a></li>
+
+                    {/*{[...Array(totalPages)].map((x, i) =>*/}
+                    {/*    <li className="page-item"><a className="page-link" data-page={i+1} onClick={goPage}>{i+1}</a></li>*/}
+                    {/*)}*/}
+
+                    {(() => {
+                        let li = [];
+                        if(firstPage > 1) {
+                            li.push(<li className="page-item"><a className="page-link" data-page={1} onClick={goPage}>{1}</a></li>);
+                        }
+                        if (firstPage > 2) {
+                            li.push(<li className="page-item"><a className="page-link"> ... </a></li>);
+                        }
+                        for (let i = firstPage; i <= countPage; i++) {
+                            li.push(<li className="page-item"><a className="page-link" data-page={i} onClick={goPage}>{i}</a></li>);
+                        }
+                        if(countPage != totalPages) {
+                            li.push(<li className="page-item"><a className="page-link"> ... </a></li>);
+                            li.push(<li className="page-item"><a className="page-link" data-page={totalPages} onClick={goPage}>{totalPages}</a></li>);
+
+                        }
+                        return li;
+                    })()}
+
+
                     <li className="page-item"><a className="page-link" onClick={goNext}>Next</a></li>
                 </ul>
             </nav>
