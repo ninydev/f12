@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f923cc0-abcc-4738-97fb-545102bf5c2c" name="Changes" comment="Apple Socket">
-      <change beforePath="$PROJECT_DIR$/../29_sockets_start/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../29_sockets_start/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop.html" afterDir="false" />
@@ -74,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665762801747</updated>
-      <workItem from="1665762803167" duration="5217000" />
+      <workItem from="1665762803167" duration="6795000" />
     </task>
     <task id="LOCAL-00001" summary="Apple Socket">
       <created>1665765136399</created>
@@ -83,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665765136399</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Apple Socket">
+      <created>1665768273725</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665768273725</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

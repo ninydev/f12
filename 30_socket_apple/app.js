@@ -20,7 +20,20 @@ io.on("connection" , (socket) => {
     console.log("+ Кто то пришел в магазин")
 
     // Тому кто пришел говорим сколько у нас яблок
+    // тогда на фронт оно прийдет в socket.on('message'
     socket.send(appleCount)
+
+    socket.on('plus', () => {
+        appleCount++
+        socket.emit('plus', appleCount) // Отправка себе
+        socket.broadcast.emit('plus', appleCount) // Всем кроме себя
+    })
+
+    socket.on('minus', () => {
+        appleCount--
+        socket.emit('minus', appleCount) // Отправка себе
+        socket.broadcast.emit('minus', appleCount) // Всем кроме себя
+    })
 
     // Просто слушаем, что нам говорят
     socket.on('message', (world) => {
@@ -28,10 +41,12 @@ io.on("connection" , (socket) => {
         // Происходит разбор, что мне сказали
         if(world === 'plus') {
             appleCount++
-            socket.broadcast.emit('plus', appleCount)
+            socket.emit('plus', appleCount) // Отправка себе
+            socket.broadcast.emit('plus', appleCount) // Всем кроме себя
         }
         else {
             appleCount--
+            socket.emit('minus', appleCount)
             socket.broadcast.emit('minus', appleCount)
         }
         //*--  Я говорю только одному - кто приходил

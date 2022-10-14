@@ -18,19 +18,21 @@
     // Создаем активный сокет - и устанавливаем соединение
     const socket = io("ws://localhost:3000");
 
-
+    // Куда я буду выводить свои сообщения
     const ul = document.getElementById('msg')
     // Моя реакция, когда с сервера сообщили о типе plus
     socket.on('plus', (appleCount) => {
         let li = document.createElement('li')
         li.innerText = (new Date).toLocaleTimeString() + " Привезли яблок. Теперь их  " + appleCount
         ul.appendChild(li)
+        document.getElementById('appleCount').value = appleCount
     })
     // С сервера пришла информация о событии типа minus
     socket.on('minus', (appleCount) => {
         let li = document.createElement('li')
         li.innerText =  (new Date).toLocaleTimeString()  + " Только что купили яблоко. Теперь их " + appleCount
         ul.appendChild(li)
+        document.getElementById('appleCount').value = appleCount
     })
 
     // Просто слушаем, что нам говорят
@@ -39,15 +41,16 @@
         document.getElementById('appleCount').value = appleCount
     })
 
-
     // Крикнуть что я принес яблоко
     document.getElementById('plus').onclick = () => {
-        socket.send('plus')
+        // socket.send('plus') // тогда мое сообщение прийдет на сервер socket.on('message',
+        socket.emit('plus')
     }
 
     // Крикнуть что я забрал яблоко
     document.getElementById('minus').onclick = () => {
-        socket.send('minus')
+        // socket.send('minus') // тогда мое сообщение прийдет на сервер socket.on('message',
+        socket.emit('minus')
     }
 
 </script>
