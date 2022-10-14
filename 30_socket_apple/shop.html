@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+<div><label> Количество яблок <input id="appleCount"></label></div>
+<div><button id="plus">+</button> <button id="minus">-</button></div>
+<ul id="msg">
+
+</ul>
 
 <!-- Подключаю нужную библиотеку -->
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
@@ -12,6 +17,38 @@
 <script>
     // Создаем активный сокет - и устанавливаем соединение
     const socket = io("ws://localhost:3000");
+
+
+    const ul = document.getElementById('msg')
+    // Моя реакция, когда с сервера сообщили о типе plus
+    socket.on('plus', (appleCount) => {
+        let li = document.createElement('li')
+        li.innerText = (new Date).toLocaleTimeString() + " Привезли яблок. Теперь их  " + appleCount
+        ul.appendChild(li)
+    })
+    // С сервера пришла информация о событии типа minus
+    socket.on('minus', (appleCount) => {
+        let li = document.createElement('li')
+        li.innerText =  (new Date).toLocaleTimeString()  + " Только что купили яблоко. Теперь их " + appleCount
+        ul.appendChild(li)
+    })
+
+    // Просто слушаем, что нам говорят
+    socket.on('message',  (appleCount) => {
+        console.log(appleCount)
+        document.getElementById('appleCount').value = appleCount
+    })
+
+
+    // Крикнуть что я принес яблоко
+    document.getElementById('plus').onclick = () => {
+        socket.send('plus')
+    }
+
+    // Крикнуть что я забрал яблоко
+    document.getElementById('minus').onclick = () => {
+        socket.send('minus')
+    }
 
 </script>
 

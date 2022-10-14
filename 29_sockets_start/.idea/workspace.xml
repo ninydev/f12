@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52e3c6ce-3210-47ab-9e7f-7d9ce14534c0" name="Changes" comment="Socket io">
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/30_socket_apple.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../30_socket_apple/shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../28_olx/front/src/pages/olx/CreateAd.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30_socket_apple/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../30_socket_apple/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30_socket_apple/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../30_socket_apple/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30_socket_apple/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/../30_socket_apple/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +63,7 @@
       <workItem from="1664383381014" duration="3000" />
       <workItem from="1664384742565" duration="6000" />
       <workItem from="1664551291541" duration="1249000" />
-      <workItem from="1665762816200" duration="1663000" />
+      <workItem from="1665762816200" duration="3639000" />
     </task>
     <task id="LOCAL-00001" summary="Socket io">
       <created>1664207371333</created>
