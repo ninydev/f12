@@ -1,6 +1,9 @@
 import {io} from "socket.io-client"
 import {toast} from "react-toastify"
 
+
+
+
 export default function Notifications () {
 
     const socket = io('ws://localhost:3232')
@@ -14,6 +17,19 @@ export default function Notifications () {
         toast.error(appleCount)
     })
 
-    return (<></>)
+    const minus = () => {
+        socket.emit('minus')
+    }
+
+    const plus = () => {
+        socket.emit('plus')
+    }
+    return(
+        <>
+            <button onClick={minus}> - </button>
+            <button onClick={plus}> + </button>
+        </>
+    )
+
 
 }

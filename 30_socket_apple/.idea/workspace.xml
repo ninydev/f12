@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f923cc0-abcc-4738-97fb-545102bf5c2c" name="Changes" comment="Apple Socket + Emit + Http">
-      <change afterPath="$PROJECT_DIR$/../28_olx/front/src/components/sockets/Notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../28_olx/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../28_olx/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../28_olx/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../28_olx/front/src/components/sockets/Notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/src/components/sockets/Notifications.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -59,13 +59,17 @@
       <recent name="C:\Users\keepe\repos\f12\30_socket_apple" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.app.js">
+    <configuration name="admin.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/admin.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
+        <item itemvalue="Node.js.admin.js" />
       </list>
     </recent_temporary>
   </component>
@@ -78,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665762801747</updated>
       <workItem from="1665762803167" duration="6825000" />
-      <workItem from="1666019149399" duration="4942000" />
+      <workItem from="1666019149399" duration="7561000" />
     </task>
     <task id="LOCAL-00001" summary="Apple Socket">
       <created>1665765136399</created>

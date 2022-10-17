@@ -5,12 +5,21 @@ const app = express()
 import { createServer } from "http"
 const httpServer = createServer(app)
 
+
 // Создадим пассивный сокет - и будем ждать соединений
 import {Server} from "socket.io"
 const io = new Server(httpServer, {
     cors: {
-        origin: ["http://localhost:63342", "http://localhost:3000"]
+        origin: ["https://admin.socket.io", "http://localhost:63342", "http://localhost:3000"],
+        credentials: true
     }
+});
+
+
+// Админка
+import { instrument } from "@socket.io/admin-ui"
+instrument(io, {
+    auth: false
 });
 
 // При открытии магазина у нас 10 яблок
@@ -64,6 +73,10 @@ io.on("connection" , (socket) => {
 
     socket.on('disconnect', function() {
         console.log('- Кто то ушел с магазина')
+    })
+
+    socket.on("connect_error", (err) => {
+        console.log(`connect_error due to ${err.message}`);
     })
 })
 
