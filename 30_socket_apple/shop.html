@@ -16,7 +16,7 @@
 
 <script>
     // Создаем активный сокет - и устанавливаем соединение
-    const socket = io("ws://localhost:3000");
+    const socket = io("ws://localhost:3232");
 
     // Куда я буду выводить свои сообщения
     const ul = document.getElementById('msg')
@@ -39,6 +39,13 @@
     socket.on('message',  (appleCount) => {
         console.log(appleCount)
         document.getElementById('appleCount').value = appleCount
+    })
+
+    socket.on('incoming', (clientsCount) => {
+        let li = document.createElement('li')
+        li.innerText =  (new Date).toLocaleTimeString()
+            + " Только что кто то вошел в магазин. Теперь тут " + clientsCount
+        ul.appendChild(li)
     })
 
     // Крикнуть что я принес яблоко

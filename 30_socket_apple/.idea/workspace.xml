@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f923cc0-abcc-4738-97fb-545102bf5c2c" name="Changes" comment="Apple Socket + Emit">
-      <change beforePath="$PROJECT_DIR$/../08_Dolly/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../08_Dolly/index.html" afterDir="false" />
+    <list default="true" id="3f923cc0-abcc-4738-97fb-545102bf5c2c" name="Changes" comment="Apple Socket + Emit + Http">
+      <change afterPath="$PROJECT_DIR$/../28_olx/front/src/components/sockets/Notifications.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../28_olx/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../28_olx/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../28_olx/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../28_olx/front/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665762801747</updated>
       <workItem from="1665762803167" duration="6825000" />
-      <workItem from="1666019149399" duration="3059000" />
+      <workItem from="1666019149399" duration="4942000" />
     </task>
     <task id="LOCAL-00001" summary="Apple Socket">
       <created>1665765136399</created>
@@ -99,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665769689516</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Apple Socket + Emit + Http">
+      <created>1666022288154</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666022288154</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +129,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Apple Socket" />
     <MESSAGE value="Apple Socket + Emit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apple Socket + Emit" />
+    <MESSAGE value="Apple Socket + Emit + Http" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apple Socket + Emit + Http" />
   </component>
 </project>

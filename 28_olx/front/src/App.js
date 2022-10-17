@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter} from "react-router-dom";
 import MyRoutes from "./MyRoutes";
 import {ToastContainer} from "react-toastify";
+import Notifications from "./components/sockets/Notifications";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                   </div>
               </div>
           </BrowserRouter>
+          <Notifications/>
           <ToastContainer />
       </>
   );

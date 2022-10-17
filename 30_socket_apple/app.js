@@ -9,7 +9,7 @@ const httpServer = createServer(app)
 import {Server} from "socket.io"
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:63342"
+        origin: ["http://localhost:63342", "http://localhost:3000"]
     }
 });
 
@@ -21,6 +21,8 @@ let appleCount = 10
  */
 io.on("connection" , (socket) => {
     console.log("+ Кто то пришел в магазин")
+
+    io.emit('incoming', io.engine.clientsCount)
 
     // Тому кто пришел говорим сколько у нас яблок
     // тогда на фронт оно прийдет в socket.on('message'
@@ -67,7 +69,7 @@ io.on("connection" , (socket) => {
 
 
 app.get('/test', function (request, response) {
-    response.send("Hello World").status(200)
+    response.send("Test: " + io.engine.clientsCount).status(200)
 })
 
 app.get('/plus', function (request, response) {
@@ -82,5 +84,5 @@ app.get('/minus', function (request, response) {
     io.emit('minus', appleCount)
 })
 
-httpServer.listen(3000);
+httpServer.listen(3232);
 
