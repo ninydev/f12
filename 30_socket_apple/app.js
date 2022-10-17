@@ -1,6 +1,9 @@
 // Создадим простой веб сервер для поддержки CORS
+import express from 'express'
+const app = express()
+
 import { createServer } from "http"
-const httpServer = createServer()
+const httpServer = createServer(app)
 
 // Создадим пассивный сокет - и будем ждать соединений
 import {Server} from "socket.io"
@@ -25,14 +28,16 @@ io.on("connection" , (socket) => {
 
     socket.on('plus', () => {
         appleCount++
-        socket.emit('plus', appleCount) // Отправка себе
-        socket.broadcast.emit('plus', appleCount) // Всем кроме себя
+        // socket.emit('plus', appleCount) // Отправка себе
+        // socket.broadcast.emit('plus', appleCount) // Всем кроме себя
+        io.emit('plus', appleCount)
     })
 
     socket.on('minus', () => {
         appleCount--
-        socket.emit('minus', appleCount) // Отправка себе
-        socket.broadcast.emit('minus', appleCount) // Всем кроме себя
+        // socket.emit('minus', appleCount) // Отправка себе
+        // socket.broadcast.emit('minus', appleCount) // Всем кроме себя
+        io.emit('minus', appleCount)
     })
 
     // Просто слушаем, что нам говорят
@@ -56,12 +61,26 @@ io.on("connection" , (socket) => {
     })
 
     socket.on('disconnect', function() {
-        console.log('- Кто то ушел с магазина');
+        console.log('- Кто то ушел с магазина')
     })
 })
 
 
+app.get('/test', function (request, response) {
+    response.send("Hello World").status(200)
+})
 
+app.get('/plus', function (request, response) {
+    appleCount++
+    response.send("Apple count: " + appleCount).status(200)
+    io.emit('plus', appleCount)
+})
+
+app.get('/minus', function (request, response) {
+    appleCount--
+    response.send("Apple count: " + appleCount).status(200)
+    io.emit('minus', appleCount)
+})
 
 httpServer.listen(3000);
 
