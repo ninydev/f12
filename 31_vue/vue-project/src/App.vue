@@ -1,6 +1,10 @@
 <script setup>
+// ./ - от текущего файла
 import HelloWorld from "./components/HelloWorld.vue";
-import MyArray from "@/components/MyArray.vue";
+
+// @ - от корня проекта
+
+import NpAreas from "@/components/novePoshta/npAreas.vue";
 </script>
 
 <template>
@@ -19,7 +23,7 @@ import MyArray from "@/components/MyArray.vue";
   </header>
 
   <main>
-    <MyArray></MyArray>
+    <NpAreas></NpAreas>
   </main>
 </template>
 
