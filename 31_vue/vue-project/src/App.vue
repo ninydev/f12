@@ -1,29 +1,16 @@
 <script setup>
-// ./ - от текущего файла
-import HelloWorld from "./components/HelloWorld.vue";
-
-// @ - от корня проекта
-
-import NpAreas from "@/components/novePoshta/npAreas.vue";
+import PostElement from "@/components/slots/post/PostElement.vue";
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <NpAreas></NpAreas>
+    <PostElement>
+      <template #header> А это отправь в заголовок </template>
+      <template #footer> Это уйдет в подвал </template>
+      <div>Это попадает в место - где должен быть просто slot</div>
+      <template #body> это в тело </template>
+      <div>Это тоже в место - где должен быть просто slot</div>
+    </PostElement>
   </main>
 </template>
 
