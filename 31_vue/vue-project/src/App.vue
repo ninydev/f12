@@ -1,20 +1,18 @@
 <script setup>
-import PostElement from "@/components/slots/post/PostElement.vue";
+import MyParent from "@/components/parentChindren/MyParent.vue";
 </script>
 
 <template>
   <main>
-    <PostElement>
-      <template #header> А это отправь в заголовок </template>
-      <template #footer> Это уйдет в подвал </template>
-      <div>Это попадает в место - где должен быть просто slot</div>
-      <template #body> это в тело </template>
-      <div>Это тоже в место - где должен быть просто slot</div>
-    </PostElement>
+    <h2>Заголовок в обертке (Main)</h2>
+    <MyParent propsName="propsValue" varName="5"></MyParent>
   </main>
 </template>
 
 <style scoped>
+h2 {
+  background: red;
+}
 header {
   line-height: 1.5;
 }

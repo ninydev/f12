@@ -1,5 +1,5 @@
 <template>
-  <h4>Регионы</h4>
+  <h2>Регионы</h2>
   <button @click="loadAreas">Reload Areas</button>
   <select>
     <option v-for="(area, index) in areas" :key="index" :v-model="area.Ref">
@@ -46,4 +46,8 @@ const loadAreas = () => {
 onMounted(() => loadAreas());
 </script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  background: aqua;
+}
+</style>

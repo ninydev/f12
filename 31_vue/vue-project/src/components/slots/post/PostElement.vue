@@ -1,5 +1,5 @@
 <template>
-  <h2>Post</h2>
+  <h2>Заголовок в обертке (Post)</h2>
   <article style="border: 1px solid gray">
     <header>
       <slot name="header"></slot>
@@ -18,4 +18,8 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  background: green;
+}
+</style>
