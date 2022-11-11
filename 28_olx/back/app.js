@@ -47,6 +47,9 @@ app.use('/api/auth', auth)
 const ad = require('./olx/adRoutes')
 app.use('/api/ad', ad)
 
+const controllerFile = require('./files/fileController')
+app.post('/api/upload_file', controllerFile.uploadFile)
+
 
 
 module.exports = app;

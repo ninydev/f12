@@ -5,6 +5,7 @@ const app = createApp(App);
 
 // Импортируем главный компонент
 import App from "@/App.vue";
+import "./assets/styles.css"; // Импортирую дизайн в приложение
 import "./assets/main.css";
 
 // Импортируем минимальный набор необходимый для работы с маршрутами

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="75425c26-a27f-42ab-aa88-d24ee217c532" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../28_olx/back/files/fileController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/public/img/bg-masthead.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/public/img/bg-signup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/public/img/demo-image-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/public/img/demo-image-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/public/img/ipad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/assets/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/forms/files/MyFileForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/layouts/GrayFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/layouts/GrayHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/layouts/GrayNavigator.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/back/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/back/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/Auth/Password/ChangePassword/ChangePassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/auth/Password/ChangePassword/ChangePassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/Auth/Password/ChangePassword/ValidateDisplay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/components/auth/Password/ChangePassword/ValidateDisplay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../31_vue/vue-project/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../31_vue/vue-project/src/main.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HPU5tMVzCnGJkgUHHmWsOY4TVH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/keepe/repos/f12/27_gray/front",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75425c26-a27f-42ab-aa88-d24ee217c532" name="Changes" comment="" />
+      <created>1668186031521</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668186031521</updated>
+      <workItem from="1668186032932" duration="2413000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

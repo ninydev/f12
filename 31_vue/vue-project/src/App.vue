@@ -1,48 +1,15 @@
 <template>
-  <main>
-    <nav>
-      <ul>
-        <!-- Для формирования ссылки -->
-        <li><router-link to="/">Go to Home</router-link></li>
-        <li><router-link to="/about">Go to About</router-link></li>
-      </ul>
-    </nav>
-    <h2>Заголовок в обертке (Main)</h2>
-    <!-- место вывода компонента по этой ссылке -->
-    <router-view></router-view>
-  </main>
+  <GrayHeader></GrayHeader>
+  <GrayNavigator></GrayNavigator>
+  <MyFileForm></MyFileForm>
+  <GrayFooter></GrayFooter>
 </template>
 
-<script setup></script>
+<script setup>
+import GrayHeader from "@/components/layouts/GrayHeader.vue";
+import GrayFooter from "@/components/layouts/GrayFooter.vue";
+import GrayNavigator from "@/components/layouts/GrayNavigator.vue";
+import MyFileForm from "@/components/forms/files/MyFileForm.vue";
+</script>
 
-<style scoped>
-h2 {
-  background: red;
-}
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>

@@ -7,7 +7,7 @@
 
 <script setup>
 import { computed, ref } from "vue";
-import ValidateDisplay from "@/components/Auth/Password/ChangePassword/ValidateDisplay.vue";
+import ValidateDisplay from "@/components/auth/Password/ChangePassword/ValidateDisplay.vue";
 
 // Поля для ввода
 let password = ref(""); // Сам пароль
