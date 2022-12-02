@@ -16,7 +16,7 @@ const contactSchema = new mongoose.Schema({
     // ......
 
     productsInCard: [], // Продукты в корзине
-    productsInFavor: [], // Мои любимые продукты
+    productsWishList: [], // Мои любимые продукты
 
     orders: [] // Заявки (покупки)
 

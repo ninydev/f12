@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
     likeUsers: [], // Собраны все, кто лайкал этот продукт
     likeCount: Number, // Количество лайков
 
-    comments: [], // UserId, Message
+    comments: [], // UserId, UserName, Message
 
     starsUsers: [], // Кто поставил оценки
     stars: Number, // Вычесленный средний бал
