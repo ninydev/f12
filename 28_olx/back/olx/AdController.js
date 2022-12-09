@@ -12,6 +12,9 @@ exports.create = function (request, response){
     if(!request.user) {
         return response.status(401).json({message: "Вы не вошли в систему"})
     }
+    if(request.user.role !== "writer") {
+        return response.status(403).json({message: "Ваш уровень не дает права на публикацию обьявлений"})
+    }
 
     let bodyAd = request.body
     bodyAd.author_id = request.user._id // Фиксируем пользователя (автора объявления)
