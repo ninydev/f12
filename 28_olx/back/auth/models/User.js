@@ -11,6 +11,7 @@ const contactSchema = new mongoose.Schema({
     verify_at: Date, // Дата проверки пользователя
     avatar: String, // Тут будет храниться ссылка на аватар пользователя
     name: String,
+    shopName: String,
     phone: String,
     status: String, // Подпись под аватар
     // ......

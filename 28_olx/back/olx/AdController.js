@@ -57,24 +57,34 @@ exports.index = async function (request, response) {
     if (request.query.page !== undefined) page = request.query.page
 
     // Какая категория
-    let category = -1;
+    let category_id = -1;
     if (request.query.category !== undefined) category = request.query.category
+
+    // Какой продавец
+    let author_id = -1;
+    if (request.query.author_id !== undefined) author_id = request.query.author_id
+
 
     console.log("Элементов на страницу: " + per_page)
     console.log("Текущая страница: " + page)
-    console.log("Номер категории: " + category)
+    console.log("Номер категории: " + category_id)
+    console.log("Author_id: " + author_id)
 
     // Я готовлюсь получить обьявления
     let allAds = [];
     let total = 0;
-    if(category === -1) {
-        total = await adModel.find({}).count();
-        allAds = await adModel.find({}).sort('created_at').skip((per_page * (page - 1))).limit(per_page);
-    }
-    else {
-        total = adModel.find({category: category});
-        allAds = await adModel.find({category: category}).sort('created_at').skip((per_page*(page - 1))).limit(per_page);
-    }
+
+    // параметры поиска
+    let searchParams = {}
+
+    // Наполнение параметрами поиска
+    // @url https://www.mongodb.com/docs/manual/reference/method/db.collection.find/
+    if(category_id !== -1) searchParams.category = category_id
+    if(author_id !== -1) searchParams.author_id = author_id
+
+    // Получаем данные
+    total = await adModel.find(searchParams).count();
+    allAds = await adModel.find(searchParams).sort('created_at').skip((per_page * (page - 1))).limit(per_page);
 
     let send = {
         total: total, // Сколько всего в коллекции
