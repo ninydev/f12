@@ -56,11 +56,26 @@ exports.index = async function (request, response) {
     let page = 1;
     if (request.query.page !== undefined) page = request.query.page
 
+    // Какая категория
+    let category = -1;
+    if (request.query.category !== undefined) category = request.query.category
+
     console.log("Элементов на страницу: " + per_page)
     console.log("Текущая страница: " + page)
+    console.log("Номер категории: " + category)
 
-    let total = await adModel.count();
-    let allAds = await adModel.find({}).sort('created_at').skip((per_page*(page - 1))).limit(per_page);
+    // Я готовлюсь получить обьявления
+    let allAds = [];
+    let total = 0;
+    if(category === -1) {
+        total = await adModel.find({}).count();
+        allAds = await adModel.find({}).sort('created_at').skip((per_page * (page - 1))).limit(per_page);
+    }
+    else {
+        total = adModel.find({category: category});
+        allAds = await adModel.find({category: category}).sort('created_at').skip((per_page*(page - 1))).limit(per_page);
+    }
+
     let send = {
         total: total, // Сколько всего в коллекции
         page: page, // Какая сейчас страница открыта
