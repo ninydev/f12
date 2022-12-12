@@ -14,7 +14,7 @@ export const useCartStore = defineStore('cart', {
             return state.products.length
         },
         /**
-         * Получить кодичество товаров с учетом их запаса
+         * Получить количество товаров с учетом их заказа
          * @param state
          * @returns {number}
          */
