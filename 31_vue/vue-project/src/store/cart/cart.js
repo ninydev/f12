@@ -14,6 +14,19 @@ export const useCartStore = defineStore('cart', {
             return state.products.length
         },
         /**
+         * Получить кодичество товаров с учетом их запаса
+         * @param state
+         * @returns {number}
+         */
+        getTotalCount: (state) => {
+            let count = 0
+            state.products.map(product => {
+                count += product.count
+            })
+            return count
+
+        },
+        /**
          * Получить сумму корзины
          * @param state
          * @returns {number}
@@ -34,12 +47,16 @@ export const useCartStore = defineStore('cart', {
         put(product) {
             // Найти продукт в списке, если нет - добавить с 1, если есть - +1
             let foundProduct = null
+            let index = null
             for (let i = 0; i < this.products.length; i++) {
-                if (this.products[i].body === product) {
+                if (this.products[i].body._id === product._id) {
                     foundProduct = this.products[i]
+                    index = i
                     break
                 }
             }
+
+            console.log(index)
 
             if (foundProduct === null) {
                 foundProduct = {body: product, count: 1}
@@ -52,19 +69,21 @@ export const useCartStore = defineStore('cart', {
 
         ,
         /**
-         * Получить товар из корзины
+         * Удалить товар из корзины
          * @param product
          */
         remove(product) {
             let foundProduct = null
             let index = null
             for (let i = 0; i < this.products.length; i++) {
-                if (this.products[i].body === product) {
+                if (this.products[i].body._id === product._id) {
                     foundProduct = this.products[i]
                     index = i
                     break
                 }
             }
+
+            console.log(index)
 
             if (foundProduct === null) {
                 return
