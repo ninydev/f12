@@ -67,6 +67,11 @@
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz"
   "version" "1.2.0"
 
+"@types/web-bluetooth@^0.0.16":
+  "integrity" "sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ=="
+  "resolved" "https://registry.npmjs.org/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz"
+  "version" "0.0.16"
+
 "@vitejs/plugin-vue@^3.1.2":
   "integrity" "sha512-3zxKNlvA3oNaKDYX0NBclgxTQ1xaFdL7PzwF6zj9tGFziKwmBa3Q/6XcJQxudlT81WxDjEhHmevvIC4Orc1LhQ=="
   "resolved" "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-3.1.2.tgz"
@@ -174,6 +179,28 @@
   "integrity" "sha512-W9mfWLHmJhkfAmV+7gDjcHeAWALQtgGT3JErxULl0oz6R6+3ug91I7IErs93eCFhPCZPHBs4QJS7YWEV7A3sxw=="
   "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.2.41.tgz"
   "version" "3.2.41"
+
+"@vueuse/core@^9.6.0":
+  "integrity" "sha512-qGUcjKQXHgN+jqXEgpeZGoxdCbIDCdVPz3QiF1uyecVGbMuM63o96I1GjYx5zskKgRI0FKSNsVWM7rwrRMTf6A=="
+  "resolved" "https://registry.npmjs.org/@vueuse/core/-/core-9.6.0.tgz"
+  "version" "9.6.0"
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+    "@vueuse/metadata" "9.6.0"
+    "@vueuse/shared" "9.6.0"
+    "vue-demi" "*"
+
+"@vueuse/metadata@9.6.0":
+  "integrity" "sha512-sIC8R+kWkIdpi5X2z2Gk8TRYzmczDwHRhEFfCu2P+XW2JdPoXrziqsGpDDsN7ykBx4ilwieS7JUIweVGhvZ93w=="
+  "resolved" "https://registry.npmjs.org/@vueuse/metadata/-/metadata-9.6.0.tgz"
+  "version" "9.6.0"
+
+"@vueuse/shared@9.6.0":
+  "integrity" "sha512-/eDchxYYhkHnFyrb00t90UfjCx94kRHxc7J1GtBCqCG4HyPMX+krV9XJgVtWIsAMaxKVU4fC8NSUviG1JkwhUQ=="
+  "resolved" "https://registry.npmjs.org/@vueuse/shared/-/shared-9.6.0.tgz"
+  "version" "9.6.0"
+  dependencies:
+    "vue-demi" "*"
 
 "acorn-jsx@^5.3.2":
   "integrity" "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ=="

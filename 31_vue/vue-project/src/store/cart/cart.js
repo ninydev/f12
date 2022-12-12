@@ -1,8 +1,9 @@
-import {defineStore} from "pinia";
+import {defineStore} from 'pinia'
+import { useStorage } from '@vueuse/core'
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
-        products: [] // тут будет количество товаров и сами товары
+        products: useStorage('products', []) // тут будет количество товаров и сами товары
     }),
     getters: {
         /**
@@ -64,6 +65,7 @@ export const useCartStore = defineStore('cart', {
             } else {
                 foundProduct.count++
             }
+
         }
 
 
@@ -93,6 +95,7 @@ export const useCartStore = defineStore('cart', {
                     this.products.splice(index, 1)
                 }
             }
+
         }
 
     }

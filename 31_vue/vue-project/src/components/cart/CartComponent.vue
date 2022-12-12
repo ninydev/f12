@@ -6,8 +6,8 @@
         :key="index">
       {{ product.body.title }}
       <span> Количество в корзине: {{product.count}}</span>
-      <button @click="onAdd(product.body)"> Add++ </button>
-      <button @click="onRemove(product.body)"> Remove-- </button>
+      <button @click="cartStore.put(product.body)"> Add++ </button>
+      <button @click="cartStore.remove(product.body)"> Remove-- </button>
     </li>
   </ul>
 </template>
@@ -16,14 +16,6 @@
 import {useCartStore} from "@/store/cart/cart";
 
 let cartStore = useCartStore()
-
-const onAdd = (product) => {
-  cartStore.put(product)
-}
-
-const onRemove = (product) => {
-  cartStore.remove(product)
-}
 
 </script>
 
