@@ -41,14 +41,57 @@ export default function CreateAd(){
 
     const onSubmit = function (data) {
 
+        /*
+        category
+:
+"1"
+city
+:
+"1"
+file
+:
+FileList {0: File, length: 1}
+location
+:
+"1"
+message
+:
+"12345"
+price
+:
+1
+title
+:
+"12345"
+type
+:
+"1"
+         */
+        const formData = new FormData();
+        formData.append('category', data.category)
+        formData.append('city', data.city)
+        formData.append('location', data.location)
+        formData.append('message', data.message)
+        formData.append('price', data.price)
+        formData.append('title', data.title)
+        formData.append('type', data.type)
+        if(data.file[0])
+            // Присоединяем данные из файла в форму
+            formData.append("file", data.file[0]);
+
+
+        // // Если поле файлов существует (заполнено)
+        // if(data.file[0])
+        //     // Присоединяем данные из файла в форму
+        //     formData.append("file", data.file[0]);
+
         fetch('http://localhost:3333/api' + '/ad',{
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('jwtToken')
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify(data)
+            body: formData
         })
             .then(res => {
                 // console.log(res)
@@ -148,6 +191,12 @@ export default function CreateAd(){
                         <option value="2">авто</option>
                     </select>
                 </div>
+
+                <div className="form-group">
+                    <label>Файлик</label>
+                    <input type="file" {...register("file")} />
+                </div>
+
                 <div className="mt-3">
                     <button type="submit" className="btn btn-primary">
                         Submit

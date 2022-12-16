@@ -7,32 +7,41 @@ const adModel = require('./AdModel')
  * @param response
  * @returns {*}
  */
-exports.create = function (request, response){
+exports.create = async function (request, response) {
     // Если пользователь не авторизован - нет ключа
-    if(!request.user) {
+    if (!request.user) {
         return response.status(401).json({message: "Вы не вошли в систему"})
     }
-    if(request.user.role !== "writer") {
-        return response.status(403).json({message: "Ваш уровень не дает права на публикацию обьявлений"})
-    }
+    // if(request.user.role !== "writer") {
+    //     return response.status(403).json({message: "Ваш уровень не дает права на публикацию обьявлений"})
+    // }
 
     let bodyAd = request.body
     bodyAd.author_id = request.user._id // Фиксируем пользователя (автора объявления)
     bodyAd.created_at = Date.now()
 
+    let newAd = new adModel(bodyAd)
+
     // TODO: потом тут получать картинки
+    console.log(request.files)
+    if (request.files) {
+        let fileData = request.files.file
+        let uploadFileDir = './public/store/files/' + fileData.name
+        await fileData.mv(uploadFileDir) // переместить файл
+        newAd.imgMain = '/store/files/' + fileData.name
+        console.log('file ready')
+    }
 
-    let newAd = new adModel (bodyAd)
 
-    console.log(newAd)
+
+    // console.log(newAd)
 
     // Сохранили запись в базе данных
-    newAd.save(function(err){
-        if(err) { // Если ошибка - вернуть ошибку
+    newAd.save(function (err) {
+        if (err) { // Если ошибка - вернуть ошибку
             console.log(err)
             return response.status(422).json(err)
-        }
-        else { // Если все хорошо - вернуть новое объявление
+        } else { // Если все хорошо - вернуть новое объявление
             return response.status(201).json(newAd);
         }
     });
@@ -61,7 +70,7 @@ exports.index = async function (request, response) {
 
     // Какая категория
     let category_id = -1;
-    if (request.query.category !== undefined) category = request.query.category
+    if (request.query.category_id !== undefined) category_id = request.query.category_id
 
     // Какой продавец
     let author_id = -1;
@@ -82,8 +91,8 @@ exports.index = async function (request, response) {
 
     // Наполнение параметрами поиска
     // @url https://www.mongodb.com/docs/manual/reference/method/db.collection.find/
-    if(category_id !== -1) searchParams.category = category_id
-    if(author_id !== -1) searchParams.author_id = author_id
+    // if(category_id !== -1) searchParams.category = category_id
+    //if(author_id !== -1) searchParams.author_id = author_id
 
     // Получаем данные
     total = await adModel.find(searchParams).count();

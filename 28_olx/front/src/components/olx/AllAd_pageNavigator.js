@@ -177,6 +177,8 @@ export default function AllAd_pageNavigator(){
             {ads.map(ad => (
                 <li key={ad._id}>
                     <p>{ad.title}</p>
+                    <p>{ad.imgMain}</p>
+                    <img src={'http://localhost:3333' + ad.imgMain}/>
                     { ad.author_id === user._id ? <p> <button> Edit </button> <button value={ad._id} onClick={deleteAd}> Delete </button>  </p> : " Не мое" }
                     {/*<p>{ad.message}</p>*/}
                     {/*<p>Цена {ad.price}$</p>*/}

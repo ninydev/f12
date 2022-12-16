@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75425c26-a27f-42ab-aa88-d24ee217c532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/AuthController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/UserController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/authMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/authRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/guid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/models/EmailConfirmation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/auth/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/bin/www" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/config/mongo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/products/likeController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/products/productController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/products/productModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/products/productRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../32_ainme_likes/back/routes/mediaRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../28_olx/back/public/store/files/php-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../disign/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../disign/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/back/olx/AdController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/back/olx/AdController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/front/public/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/front/public/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/AllAd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/AllAd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/CreateAd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/front/src/components/olx/CreateAd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../28_olx/front/src/pages/olx/OlxHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../28_olx/front/src/pages/olx/OlxHomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,19 +33,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/teacher/PhpstormProjects/f12/32_ainme_likes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/keepe/repos/f12/27_gray/front&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -87,6 +74,9 @@
       <workItem from="1668186032932" duration="2413000" />
       <workItem from="1669652195913" duration="4472000" />
       <workItem from="1669997516272" duration="29000" />
+      <workItem from="1671207253935" duration="38000" />
+      <workItem from="1671209139960" duration="664000" />
+      <workItem from="1671212018367" duration="1102000" />
     </task>
     <servers />
   </component>
